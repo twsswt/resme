@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<responsibilityMetaModel:Scenario xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:responsibilityMetaModel="http://www.example.org/responsibilityMetaModel">
+  <resources name="Test Resource" producer="//@responsibilities.0" requiredBy="//@relations.0"/>
+  <resources name="Resource" requiredBy="//@relations.1"/>
+  <responsibilities name="Test Resp" holder="//@actors.0" producedResource="//@resources.0" subResponsibility="//@responsibilities.1" actorRequired="//@actors.0" requiredResource="//@relations.0 //@relations.1"/>
+  <responsibilities name="A sub responsibility" holder="//@actors.0" superResponsibility="//@responsibilities.0"/>
+  <actors name="Actor" heldResponsibility="//@responsibilities.0 //@responsibilities.1" requiredBy="//@responsibilities.0"/>
+  <relations xsi:type="responsibilityMetaModel:resourceRequiredRelationship" responsibility="//@responsibilities.0" resource="//@resources.0"/>
+  <relations xsi:type="responsibilityMetaModel:resourceRequiredRelationship" responsibility="//@responsibilities.0" resource="//@resources.1"/>
+</responsibilityMetaModel:Scenario>

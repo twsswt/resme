@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="responsibilityMetaModel" nsURI="http://www.example.org/responsibilityMetaModel"
+    nsPrefix="responsibilityMetaModel">
+  <eClassifiers xsi:type="ecore:EClass" name="Responsibility" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="holder" upperBound="-1"
+        eType="#//Actor" eOpposite="#//Actor/heldResponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedResource" upperBound="-1"
+        eType="#//Resource" eOpposite="#//Resource/producer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" upperBound="-1"
+        eType="#//Responsibility" eOpposite="#//Responsibility/subResponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" upperBound="-1"
+        eType="#//Responsibility" resolveProxies="false" eOpposite="#//Responsibility/superResponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actorRequired" upperBound="-1"
+        eType="#//Actor" eOpposite="#//Actor/requiredBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource" upperBound="-1"
+        eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/responsibility"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producer" upperBound="-1"
+        eType="#//Responsibility" eOpposite="#//Responsibility/producedResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
+        eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
+        eType="#//Responsibility" eOpposite="#//Responsibility/holder"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
+        eType="#//Responsibility" eOpposite="#//Responsibility/actorRequired"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibilities" upperBound="-1"
+        eType="#//Responsibility" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+        eType="#//Relation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="resourceRequiredRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/requiredResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"
+        eOpposite="#//Resource/requiredBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" abstract="true" interface="true"/>
+</ecore:EPackage>
