@@ -12,8 +12,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link responsibilityMetaModel.Actor#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.Actor#getRequiredBy <em>Required By</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Actor#getHeldResponsibility <em>Held Responsibility</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,27 +23,9 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Actor extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Held Responsibility</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Responsibility}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Responsibility#getHolder <em>Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Held Responsibility</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Held Responsibility</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getActor_HeldResponsibility()
-	 * @see responsibilityMetaModel.Responsibility#getHolder
-	 * @model opposite="holder"
-	 * @generated
-	 */
-	EList<Responsibility> getHeldResponsibility();
-
-	/**
 	 * Returns the value of the '<em><b>Required By</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Responsibility}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Responsibility#getActorRequired <em>Actor Required</em>}'.
+	 * The list contents are of type {@link responsibilityMetaModel.actorRequiredRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.actorRequiredRelationship#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Required By</em>' reference list isn't clear,
@@ -52,10 +34,28 @@ public interface Actor extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required By</em>' reference list.
 	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getActor_RequiredBy()
-	 * @see responsibilityMetaModel.Responsibility#getActorRequired
-	 * @model opposite="actorRequired"
+	 * @see responsibilityMetaModel.actorRequiredRelationship#getActor
+	 * @model opposite="actor"
 	 * @generated
 	 */
-	EList<Responsibility> getRequiredBy();
+	EList<actorRequiredRelationship> getRequiredBy();
+
+	/**
+	 * Returns the value of the '<em><b>Held Responsibility</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.actorHoldsRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.actorHoldsRelationship#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Held Responsibility</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Held Responsibility</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getActor_HeldResponsibility()
+	 * @see responsibilityMetaModel.actorHoldsRelationship#getActor
+	 * @model opposite="actor"
+	 * @generated
+	 */
+	EList<actorHoldsRelationship> getHeldResponsibility();
 
 } // Actor

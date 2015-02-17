@@ -15,15 +15,16 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import responsibilityMetaModel.Actor;
-import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
+import responsibilityMetaModel.actorHoldsRelationship;
+import responsibilityMetaModel.actorRequiredRelationship;
+import responsibilityMetaModel.resourceProducedRelationship;
 import responsibilityMetaModel.resourceRequiredRelationship;
+import responsibilityMetaModel.responsibilityRequiredRelationship;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,12 +36,12 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getHolder <em>Holder</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getProducedResource <em>Produced Resource</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredActor <em>Required Actor</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getHeldBy <em>Held By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSuperResponsibility <em>Super Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSubResponsibility <em>Sub Responsibility</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getActorRequired <em>Actor Required</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredResource <em>Required Resource</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,14 +109,14 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	protected String satisfactionCriteria = SATISFACTION_CRITERIA_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHolder() <em>Holder</em>}' reference list.
+	 * The cached value of the '{@link #getRequiredResource() <em>Required Resource</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHolder()
+	 * @see #getRequiredResource()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Actor> holder;
+	protected EList<resourceRequiredRelationship> requiredResource;
 
 	/**
 	 * The cached value of the '{@link #getProducedResource() <em>Produced Resource</em>}' reference list.
@@ -125,7 +126,27 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Resource> producedResource;
+	protected EList<resourceProducedRelationship> producedResource;
+
+	/**
+	 * The cached value of the '{@link #getRequiredActor() <em>Required Actor</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredActor()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<actorRequiredRelationship> requiredActor;
+
+	/**
+	 * The cached value of the '{@link #getHeldBy() <em>Held By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeldBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<actorHoldsRelationship> heldBy;
 
 	/**
 	 * The cached value of the '{@link #getSuperResponsibility() <em>Super Responsibility</em>}' reference list.
@@ -135,7 +156,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Responsibility> superResponsibility;
+	protected EList<responsibilityRequiredRelationship> superResponsibility;
 
 	/**
 	 * The cached value of the '{@link #getSubResponsibility() <em>Sub Responsibility</em>}' reference list.
@@ -145,27 +166,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Responsibility> subResponsibility;
-
-	/**
-	 * The cached value of the '{@link #getActorRequired() <em>Actor Required</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActorRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Actor> actorRequired;
-
-	/**
-	 * The cached value of the '{@link #getRequiredResource() <em>Required Resource</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequiredResource()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<resourceRequiredRelationship> requiredResource;
+	protected EList<responsibilityRequiredRelationship> subResponsibility;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,99 +185,6 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getSatisfactionCriteria() {
-		return satisfactionCriteria;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSatisfactionCriteria(String newSatisfactionCriteria) {
-		String oldSatisfactionCriteria = satisfactionCriteria;
-		satisfactionCriteria = newSatisfactionCriteria;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA, oldSatisfactionCriteria, satisfactionCriteria));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Actor> getHolder() {
-		if (holder == null) {
-			holder = new EObjectWithInverseResolvingEList.ManyInverse<Actor>(Actor.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER, ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY);
-		}
-		return holder;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Resource> getProducedResource() {
-		if (producedResource == null) {
-			producedResource = new EObjectWithInverseResolvingEList.ManyInverse<Resource>(Resource.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE, ResponsibilityMetaModelPackage.RESOURCE__PRODUCER);
-		}
-		return producedResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Responsibility> getSuperResponsibility() {
-		if (superResponsibility == null) {
-			superResponsibility = new EObjectWithInverseResolvingEList.ManyInverse<Responsibility>(Responsibility.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY);
-		}
-		return superResponsibility;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Responsibility> getSubResponsibility() {
-		if (subResponsibility == null) {
-			subResponsibility = new EObjectWithInverseEList.ManyInverse<Responsibility>(Responsibility.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY);
-		}
-		return subResponsibility;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Actor> getActorRequired() {
-		if (actorRequired == null) {
-			actorRequired = new EObjectWithInverseResolvingEList.ManyInverse<Actor>(Actor.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED, ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY);
-		}
-		return actorRequired;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<resourceRequiredRelationship> getRequiredResource() {
-		if (requiredResource == null) {
-			requiredResource = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESPONSIBILITY);
-		}
-		return requiredResource;
 	}
 
 	/**
@@ -326,22 +234,115 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSatisfactionCriteria() {
+		return satisfactionCriteria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSatisfactionCriteria(String newSatisfactionCriteria) {
+		String oldSatisfactionCriteria = satisfactionCriteria;
+		satisfactionCriteria = newSatisfactionCriteria;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA, oldSatisfactionCriteria, satisfactionCriteria));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<resourceRequiredRelationship> getRequiredResource() {
+		if (requiredResource == null) {
+			requiredResource = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESPONSIBILITY);
+		}
+		return requiredResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<resourceProducedRelationship> getProducedResource() {
+		if (producedResource == null) {
+			producedResource = new EObjectWithInverseResolvingEList<resourceProducedRelationship>(resourceProducedRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE, ResponsibilityMetaModelPackage.RESOURCE_PRODUCED_RELATIONSHIP__RESPONSIBILITY);
+		}
+		return producedResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<actorRequiredRelationship> getRequiredActor() {
+		if (requiredActor == null) {
+			requiredActor = new EObjectWithInverseResolvingEList<actorRequiredRelationship>(actorRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR, ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP__RESPONSIBILITY);
+		}
+		return requiredActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<actorHoldsRelationship> getHeldBy() {
+		if (heldBy == null) {
+			heldBy = new EObjectWithInverseResolvingEList<actorHoldsRelationship>(actorHoldsRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY, ResponsibilityMetaModelPackage.ACTOR_HOLDS_RELATIONSHIP__RESPONSIBILITY);
+		}
+		return heldBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<responsibilityRequiredRelationship> getSuperResponsibility() {
+		if (superResponsibility == null) {
+			superResponsibility = new EObjectWithInverseResolvingEList<responsibilityRequiredRelationship>(responsibilityRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY);
+		}
+		return superResponsibility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<responsibilityRequiredRelationship> getSubResponsibility() {
+		if (subResponsibility == null) {
+			subResponsibility = new EObjectWithInverseResolvingEList<responsibilityRequiredRelationship>(responsibilityRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY);
+		}
+		return subResponsibility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHolder()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredResource()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedResource()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredActor()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldBy()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSuperResponsibility()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubResponsibility()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActorRequired()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredResource()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -354,18 +355,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				return ((InternalEList<?>)getHolder()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+				return ((InternalEList<?>)getRequiredResource()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
 				return ((InternalEList<?>)getProducedResource()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				return ((InternalEList<?>)getRequiredActor()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				return ((InternalEList<?>)getHeldBy()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
 				return ((InternalEList<?>)getSuperResponsibility()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
 				return ((InternalEList<?>)getSubResponsibility()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				return ((InternalEList<?>)getActorRequired()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return ((InternalEList<?>)getRequiredResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -384,18 +385,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return isEnabled();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				return getHolder();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+				return getRequiredResource();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
 				return getProducedResource();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				return getRequiredActor();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				return getHeldBy();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
 				return getSuperResponsibility();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
 				return getSubResponsibility();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				return getActorRequired();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return getRequiredResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,29 +419,29 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				getHolder().clear();
-				getHolder().addAll((Collection<? extends Actor>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				getProducedResource().clear();
-				getProducedResource().addAll((Collection<? extends Resource>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				getSuperResponsibility().clear();
-				getSuperResponsibility().addAll((Collection<? extends Responsibility>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				getSubResponsibility().clear();
-				getSubResponsibility().addAll((Collection<? extends Responsibility>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				getActorRequired().clear();
-				getActorRequired().addAll((Collection<? extends Actor>)newValue);
-				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				getRequiredResource().clear();
 				getRequiredResource().addAll((Collection<? extends resourceRequiredRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+				getProducedResource().clear();
+				getProducedResource().addAll((Collection<? extends resourceProducedRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				getRequiredActor().clear();
+				getRequiredActor().addAll((Collection<? extends actorRequiredRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				getHeldBy().clear();
+				getHeldBy().addAll((Collection<? extends actorHoldsRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+				getSuperResponsibility().clear();
+				getSuperResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+				getSubResponsibility().clear();
+				getSubResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -463,23 +464,23 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				getHolder().clear();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+				getRequiredResource().clear();
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
 				getProducedResource().clear();
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				getRequiredActor().clear();
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				getHeldBy().clear();
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
 				getSuperResponsibility().clear();
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
 				getSubResponsibility().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				getActorRequired().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				getRequiredResource().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -499,18 +500,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return enabled != ENABLED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER:
-				return holder != null && !holder.isEmpty();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+				return requiredResource != null && !requiredResource.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
 				return producedResource != null && !producedResource.isEmpty();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+				return requiredActor != null && !requiredActor.isEmpty();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+				return heldBy != null && !heldBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
 				return superResponsibility != null && !superResponsibility.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
 				return subResponsibility != null && !subResponsibility.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED:
-				return actorRequired != null && !actorRequired.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return requiredResource != null && !requiredResource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

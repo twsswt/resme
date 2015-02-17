@@ -187,6 +187,98 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.resourceProducedRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected resourceProducedRelationshipItemProvider resourceProducedRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.resourceProducedRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createresourceProducedRelationshipAdapter() {
+		if (resourceProducedRelationshipItemProvider == null) {
+			resourceProducedRelationshipItemProvider = new resourceProducedRelationshipItemProvider(this);
+		}
+
+		return resourceProducedRelationshipItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.actorRequiredRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected actorRequiredRelationshipItemProvider actorRequiredRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.actorRequiredRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createactorRequiredRelationshipAdapter() {
+		if (actorRequiredRelationshipItemProvider == null) {
+			actorRequiredRelationshipItemProvider = new actorRequiredRelationshipItemProvider(this);
+		}
+
+		return actorRequiredRelationshipItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.actorHoldsRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected actorHoldsRelationshipItemProvider actorHoldsRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.actorHoldsRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createactorHoldsRelationshipAdapter() {
+		if (actorHoldsRelationshipItemProvider == null) {
+			actorHoldsRelationshipItemProvider = new actorHoldsRelationshipItemProvider(this);
+		}
+
+		return actorHoldsRelationshipItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.responsibilityRequiredRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected responsibilityRequiredRelationshipItemProvider responsibilityRequiredRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.responsibilityRequiredRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createresponsibilityRequiredRelationshipAdapter() {
+		if (responsibilityRequiredRelationshipItemProvider == null) {
+			responsibilityRequiredRelationshipItemProvider = new responsibilityRequiredRelationshipItemProvider(this);
+		}
+
+		return responsibilityRequiredRelationshipItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,6 +382,10 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 		if (actorItemProvider != null) actorItemProvider.dispose();
 		if (scenarioItemProvider != null) scenarioItemProvider.dispose();
 		if (resourceRequiredRelationshipItemProvider != null) resourceRequiredRelationshipItemProvider.dispose();
+		if (resourceProducedRelationshipItemProvider != null) resourceProducedRelationshipItemProvider.dispose();
+		if (actorRequiredRelationshipItemProvider != null) actorRequiredRelationshipItemProvider.dispose();
+		if (actorHoldsRelationshipItemProvider != null) actorHoldsRelationshipItemProvider.dispose();
+		if (responsibilityRequiredRelationshipItemProvider != null) responsibilityRequiredRelationshipItemProvider.dispose();
 	}
 
 }

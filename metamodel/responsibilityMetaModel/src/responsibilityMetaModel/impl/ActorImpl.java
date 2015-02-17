@@ -19,8 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import responsibilityMetaModel.Actor;
-import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
+import responsibilityMetaModel.actorHoldsRelationship;
+import responsibilityMetaModel.actorRequiredRelationship;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +32,8 @@ import responsibilityMetaModel.ResponsibilityMetaModelPackage;
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRequiredBy <em>Required By</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,16 +81,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHeldResponsibility() <em>Held Responsibility</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeldResponsibility()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Responsibility> heldResponsibility;
-
-	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,7 +88,17 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Responsibility> requiredBy;
+	protected EList<actorRequiredRelationship> requiredBy;
+
+	/**
+	 * The cached value of the '{@link #getHeldResponsibility() <em>Held Responsibility</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeldResponsibility()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<actorHoldsRelationship> heldResponsibility;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,30 +117,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	protected EClass eStaticClass() {
 		return ResponsibilityMetaModelPackage.Literals.ACTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Responsibility> getHeldResponsibility() {
-		if (heldResponsibility == null) {
-			heldResponsibility = new EObjectWithInverseResolvingEList.ManyInverse<Responsibility>(Responsibility.class, this, ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY__HOLDER);
-		}
-		return heldResponsibility;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Responsibility> getRequiredBy() {
-		if (requiredBy == null) {
-			requiredBy = new EObjectWithInverseResolvingEList.ManyInverse<Responsibility>(Responsibility.class, this, ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY, ResponsibilityMetaModelPackage.RESPONSIBILITY__ACTOR_REQUIRED);
-		}
-		return requiredBy;
 	}
 
 	/**
@@ -189,14 +166,38 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<actorRequiredRelationship> getRequiredBy() {
+		if (requiredBy == null) {
+			requiredBy = new EObjectWithInverseResolvingEList<actorRequiredRelationship>(actorRequiredRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY, ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP__ACTOR);
+		}
+		return requiredBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<actorHoldsRelationship> getHeldResponsibility() {
+		if (heldResponsibility == null) {
+			heldResponsibility = new EObjectWithInverseResolvingEList<actorHoldsRelationship>(actorHoldsRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY, ResponsibilityMetaModelPackage.ACTOR_HOLDS_RELATIONSHIP__ACTOR);
+		}
+		return heldResponsibility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldResponsibility()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldResponsibility()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -209,10 +210,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return ((InternalEList<?>)getHeldResponsibility()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				return ((InternalEList<?>)getHeldResponsibility()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,10 +230,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return getName();
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return getHeldResponsibility();
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return getRequiredBy();
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				return getHeldResponsibility();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,13 +253,13 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				getHeldResponsibility().clear();
-				getHeldResponsibility().addAll((Collection<? extends Responsibility>)newValue);
-				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
-				getRequiredBy().addAll((Collection<? extends Responsibility>)newValue);
+				getRequiredBy().addAll((Collection<? extends actorRequiredRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				getHeldResponsibility().clear();
+				getHeldResponsibility().addAll((Collection<? extends actorHoldsRelationship>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,11 +279,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				getHeldResponsibility().clear();
-				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
+				return;
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				getHeldResponsibility().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,10 +301,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return heldResponsibility != null && !heldResponsibility.isEmpty();
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
+			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+				return heldResponsibility != null && !heldResponsibility.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -173,6 +173,26 @@ public class ScenarioItemProvider
 			(createChildParameter
 				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
 				 ResponsibilityMetaModelFactory.eINSTANCE.createresourceRequiredRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createresourceProducedRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createactorRequiredRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createactorHoldsRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createresponsibilityRequiredRelationship()));
 	}
 
 	/**

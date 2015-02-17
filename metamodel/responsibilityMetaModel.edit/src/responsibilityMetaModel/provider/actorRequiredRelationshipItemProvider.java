@@ -18,20 +18,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 
 /**
- * This is the item provider adapter for a {@link responsibilityMetaModel.Actor} object.
+ * This is the item provider adapter for a {@link responsibilityMetaModel.actorRequiredRelationship} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorItemProvider 
+public class actorRequiredRelationshipItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +42,7 @@ public class ActorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorItemProvider(AdapterFactory adapterFactory) {
+	public actorRequiredRelationshipItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,72 +57,26 @@ public class ActorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addEnabledPropertyDescriptor(object);
-			addRequiredByPropertyDescriptor(object);
-			addHeldResponsibilityPropertyDescriptor(object);
+			addResponsibilityPropertyDescriptor(object);
+			addActorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Responsibility feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addResponsibilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_name_feature", "_UI_Entity_type"),
-				 ResponsibilityMetaModelPackage.Literals.ENTITY__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Enabled feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Entity_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_enabled_feature", "_UI_Entity_type"),
-				 ResponsibilityMetaModelPackage.Literals.ENTITY__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Required By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Actor_requiredBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_requiredBy_feature", "_UI_Actor_type"),
-				 ResponsibilityMetaModelPackage.Literals.ACTOR__REQUIRED_BY,
+				 getString("_UI_actorRequiredRelationship_responsibility_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_actorRequiredRelationship_responsibility_feature", "_UI_actorRequiredRelationship_type"),
+				 ResponsibilityMetaModelPackage.Literals.ACTOR_REQUIRED_RELATIONSHIP__RESPONSIBILITY,
 				 true,
 				 false,
 				 true,
@@ -135,19 +86,19 @@ public class ActorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Held Responsibility feature.
+	 * This adds a property descriptor for the Actor feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHeldResponsibilityPropertyDescriptor(Object object) {
+	protected void addActorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Actor_heldResponsibility_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_heldResponsibility_feature", "_UI_Actor_type"),
-				 ResponsibilityMetaModelPackage.Literals.ACTOR__HELD_RESPONSIBILITY,
+				 getString("_UI_actorRequiredRelationship_actor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_actorRequiredRelationship_actor_feature", "_UI_actorRequiredRelationship_type"),
+				 ResponsibilityMetaModelPackage.Literals.ACTOR_REQUIRED_RELATIONSHIP__ACTOR,
 				 true,
 				 false,
 				 true,
@@ -157,14 +108,14 @@ public class ActorItemProvider
 	}
 
 	/**
-	 * This returns Actor.gif.
+	 * This returns actorRequiredRelationship.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Actor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/actorRequiredRelationship"));
 	}
 
 	/**
@@ -175,10 +126,7 @@ public class ActorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Actor)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Actor_type") :
-			getString("_UI_Actor_type") + " " + label;
+		return getString("_UI_actorRequiredRelationship_type");
 	}
 	
 
@@ -192,13 +140,6 @@ public class ActorItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Actor.class)) {
-			case ResponsibilityMetaModelPackage.ACTOR__NAME:
-			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

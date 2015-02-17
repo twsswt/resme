@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import responsibilityMetaModel.Resource;
-import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
+import responsibilityMetaModel.resourceProducedRelationship;
 import responsibilityMetaModel.resourceRequiredRelationship;
 
 /**
@@ -32,8 +32,8 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducer <em>Producer</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,16 +81,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProducer() <em>Producer</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProducer()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Responsibility> producer;
-
-	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,6 +89,16 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected EList<resourceRequiredRelationship> requiredBy;
+
+	/**
+	 * The cached value of the '{@link #getProducedBy() <em>Produced By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProducedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<resourceProducedRelationship> producedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,30 +117,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	@Override
 	protected EClass eStaticClass() {
 		return ResponsibilityMetaModelPackage.Literals.RESOURCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Responsibility> getProducer() {
-		if (producer == null) {
-			producer = new EObjectWithInverseResolvingEList.ManyInverse<Responsibility>(Responsibility.class, this, ResponsibilityMetaModelPackage.RESOURCE__PRODUCER, ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE);
-		}
-		return producer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<resourceRequiredRelationship> getRequiredBy() {
-		if (requiredBy == null) {
-			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
-		}
-		return requiredBy;
 	}
 
 	/**
@@ -190,14 +166,38 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<resourceRequiredRelationship> getRequiredBy() {
+		if (requiredBy == null) {
+			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
+		}
+		return requiredBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<resourceProducedRelationship> getProducedBy() {
+		if (producedBy == null) {
+			producedBy = new EObjectWithInverseResolvingEList<resourceProducedRelationship>(resourceProducedRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY, ResponsibilityMetaModelPackage.RESOURCE_PRODUCED_RELATIONSHIP__RESOURCE);
+		}
+		return producedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducer()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedBy()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -210,10 +210,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				return ((InternalEList<?>)getProducer()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				return ((InternalEList<?>)getProducedBy()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -230,10 +230,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return getName();
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				return getProducer();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return getRequiredBy();
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				return getProducedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,13 +253,13 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				getProducer().clear();
-				getProducer().addAll((Collection<? extends Responsibility>)newValue);
-				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
 				getRequiredBy().addAll((Collection<? extends resourceRequiredRelationship>)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				getProducedBy().clear();
+				getProducedBy().addAll((Collection<? extends resourceProducedRelationship>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,11 +279,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				getProducer().clear();
-				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				getProducedBy().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -301,10 +301,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCER:
-				return producer != null && !producer.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
+			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
+				return producedBy != null && !producedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

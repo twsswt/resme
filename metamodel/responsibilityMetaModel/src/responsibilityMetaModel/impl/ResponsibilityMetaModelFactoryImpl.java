@@ -61,6 +61,10 @@ public class ResponsibilityMetaModelFactoryImpl extends EFactoryImpl implements 
 			case ResponsibilityMetaModelPackage.ACTOR: return createActor();
 			case ResponsibilityMetaModelPackage.SCENARIO: return createScenario();
 			case ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP: return createresourceRequiredRelationship();
+			case ResponsibilityMetaModelPackage.RESOURCE_PRODUCED_RELATIONSHIP: return createresourceProducedRelationship();
+			case ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP: return createactorRequiredRelationship();
+			case ResponsibilityMetaModelPackage.ACTOR_HOLDS_RELATIONSHIP: return createactorHoldsRelationship();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP: return createresponsibilityRequiredRelationship();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -114,6 +118,46 @@ public class ResponsibilityMetaModelFactoryImpl extends EFactoryImpl implements 
 	public resourceRequiredRelationship createresourceRequiredRelationship() {
 		resourceRequiredRelationshipImpl resourceRequiredRelationship = new resourceRequiredRelationshipImpl();
 		return resourceRequiredRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public resourceProducedRelationship createresourceProducedRelationship() {
+		resourceProducedRelationshipImpl resourceProducedRelationship = new resourceProducedRelationshipImpl();
+		return resourceProducedRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public actorRequiredRelationship createactorRequiredRelationship() {
+		actorRequiredRelationshipImpl actorRequiredRelationship = new actorRequiredRelationshipImpl();
+		return actorRequiredRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public actorHoldsRelationship createactorHoldsRelationship() {
+		actorHoldsRelationshipImpl actorHoldsRelationship = new actorHoldsRelationshipImpl();
+		return actorHoldsRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public responsibilityRequiredRelationship createresponsibilityRequiredRelationship() {
+		responsibilityRequiredRelationshipImpl responsibilityRequiredRelationship = new responsibilityRequiredRelationshipImpl();
+		return responsibilityRequiredRelationship;
 	}
 
 	/**

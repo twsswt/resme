@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link responsibilityMetaModel.Responsibility#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
- *   <li>{@link responsibilityMetaModel.Responsibility#getHolder <em>Holder</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getProducedResource <em>Produced Resource</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredActor <em>Required Actor</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Responsibility#getHeldBy <em>Held By</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getSuperResponsibility <em>Super Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getSubResponsibility <em>Sub Responsibility</em>}</li>
- *   <li>{@link responsibilityMetaModel.Responsibility#getActorRequired <em>Actor Required</em>}</li>
- *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredResource <em>Required Resource</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,102 +55,12 @@ public interface Responsibility extends Entity {
 	void setSatisfactionCriteria(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Holder</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Actor}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Actor#getHeldResponsibility <em>Held Responsibility</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Holder</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Holder</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_Holder()
-	 * @see responsibilityMetaModel.Actor#getHeldResponsibility
-	 * @model opposite="heldResponsibility"
-	 * @generated
-	 */
-	EList<Actor> getHolder();
-
-	/**
-	 * Returns the value of the '<em><b>Produced Resource</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Resource}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Resource#getProducer <em>Producer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Produced Resource</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Produced Resource</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_ProducedResource()
-	 * @see responsibilityMetaModel.Resource#getProducer
-	 * @model opposite="producer"
-	 * @generated
-	 */
-	EList<Resource> getProducedResource();
-
-	/**
-	 * Returns the value of the '<em><b>Super Responsibility</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Responsibility}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Responsibility#getSubResponsibility <em>Sub Responsibility</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Super Responsibility</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Super Responsibility</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SuperResponsibility()
-	 * @see responsibilityMetaModel.Responsibility#getSubResponsibility
-	 * @model opposite="subResponsibility"
-	 * @generated
-	 */
-	EList<Responsibility> getSuperResponsibility();
-
-	/**
-	 * Returns the value of the '<em><b>Sub Responsibility</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Responsibility}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Responsibility#getSuperResponsibility <em>Super Responsibility</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sub Responsibility</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sub Responsibility</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SubResponsibility()
-	 * @see responsibilityMetaModel.Responsibility#getSuperResponsibility
-	 * @model opposite="superResponsibility" resolveProxies="false"
-	 * @generated
-	 */
-	EList<Responsibility> getSubResponsibility();
-
-	/**
-	 * Returns the value of the '<em><b>Actor Required</b></em>' reference list.
-	 * The list contents are of type {@link responsibilityMetaModel.Actor}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.Actor#getRequiredBy <em>Required By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actor Required</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actor Required</em>' reference list.
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_ActorRequired()
-	 * @see responsibilityMetaModel.Actor#getRequiredBy
-	 * @model opposite="requiredBy"
-	 * @generated
-	 */
-	EList<Actor> getActorRequired();
-
-	/**
 	 * Returns the value of the '<em><b>Required Resource</b></em>' reference list.
 	 * The list contents are of type {@link responsibilityMetaModel.resourceRequiredRelationship}.
 	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.resourceRequiredRelationship#getResponsibility <em>Responsibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Resource</em>' reference isn't clear,
+	 * If the meaning of the '<em>Required Resource</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -161,5 +71,95 @@ public interface Responsibility extends Entity {
 	 * @generated
 	 */
 	EList<resourceRequiredRelationship> getRequiredResource();
+
+	/**
+	 * Returns the value of the '<em><b>Produced Resource</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.resourceProducedRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.resourceProducedRelationship#getResponsibility <em>Responsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Produced Resource</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Produced Resource</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_ProducedResource()
+	 * @see responsibilityMetaModel.resourceProducedRelationship#getResponsibility
+	 * @model opposite="responsibility"
+	 * @generated
+	 */
+	EList<resourceProducedRelationship> getProducedResource();
+
+	/**
+	 * Returns the value of the '<em><b>Required Actor</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.actorRequiredRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.actorRequiredRelationship#getResponsibility <em>Responsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Actor</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required Actor</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_RequiredActor()
+	 * @see responsibilityMetaModel.actorRequiredRelationship#getResponsibility
+	 * @model opposite="responsibility"
+	 * @generated
+	 */
+	EList<actorRequiredRelationship> getRequiredActor();
+
+	/**
+	 * Returns the value of the '<em><b>Held By</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.actorHoldsRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.actorHoldsRelationship#getResponsibility <em>Responsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Held By</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Held By</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_HeldBy()
+	 * @see responsibilityMetaModel.actorHoldsRelationship#getResponsibility
+	 * @model opposite="responsibility"
+	 * @generated
+	 */
+	EList<actorHoldsRelationship> getHeldBy();
+
+	/**
+	 * Returns the value of the '<em><b>Super Responsibility</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.responsibilityRequiredRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.responsibilityRequiredRelationship#getSubRresponsibility <em>Sub Rresponsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Super Responsibility</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Super Responsibility</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SuperResponsibility()
+	 * @see responsibilityMetaModel.responsibilityRequiredRelationship#getSubRresponsibility
+	 * @model opposite="subRresponsibility"
+	 * @generated
+	 */
+	EList<responsibilityRequiredRelationship> getSuperResponsibility();
+
+	/**
+	 * Returns the value of the '<em><b>Sub Responsibility</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.responsibilityRequiredRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.responsibilityRequiredRelationship#getSuperResponsibility <em>Super Responsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sub Responsibility</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Responsibility</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SubResponsibility()
+	 * @see responsibilityMetaModel.responsibilityRequiredRelationship#getSuperResponsibility
+	 * @model opposite="superResponsibility"
+	 * @generated
+	 */
+	EList<responsibilityRequiredRelationship> getSubResponsibility();
 
 } // Responsibility

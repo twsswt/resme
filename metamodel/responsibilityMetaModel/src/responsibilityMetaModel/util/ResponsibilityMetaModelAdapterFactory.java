@@ -96,6 +96,22 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 				return createRelationAdapter();
 			}
 			@Override
+			public Adapter caseresourceProducedRelationship(resourceProducedRelationship object) {
+				return createresourceProducedRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseactorRequiredRelationship(actorRequiredRelationship object) {
+				return createactorRequiredRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseactorHoldsRelationship(actorHoldsRelationship object) {
+				return createactorHoldsRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseresponsibilityRequiredRelationship(responsibilityRequiredRelationship object) {
+				return createresponsibilityRequiredRelationshipAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -210,6 +226,62 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.resourceProducedRelationship <em>resource Produced Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.resourceProducedRelationship
+	 * @generated
+	 */
+	public Adapter createresourceProducedRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.actorRequiredRelationship <em>actor Required Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.actorRequiredRelationship
+	 * @generated
+	 */
+	public Adapter createactorRequiredRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.actorHoldsRelationship <em>actor Holds Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.actorHoldsRelationship
+	 * @generated
+	 */
+	public Adapter createactorHoldsRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.responsibilityRequiredRelationship <em>responsibility Required Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.responsibilityRequiredRelationship
+	 * @generated
+	 */
+	public Adapter createresponsibilityRequiredRelationshipAdapter() {
 		return null;
 	}
 

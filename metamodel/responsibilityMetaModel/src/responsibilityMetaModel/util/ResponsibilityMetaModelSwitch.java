@@ -112,6 +112,34 @@ public class ResponsibilityMetaModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResponsibilityMetaModelPackage.RESOURCE_PRODUCED_RELATIONSHIP: {
+				resourceProducedRelationship resourceProducedRelationship = (resourceProducedRelationship)theEObject;
+				T result = caseresourceProducedRelationship(resourceProducedRelationship);
+				if (result == null) result = caseRelation(resourceProducedRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP: {
+				actorRequiredRelationship actorRequiredRelationship = (actorRequiredRelationship)theEObject;
+				T result = caseactorRequiredRelationship(actorRequiredRelationship);
+				if (result == null) result = caseRelation(actorRequiredRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResponsibilityMetaModelPackage.ACTOR_HOLDS_RELATIONSHIP: {
+				actorHoldsRelationship actorHoldsRelationship = (actorHoldsRelationship)theEObject;
+				T result = caseactorHoldsRelationship(actorHoldsRelationship);
+				if (result == null) result = caseRelation(actorHoldsRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP: {
+				responsibilityRequiredRelationship responsibilityRequiredRelationship = (responsibilityRequiredRelationship)theEObject;
+				T result = caseresponsibilityRequiredRelationship(responsibilityRequiredRelationship);
+				if (result == null) result = caseRelation(responsibilityRequiredRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -218,6 +246,66 @@ public class ResponsibilityMetaModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRelation(Relation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>resource Produced Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>resource Produced Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseresourceProducedRelationship(resourceProducedRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>actor Required Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>actor Required Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseactorRequiredRelationship(actorRequiredRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>actor Holds Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>actor Holds Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseactorHoldsRelationship(actorHoldsRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>responsibility Required Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>responsibility Required Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseresponsibilityRequiredRelationship(responsibilityRequiredRelationship object) {
 		return null;
 	}
 

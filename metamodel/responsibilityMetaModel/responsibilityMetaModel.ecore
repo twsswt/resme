@@ -5,30 +5,30 @@
   <eClassifiers xsi:type="ecore:EClass" name="Responsibility" eSuperTypes="#//Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="holder" upperBound="-1"
-        eType="#//Actor" eOpposite="#//Actor/heldResponsibility"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="producedResource" upperBound="-1"
-        eType="#//Resource" eOpposite="#//Resource/producer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" upperBound="-1"
-        eType="#//Responsibility" eOpposite="#//Responsibility/subResponsibility"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" upperBound="-1"
-        eType="#//Responsibility" resolveProxies="false" eOpposite="#//Responsibility/superResponsibility"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actorRequired" upperBound="-1"
-        eType="#//Actor" eOpposite="#//Actor/requiredBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource" upperBound="-1"
         eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/responsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedResource" upperBound="-1"
+        eType="#//resourceProducedRelationship" eOpposite="#//resourceProducedRelationship/responsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredActor" upperBound="-1"
+        eType="#//actorRequiredRelationship" eOpposite="#//actorRequiredRelationship/responsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="heldBy" upperBound="-1"
+        eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/responsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" upperBound="-1"
+        eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/subRresponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" upperBound="-1"
+        eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="producer" upperBound="-1"
-        eType="#//Responsibility" eOpposite="#//Responsibility/producedResource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
         eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" upperBound="-1"
+        eType="#//resourceProducedRelationship" eOpposite="#//resourceProducedRelationship/resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Entity">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
-        eType="#//Responsibility" eOpposite="#//Responsibility/holder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
-        eType="#//Responsibility" eOpposite="#//Responsibility/actorRequired"/>
+        eType="#//actorRequiredRelationship" eOpposite="#//actorRequiredRelationship/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
+        eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
@@ -52,4 +52,29 @@
         eOpposite="#//Resource/requiredBy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relation" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="resourceProducedRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/producedResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"
+        eOpposite="#//Resource/producedBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="actorRequiredRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/requiredActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/requiredBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="actorHoldsRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/heldBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/heldResponsibility"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="responsibilityRequiredRelationship"
+      eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subRresponsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/superResponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/subResponsibility"/>
+  </eClassifiers>
 </ecore:EPackage>

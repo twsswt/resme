@@ -62,8 +62,8 @@ public class ResourceItemProvider
 
 			addNamePropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
-			addProducerPropertyDescriptor(object);
 			addRequiredByPropertyDescriptor(object);
+			addProducedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,28 +113,6 @@ public class ResourceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Producer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProducerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Resource_producer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_producer_feature", "_UI_Resource_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESOURCE__PRODUCER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Required By feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +126,28 @@ public class ResourceItemProvider
 				 getString("_UI_Resource_requiredBy_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_requiredBy_feature", "_UI_Resource_type"),
 				 ResponsibilityMetaModelPackage.Literals.RESOURCE__REQUIRED_BY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Produced By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProducedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Resource_producedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_producedBy_feature", "_UI_Resource_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESOURCE__PRODUCED_BY,
 				 true,
 				 false,
 				 true,

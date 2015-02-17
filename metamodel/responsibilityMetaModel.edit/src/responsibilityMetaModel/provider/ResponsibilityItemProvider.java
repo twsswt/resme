@@ -63,12 +63,12 @@ public class ResponsibilityItemProvider
 			addNamePropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addSatisfactionCriteriaPropertyDescriptor(object);
-			addHolderPropertyDescriptor(object);
+			addRequiredResourcePropertyDescriptor(object);
 			addProducedResourcePropertyDescriptor(object);
+			addRequiredActorPropertyDescriptor(object);
+			addHeldByPropertyDescriptor(object);
 			addSuperResponsibilityPropertyDescriptor(object);
 			addSubResponsibilityPropertyDescriptor(object);
-			addActorRequiredPropertyDescriptor(object);
-			addRequiredResourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -140,19 +140,19 @@ public class ResponsibilityItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Holder feature.
+	 * This adds a property descriptor for the Required Resource feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHolderPropertyDescriptor(Object object) {
+	protected void addRequiredResourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Responsibility_holder_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_holder_feature", "_UI_Responsibility_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__HOLDER,
+				 getString("_UI_Responsibility_requiredResource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_requiredResource_feature", "_UI_Responsibility_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__REQUIRED_RESOURCE,
 				 true,
 				 false,
 				 true,
@@ -175,6 +175,50 @@ public class ResponsibilityItemProvider
 				 getString("_UI_Responsibility_producedResource_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_producedResource_feature", "_UI_Responsibility_type"),
 				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__PRODUCED_RESOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required Actor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredActorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Responsibility_requiredActor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_requiredActor_feature", "_UI_Responsibility_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__REQUIRED_ACTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Held By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHeldByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Responsibility_heldBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_heldBy_feature", "_UI_Responsibility_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__HELD_BY,
 				 true,
 				 false,
 				 true,
@@ -219,50 +263,6 @@ public class ResponsibilityItemProvider
 				 getString("_UI_Responsibility_subResponsibility_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_subResponsibility_feature", "_UI_Responsibility_type"),
 				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__SUB_RESPONSIBILITY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Actor Required feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActorRequiredPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Responsibility_actorRequired_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_actorRequired_feature", "_UI_Responsibility_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__ACTOR_REQUIRED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Required Resource feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredResourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Responsibility_requiredResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_requiredResource_feature", "_UI_Responsibility_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__REQUIRED_RESOURCE,
 				 true,
 				 false,
 				 true,
