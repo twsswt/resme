@@ -4,6 +4,7 @@ package responsibilityMetaModel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -85,13 +86,31 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ENTITY__ENABLED = 1;
 
 	/**
+	 * The feature id for the '<em><b>Satisifed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__SATISIFED = 2;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 2;
+	int ENTITY_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Satisfied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY___SATISFIED = 0;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -100,7 +119,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_OPERATION_COUNT = 0;
+	int ENTITY_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.impl.ResponsibilityImpl <em>Responsibility</em>}' class.
@@ -129,6 +148,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESPONSIBILITY__ENABLED = ENTITY__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Satisifed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSIBILITY__SATISIFED = ENTITY__SATISIFED;
 
 	/**
 	 * The feature id for the '<em><b>Satisfaction Criteria</b></em>' attribute.
@@ -203,13 +231,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESPONSIBILITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Satisfied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSIBILITY___SATISFIED = ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Responsibility</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 0;
+	int RESPONSIBILITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.impl.ResourceImpl <em>Resource</em>}' class.
@@ -240,6 +277,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESOURCE__ENABLED = ENTITY__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Satisifed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__SATISIFED = ENTITY__SATISIFED;
+
+	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,13 +313,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESOURCE_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Satisfied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE___SATISFIED = ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 0;
+	int RESOURCE_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.impl.ActorImpl <em>Actor</em>}' class.
@@ -304,6 +359,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ACTOR__ENABLED = ENTITY__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Satisifed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__SATISIFED = ENTITY__SATISIFED;
+
+	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,13 +395,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ACTOR_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Satisfied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___SATISFIED = ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 0;
+	int ACTOR_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -750,6 +823,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EReference getResponsibility_SubResponsibility();
 
 	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Responsibility#satisfied() <em>Satisfied</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfied</em>' operation.
+	 * @see responsibilityMetaModel.Responsibility#satisfied()
+	 * @generated
+	 */
+	EOperation getResponsibility__Satisfied();
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Resource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -782,6 +865,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EReference getResource_ProducedBy();
 
 	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Resource#satisfied() <em>Satisfied</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfied</em>' operation.
+	 * @see responsibilityMetaModel.Resource#satisfied()
+	 * @generated
+	 */
+	EOperation getResource__Satisfied();
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -812,6 +905,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActor_HeldResponsibility();
+
+	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Actor#satisfied() <em>Satisfied</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfied</em>' operation.
+	 * @see responsibilityMetaModel.Actor#satisfied()
+	 * @generated
+	 */
+	EOperation getActor__Satisfied();
 
 	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Scenario <em>Scenario</em>}'.
@@ -898,6 +1001,27 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_Enabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Satisifed</em>'.
+	 * @see responsibilityMetaModel.Entity#isSatisifed()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_Satisifed();
+
+	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Entity#satisfied() <em>Satisfied</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfied</em>' operation.
+	 * @see responsibilityMetaModel.Entity#satisfied()
+	 * @generated
+	 */
+	EOperation getEntity__Satisfied();
 
 	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.resourceRequiredRelationship <em>resource Required Relationship</em>}'.
@@ -1159,6 +1283,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EReference RESPONSIBILITY__SUB_RESPONSIBILITY = eINSTANCE.getResponsibility_SubResponsibility();
 
 		/**
+		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESPONSIBILITY___SATISFIED = eINSTANCE.getResponsibility__Satisfied();
+
+		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.impl.ResourceImpl <em>Resource</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1185,6 +1317,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EReference RESOURCE__PRODUCED_BY = eINSTANCE.getResource_ProducedBy();
 
 		/**
+		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESOURCE___SATISFIED = eINSTANCE.getResource__Satisfied();
+
+		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1209,6 +1349,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTOR__HELD_RESPONSIBILITY = eINSTANCE.getActor_HeldResponsibility();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___SATISFIED = eINSTANCE.getActor__Satisfied();
 
 		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -1277,6 +1425,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__ENABLED = eINSTANCE.getEntity_Enabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisifed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__SATISIFED = eINSTANCE.getEntity_Satisifed();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ENTITY___SATISFIED = eINSTANCE.getEntity__Satisfied();
 
 		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.impl.resourceRequiredRelationshipImpl <em>resource Required Relationship</em>}' class.

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link responsibilityMetaModel.Entity#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,40 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Satisifed</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Satisifed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Satisifed</em>' attribute.
+	 * @see #setSatisifed(boolean)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_Satisifed()
+	 * @model default="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isSatisifed();
+
+	/**
+	 * Sets the value of the '{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Satisifed</em>' attribute.
+	 * @see #isSatisifed()
+	 * @generated
+	 */
+	void setSatisifed(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean satisfied();
 
 } // Entity

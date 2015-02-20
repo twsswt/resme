@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="responsibilityMetaModel" nsURI="http://www.example.org/responsibilityMetaModel"
     nsPrefix="responsibilityMetaModel">
   <eClassifiers xsi:type="ecore:EClass" name="Responsibility" eSuperTypes="#//Entity">
+    <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource" upperBound="-1"
@@ -19,12 +20,14 @@
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
+    <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
         eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" upperBound="-1"
         eType="#//resourceProducedRelationship" eOpposite="#//resourceProducedRelationship/resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Entity">
+    <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
         eType="#//actorRequiredRelationship" eOpposite="#//actorRequiredRelationship/actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
@@ -41,8 +44,11 @@
         eType="#//Relation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
+    <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisifed" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="resourceRequiredRelationship" eSuperTypes="#//Relation">

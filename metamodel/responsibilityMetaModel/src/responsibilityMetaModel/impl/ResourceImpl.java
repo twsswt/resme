@@ -2,6 +2,7 @@
  */
 package responsibilityMetaModel.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,6 +33,7 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
@@ -79,6 +81,26 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected boolean enabled = ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSatisifed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SATISIFED_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSatisifed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean satisifed = SATISIFED_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -166,6 +188,27 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSatisifed() {
+		return satisifed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSatisifed(boolean newSatisifed) {
+		boolean oldSatisifed = satisifed;
+		satisifed = newSatisifed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESOURCE__SATISIFED, oldSatisifed, satisifed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<resourceRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
@@ -183,6 +226,23 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			producedBy = new EObjectWithInverseResolvingEList<resourceProducedRelationship>(resourceProducedRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY, ResponsibilityMetaModelPackage.RESOURCE_PRODUCED_RELATIONSHIP__RESOURCE);
 		}
 		return producedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean satisfied() {
+
+		//Resources are satisfied if they are enabled and produced
+		for (resourceProducedRelationship r : this.producedBy){
+			if (r.getResponsibility().isSatisifed()){
+				satisifed = this.isEnabled();
+				return this.isEnabled(); //we have found a satisfied producer
+			}
+		}
+		satisifed = false;
+		return false; //if no valid producers found, resource not satisfied
 	}
 
 	/**
@@ -230,6 +290,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return getName();
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return isEnabled();
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
+				return isSatisifed();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -252,6 +314,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled((Boolean)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
+				setSatisifed((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -279,6 +344,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
+				setSatisifed(SATISIFED_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -301,12 +369,28 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
+				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
 				return producedBy != null && !producedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResponsibilityMetaModelPackage.RESOURCE___SATISFIED:
+				return satisfied();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -323,6 +407,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		result.append(name);
 		result.append(", enabled: ");
 		result.append(enabled);
+		result.append(", satisifed: ");
+		result.append(satisifed);
 		result.append(')');
 		return result.toString();
 	}

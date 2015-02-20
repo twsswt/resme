@@ -62,6 +62,7 @@ public class ResourceItemProvider
 
 			addNamePropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
+			addSatisifedPropertyDescriptor(object);
 			addRequiredByPropertyDescriptor(object);
 			addProducedByPropertyDescriptor(object);
 		}
@@ -104,6 +105,28 @@ public class ResourceItemProvider
 				 getString("_UI_Entity_enabled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_enabled_feature", "_UI_Entity_type"),
 				 ResponsibilityMetaModelPackage.Literals.ENTITY__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Satisifed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSatisifedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_satisifed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_satisifed_feature", "_UI_Entity_type"),
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__SATISIFED,
 				 true,
 				 false,
 				 false,
@@ -168,6 +191,16 @@ public class ResourceItemProvider
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +229,7 @@ public class ResourceItemProvider
 		switch (notification.getFeatureID(Resource.class)) {
 			case ResponsibilityMetaModelPackage.RESOURCE__NAME:
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

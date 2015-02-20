@@ -2,6 +2,7 @@
  */
 package responsibilityMetaModel.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,6 +36,7 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getProducedResource <em>Produced Resource</em>}</li>
@@ -87,6 +89,26 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected boolean enabled = ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSatisifed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SATISIFED_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSatisifed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean satisifed = SATISIFED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
@@ -234,6 +256,27 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSatisifed() {
+		return satisifed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSatisifed(boolean newSatisifed) {
+		boolean oldSatisifed = satisifed;
+		satisifed = newSatisifed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED, oldSatisifed, satisifed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getSatisfactionCriteria() {
 		return satisfactionCriteria;
 	}
@@ -325,6 +368,39 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean satisfied() {
+		//A resposibility is satisifed if required entities are satisifed and resp is enabled
+		//Yes, this is a very basic implementation of staisifcation
+		//We are assuming AND
+		
+		for (actorRequiredRelationship a : requiredActor){
+			if (!a.getActor().satisfied()){
+				satisifed = false;
+				return false;
+			}
+		}
+		for (resourceRequiredRelationship a : requiredResource){
+			if (!a.getResource().satisfied()){
+				satisifed = false;
+				return false;
+			}
+		}
+		for (responsibilityRequiredRelationship a : subResponsibility){
+			if (!a.getSubRresponsibility().satisfied()){
+				satisifed = false;
+				return false;
+			}
+		}
+		
+		//clear refactor
+		satisifed = isEnabled();
+		return isEnabled();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -383,6 +459,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return getName();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				return isEnabled();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+				return isSatisifed();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
@@ -415,6 +493,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				setEnabled((Boolean)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+				setSatisifed((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
@@ -461,6 +542,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+				setSatisifed(SATISIFED_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
 				return;
@@ -498,6 +582,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
@@ -522,6 +608,20 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY___SATISFIED:
+				return satisfied();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -530,6 +630,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		result.append(name);
 		result.append(", enabled: ");
 		result.append(enabled);
+		result.append(", satisifed: ");
+		result.append(satisifed);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
 		result.append(')');

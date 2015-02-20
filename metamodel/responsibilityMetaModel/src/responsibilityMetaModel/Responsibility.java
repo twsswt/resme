@@ -162,4 +162,12 @@ public interface Responsibility extends Entity {
 	 */
 	EList<responsibilityRequiredRelationship> getSubResponsibility();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean satisfied();
+
 } // Responsibility

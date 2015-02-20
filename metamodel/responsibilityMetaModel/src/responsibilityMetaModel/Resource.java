@@ -58,4 +58,12 @@ public interface Resource extends Entity {
 	 */
 	EList<resourceProducedRelationship> getProducedBy();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean satisfied();
+
 } // Resource

@@ -58,4 +58,12 @@ public interface Actor extends Entity {
 	 */
 	EList<actorHoldsRelationship> getHeldResponsibility();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean satisfied();
+
 } // Actor
