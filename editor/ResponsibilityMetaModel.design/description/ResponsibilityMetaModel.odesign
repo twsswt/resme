@@ -12,7 +12,7 @@
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." padding="35" direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <nodeMappings name="responsibilityNode" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
+        <nodeMappings name="responsibilityNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
           <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -25,8 +25,15 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.satisifed=false/]">
+            <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="resourceNode" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
+        <nodeMappings name="resourceNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
           <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -39,8 +46,15 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.satisifed=false/]">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="actorNode" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+        <nodeMappings name="actorNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
           <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/ResponsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -258,6 +272,15 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="producedResource" valueExpression="x"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="anaylse" forceRefresh="true">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclAsType(Entity).satisfied()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="rightClick" label="Right Click Menu">
           <ownedTools xsi:type="tool_1:PopupMenu" name="popup" label="Enable / Disable">
@@ -286,6 +309,88 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="[not(element.oclAsType(Entity).enabled)/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="deletion">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteResource">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Resource).producedBy/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="i">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Resource).requiredBy/]" iteratorName="j">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="j">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteActor">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Actor).heldResponsibility/]" iteratorName="held">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="held">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Actor).requiredBy/]" iteratorName="requiredBy">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredBy">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteResponsibility">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).subResponsibility/]" iteratorName="sub">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="sub">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).heldBy/]" iteratorName="held">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="held">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).requiredActor/]" iteratorName="requiredActor">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredActor">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).superResponsibility/]" iteratorName="superR">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="superR">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).requiredResource/]" iteratorName="requiredResource">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredResource">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).producedResource/]" iteratorName="producedResource">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="producedResource">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
