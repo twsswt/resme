@@ -4,21 +4,15 @@ package responsibilityMetaModel.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.resourceProducedRelationship;
@@ -34,6 +28,7 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
@@ -101,6 +96,26 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected boolean satisifed = SATISIFED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSatisfactionCriteria()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SATISFACTION_CRITERIA_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSatisfactionCriteria()
+	 * @generated
+	 * @ordered
+	 */
+	protected String satisfactionCriteria = SATISFACTION_CRITERIA_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -209,6 +224,27 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSatisfactionCriteria() {
+		return satisfactionCriteria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSatisfactionCriteria(String newSatisfactionCriteria) {
+		String oldSatisfactionCriteria = satisfactionCriteria;
+		satisfactionCriteria = newSatisfactionCriteria;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA, oldSatisfactionCriteria, satisfactionCriteria));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<resourceRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
@@ -292,6 +328,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return isEnabled();
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
 				return isSatisifed();
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
+				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -317,6 +355,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
 				setSatisifed((Boolean)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
+				setSatisfactionCriteria((String)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -347,6 +388,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
 				setSatisifed(SATISIFED_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
+				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -371,6 +415,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return enabled != ENABLED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
 				return satisifed != SATISIFED_EDEFAULT;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
+				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -409,6 +455,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		result.append(enabled);
 		result.append(", satisifed: ");
 		result.append(satisifed);
+		result.append(", satisfactionCriteria: ");
+		result.append(satisfactionCriteria);
 		result.append(')');
 		return result.toString();
 	}

@@ -5,22 +5,23 @@ package responsibilityMetaModel.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.UnbufferedTokenStream;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
+import responsibilityMetaModel.Scenario;
 import responsibilityMetaModel.actorHoldsRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
 import responsibilityMetaModel.resourceProducedRelationship;
@@ -370,32 +371,67 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public boolean satisfied() {
-		//A resposibility is satisifed if required entities are satisifed and resp is enabled
-		//Yes, this is a very basic implementation of staisifcation
-		//We are assuming AND
+//		//A resposibility is satisifed if required entities are satisifed and resp is enabled
+//		//Yes, this is a very basic implementation of staisifcation
+//		//We are assuming AND
+//		
+//		for (actorRequiredRelationship a : requiredActor){
+//			if (!a.getActor().satisfied()){
+//				satisifed = false;
+//				return false;
+//			}
+//		}
+//		for (resourceRequiredRelationship a : requiredResource){
+//			if (!a.getResource().satisfied()){
+//				satisifed = false;
+//				return false;
+//			}
+//		}
+//		for (responsibilityRequiredRelationship a : subResponsibility){
+//			if (!a.getSubRresponsibility().satisfied()){
+//				satisifed = false;
+//				return false;
+//			}
+//		}
+//		
+//		
+//		
+//		//clear refactor
+//		satisifed = isEnabled();
+//		return isEnabled();
 		
-		for (actorRequiredRelationship a : requiredActor){
-			if (!a.getActor().satisfied()){
-				satisifed = false;
-				return false;
-			}
-		}
-		for (resourceRequiredRelationship a : requiredResource){
-			if (!a.getResource().satisfied()){
-				satisifed = false;
-				return false;
-			}
-		}
-		for (responsibilityRequiredRelationship a : subResponsibility){
-			if (!a.getSubRresponsibility().satisfied()){
-				satisifed = false;
-				return false;
-			}
+		if (!isEnabled()){
+			satisifed = false;
+			return false;
 		}
 		
-		//clear refactor
-		satisifed = isEnabled();
-		return isEnabled();
+		else if (this.satisfactionCriteria == null || this.satisfactionCriteria.length()==0){
+			satisifed = true;
+			return true;
+		}
+		
+		else{
+			try {
+			CharStream stream = new ANTLRInputStream(this.satisfactionCriteria);
+			satisfactionLexer lexer = new satisfactionLexer(stream); //problem
+			UnbufferedTokenStream<Token> t = new UnbufferedTokenStream<>(lexer);
+			Scenario s = (Scenario) this.eContainer;
+			satisfactionParser sat = new satisfactionParser(t, s.getEntities());
+			System.out.println(s.getEntities());
+			satisifed = sat.eval().value;
+			return satisifed;
+			}
+			catch (Exception e){ //This is clearly bad
+				System.err.println("Error!");
+				satisifed = false;
+				return false;
+			}
+
+		}
+		//satisifed = false;
+		//return false;
+		
+		
 	}
 
 	/**

@@ -2,21 +2,20 @@
  */
 package responsibilityMetaModel.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import responsibilityMetaModel.Actor;
+import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Relation;
 import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.Responsibility;
@@ -150,6 +149,23 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EList<Entity> getEntities() {
+		
+		EList<Entity> entityList = new UniqueEList<Entity>();
+		
+		entityList.addAll(getActors());
+		entityList.addAll(getResources());
+		entityList.addAll(getResponsibilities());
+		
+		return entityList;
+
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -258,6 +274,20 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return relations != null && !relations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResponsibilityMetaModelPackage.SCENARIO___GET_ENTITIES:
+				return getEntities();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ScenarioImpl

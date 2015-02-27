@@ -95,13 +95,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ENTITY__SATISIFED = 2;
 
 	/**
+	 * The feature id for the '<em><b>Satisfaction Criteria</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__SATISFACTION_CRITERIA = 3;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 3;
+	int ENTITY_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -165,7 +174,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__SATISFACTION_CRITERIA = ENTITY_FEATURE_COUNT + 0;
+	int RESPONSIBILITY__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
 
 	/**
 	 * The feature id for the '<em><b>Required Resource</b></em>' reference list.
@@ -174,7 +183,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__REQUIRED_RESOURCE = ENTITY_FEATURE_COUNT + 1;
+	int RESPONSIBILITY__REQUIRED_RESOURCE = ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Produced Resource</b></em>' reference list.
@@ -183,7 +192,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__PRODUCED_RESOURCE = ENTITY_FEATURE_COUNT + 2;
+	int RESPONSIBILITY__PRODUCED_RESOURCE = ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Required Actor</b></em>' reference list.
@@ -192,7 +201,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__REQUIRED_ACTOR = ENTITY_FEATURE_COUNT + 3;
+	int RESPONSIBILITY__REQUIRED_ACTOR = ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Held By</b></em>' reference list.
@@ -201,7 +210,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__HELD_BY = ENTITY_FEATURE_COUNT + 4;
+	int RESPONSIBILITY__HELD_BY = ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Super Responsibility</b></em>' reference list.
@@ -210,7 +219,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__SUPER_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 5;
+	int RESPONSIBILITY__SUPER_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sub Responsibility</b></em>' reference list.
@@ -219,7 +228,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY__SUB_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 6;
+	int RESPONSIBILITY__SUB_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Responsibility</em>' class.
@@ -228,7 +237,7 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 7;
+	int RESPONSIBILITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -284,6 +293,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__SATISIFED = ENTITY__SATISIFED;
+
+	/**
+	 * The feature id for the '<em><b>Satisfaction Criteria</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
 
 	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
@@ -366,6 +384,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__SATISIFED = ENTITY__SATISIFED;
+
+	/**
+	 * The feature id for the '<em><b>Satisfaction Criteria</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
 
 	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
@@ -468,13 +495,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int SCENARIO_FEATURE_COUNT = 4;
 
 	/**
+	 * The operation id for the '<em>Get Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO___GET_ENTITIES = 0;
+
+	/**
 	 * The number of operations of the '<em>Scenario</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_OPERATION_COUNT = 0;
+	int SCENARIO_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.Relation <em>Relation</em>}' class.
@@ -746,17 +782,6 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EClass getResponsibility();
 
 	/**
-	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Responsibility#getSatisfactionCriteria <em>Satisfaction Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Satisfaction Criteria</em>'.
-	 * @see responsibilityMetaModel.Responsibility#getSatisfactionCriteria()
-	 * @see #getResponsibility()
-	 * @generated
-	 */
-	EAttribute getResponsibility_SatisfactionCriteria();
-
-	/**
 	 * Returns the meta object for the reference list '{@link responsibilityMetaModel.Responsibility#getRequiredResource <em>Required Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -971,6 +996,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EReference getScenario_Relations();
 
 	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Scenario#getEntities() <em>Get Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Entities</em>' operation.
+	 * @see responsibilityMetaModel.Scenario#getEntities()
+	 * @generated
+	 */
+	EOperation getScenario__GetEntities();
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1012,6 +1047,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_Satisifed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Satisfaction Criteria</em>'.
+	 * @see responsibilityMetaModel.Entity#getSatisfactionCriteria()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_SatisfactionCriteria();
 
 	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Entity#satisfied() <em>Satisfied</em>}' operation.
@@ -1227,14 +1273,6 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EClass RESPONSIBILITY = eINSTANCE.getResponsibility();
 
 		/**
-		 * The meta object literal for the '<em><b>Satisfaction Criteria</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESPONSIBILITY__SATISFACTION_CRITERIA = eINSTANCE.getResponsibility_SatisfactionCriteria();
-
-		/**
 		 * The meta object literal for the '<em><b>Required Resource</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1401,6 +1439,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EReference SCENARIO__RELATIONS = eINSTANCE.getScenario_Relations();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCENARIO___GET_ENTITIES = eINSTANCE.getScenario__GetEntities();
+
+		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.Entity <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1433,6 +1479,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__SATISIFED = eINSTANCE.getEntity_Satisifed();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisfaction Criteria</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__SATISFACTION_CRITERIA = eINSTANCE.getEntity_SatisfactionCriteria();
 
 		/**
 		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.

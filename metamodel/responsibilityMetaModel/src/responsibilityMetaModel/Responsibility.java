@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link responsibilityMetaModel.Responsibility#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getProducedResource <em>Produced Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredActor <em>Required Actor</em>}</li>
@@ -27,33 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Responsibility extends Entity {
-	/**
-	 * Returns the value of the '<em><b>Satisfaction Criteria</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Satisfaction Criteria</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Satisfaction Criteria</em>' attribute.
-	 * @see #setSatisfactionCriteria(String)
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SatisfactionCriteria()
-	 * @model default="" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 * @generated
-	 */
-	String getSatisfactionCriteria();
-
-	/**
-	 * Sets the value of the '{@link responsibilityMetaModel.Responsibility#getSatisfactionCriteria <em>Satisfaction Criteria</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Satisfaction Criteria</em>' attribute.
-	 * @see #getSatisfactionCriteria()
-	 * @generated
-	 */
-	void setSatisfactionCriteria(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Required Resource</b></em>' reference list.
 	 * The list contents are of type {@link responsibilityMetaModel.resourceRequiredRelationship}.

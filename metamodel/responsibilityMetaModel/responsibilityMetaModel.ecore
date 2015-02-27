@@ -4,8 +4,6 @@
     nsPrefix="responsibilityMetaModel">
   <eClassifiers xsi:type="ecore:EClass" name="Responsibility" eSuperTypes="#//Entity">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
-        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource" upperBound="-1"
         eType="#//resourceRequiredRelationship" eOpposite="#//resourceRequiredRelationship/responsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedResource" upperBound="-1"
@@ -34,6 +32,7 @@
         eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eOperations name="getEntities" ordered="false" upperBound="-1" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Resource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibilities" upperBound="-1"
@@ -50,6 +49,8 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisifed" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="resourceRequiredRelationship" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"

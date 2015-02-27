@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Entity#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +103,33 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setSatisifed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Satisfaction Criteria</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Satisfaction Criteria</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Satisfaction Criteria</em>' attribute.
+	 * @see #setSatisfactionCriteria(String)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_SatisfactionCriteria()
+	 * @model default="" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getSatisfactionCriteria();
+
+	/**
+	 * Sets the value of the '{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Satisfaction Criteria</em>' attribute.
+	 * @see #getSatisfactionCriteria()
+	 * @generated
+	 */
+	void setSatisfactionCriteria(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

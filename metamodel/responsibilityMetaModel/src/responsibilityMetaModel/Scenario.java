@@ -3,7 +3,6 @@
 package responsibilityMetaModel;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -89,5 +88,13 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	EList<Relation> getRelations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" ordered="false"
+	 * @generated
+	 */
+	EList<Entity> getEntities();
 
 } // Scenario

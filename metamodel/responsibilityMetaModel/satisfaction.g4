@@ -18,7 +18,7 @@ orExpression returns [boolean value]:
 
 statement returns [boolean value]:
 	'?' {$value =  true;}
-	| Id
+	| i = Id {$value = lookup($i.text);}
 	| LeftParam exp= expression RightParam {$value=$exp.value;}
 	; 
 	
