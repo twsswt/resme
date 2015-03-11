@@ -9,6 +9,15 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This resource is not produced" targetClass="Resource">
           <audits auditExpression="[self.oclAsType(Resource).producedBy.oclAsType(resourceProducedRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are assigned to this actor" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are held by this actor" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" message="['Relies on: ' + self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor->select(e: Actor | e.enabled=true)->select(a: Actor | a.name&lt;>self.name).name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
+          <audits auditExpression="[self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor.oclAsType(Actor)->select(a: Actor | a.name&lt;>self.name)->select(e: Actor | e.enabled=true)->size()=0/]"/>
+        </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." padding="35" direction="LeftToRight"/>
       <defaultLayer name="Default">
