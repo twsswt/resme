@@ -5,9 +5,12 @@ package responsibilityMetaModel.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,24 +21,31 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import responsibilityMetaModel.Resource;
+
+import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 
 /**
- * This is the item provider adapter for a {@link responsibilityMetaModel.Resource} object.
+ * This is the item provider adapter for a {@link responsibilityMetaModel.Entity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceItemProvider 
-	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class EntityItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceItemProvider(AdapterFactory adapterFactory) {
+	public EntityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,9 +64,6 @@ public class ResourceItemProvider
 			addEnabledPropertyDescriptor(object);
 			addSatisifedPropertyDescriptor(object);
 			addSatisfactionCriteriaPropertyDescriptor(object);
-			addCriticalPropertyDescriptor(object);
-			addRequiredByPropertyDescriptor(object);
-			addProducedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -150,83 +157,6 @@ public class ResourceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Critical feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCriticalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Entity_critical_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_critical_feature", "_UI_Entity_type"),
-				 ResponsibilityMetaModelPackage.Literals.ENTITY__CRITICAL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Required By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Resource_requiredBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_requiredBy_feature", "_UI_Resource_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESOURCE__REQUIRED_BY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Produced By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProducedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Resource_producedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_producedBy_feature", "_UI_Resource_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESOURCE__PRODUCED_BY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Resource.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Resource"));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -244,10 +174,10 @@ public class ResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Resource)object).getName();
+		String label = ((Entity)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Resource_type") :
-			getString("_UI_Resource_type") + " " + label;
+			getString("_UI_Entity_type") :
+			getString("_UI_Entity_type") + " " + label;
 	}
 	
 
@@ -262,12 +192,11 @@ public class ResourceItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Resource.class)) {
-			case ResponsibilityMetaModelPackage.RESOURCE__NAME:
-			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
-			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
+		switch (notification.getFeatureID(Entity.class)) {
+			case ResponsibilityMetaModelPackage.ENTITY__NAME:
+			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

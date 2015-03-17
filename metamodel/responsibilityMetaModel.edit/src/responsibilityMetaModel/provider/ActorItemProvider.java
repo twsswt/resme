@@ -5,12 +5,9 @@ package responsibilityMetaModel.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,7 +18,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 
@@ -32,13 +28,7 @@ import responsibilityMetaModel.ResponsibilityMetaModelPackage;
  * @generated
  */
 public class ActorItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,6 +53,8 @@ public class ActorItemProvider
 			addNamePropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addSatisifedPropertyDescriptor(object);
+			addSatisfactionCriteriaPropertyDescriptor(object);
+			addCriticalPropertyDescriptor(object);
 			addRequiredByPropertyDescriptor(object);
 			addHeldResponsibilityPropertyDescriptor(object);
 		}
@@ -127,6 +119,50 @@ public class ActorItemProvider
 				 getString("_UI_Entity_satisifed_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_satisifed_feature", "_UI_Entity_type"),
 				 ResponsibilityMetaModelPackage.Literals.ENTITY__SATISIFED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Satisfaction Criteria feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSatisfactionCriteriaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_satisfactionCriteria_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_satisfactionCriteria_feature", "_UI_Entity_type"),
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__SATISFACTION_CRITERIA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Critical feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCriticalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_critical_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_critical_feature", "_UI_Entity_type"),
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__CRITICAL,
 				 true,
 				 false,
 				 false,
@@ -230,6 +266,8 @@ public class ActorItemProvider
 			case ResponsibilityMetaModelPackage.ACTOR__NAME:
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
+			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
+			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
