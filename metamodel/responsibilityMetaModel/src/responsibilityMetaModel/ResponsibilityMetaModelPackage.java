@@ -104,13 +104,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ENTITY__SATISFACTION_CRITERIA = 3;
 
 	/**
+	 * The feature id for the '<em><b>Critical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__CRITICAL = 4;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 4;
+	int ENTITY_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -175,6 +184,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESPONSIBILITY__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
+
+	/**
+	 * The feature id for the '<em><b>Critical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSIBILITY__CRITICAL = ENTITY__CRITICAL;
 
 	/**
 	 * The feature id for the '<em><b>Required Resource</b></em>' reference list.
@@ -304,6 +322,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESOURCE__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
 
 	/**
+	 * The feature id for the '<em><b>Critical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CRITICAL = ENTITY__CRITICAL;
+
+	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -393,6 +420,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__SATISFACTION_CRITERIA = ENTITY__SATISFACTION_CRITERIA;
+
+	/**
+	 * The feature id for the '<em><b>Critical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__CRITICAL = ENTITY__CRITICAL;
 
 	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
@@ -504,13 +540,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int SCENARIO___GET_ENTITIES = 0;
 
 	/**
+	 * The operation id for the '<em>Criticality Analysis</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO___CRITICALITY_ANALYSIS = 1;
+
+	/**
 	 * The number of operations of the '<em>Scenario</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_OPERATION_COUNT = 1;
+	int SCENARIO_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.Relation <em>Relation</em>}' class.
@@ -1006,6 +1051,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EOperation getScenario__GetEntities();
 
 	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Scenario#criticalityAnalysis() <em>Criticality Analysis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Criticality Analysis</em>' operation.
+	 * @see responsibilityMetaModel.Scenario#criticalityAnalysis()
+	 * @generated
+	 */
+	EOperation getScenario__CriticalityAnalysis();
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1058,6 +1113,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_SatisfactionCriteria();
+
+	/**
+	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Critical</em>'.
+	 * @see responsibilityMetaModel.Entity#isCritical()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_Critical();
 
 	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Entity#satisfied() <em>Satisfied</em>}' operation.
@@ -1447,6 +1513,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EOperation SCENARIO___GET_ENTITIES = eINSTANCE.getScenario__GetEntities();
 
 		/**
+		 * The meta object literal for the '<em><b>Criticality Analysis</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCENARIO___CRITICALITY_ANALYSIS = eINSTANCE.getScenario__CriticalityAnalysis();
+
+		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.Entity <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1487,6 +1561,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__SATISFACTION_CRITERIA = eINSTANCE.getEntity_SatisfactionCriteria();
+
+		/**
+		 * The meta object literal for the '<em><b>Critical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__CRITICAL = eINSTANCE.getEntity_Critical();
 
 		/**
 		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.

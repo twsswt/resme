@@ -29,6 +29,7 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
@@ -116,6 +117,26 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected String satisfactionCriteria = SATISFACTION_CRITERIA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CRITICAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean critical = CRITICAL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -245,6 +266,27 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCritical() {
+		return critical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCritical(boolean newCritical) {
+		boolean oldCritical = critical;
+		critical = newCritical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESOURCE__CRITICAL, oldCritical, critical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<resourceRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
@@ -330,6 +372,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return isSatisifed();
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
+			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
+				return isCritical();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -358,6 +402,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
+				setCritical((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -391,6 +438,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
+				setCritical(CRITICAL_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -417,6 +467,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
+			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
+				return critical != CRITICAL_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -457,6 +509,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		result.append(satisifed);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
+		result.append(", critical: ");
+		result.append(critical);
 		result.append(')');
 		return result.toString();
 	}

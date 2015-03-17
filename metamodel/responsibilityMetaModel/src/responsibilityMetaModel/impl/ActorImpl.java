@@ -29,6 +29,7 @@ import responsibilityMetaModel.actorRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  * </ul>
@@ -116,6 +117,26 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected String satisfactionCriteria = SATISFACTION_CRITERIA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CRITICAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean critical = CRITICAL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -245,6 +266,27 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCritical() {
+		return critical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCritical(boolean newCritical) {
+		boolean oldCritical = critical;
+		critical = newCritical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.ACTOR__CRITICAL, oldCritical, critical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<actorRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<actorRequiredRelationship>(actorRequiredRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY, ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP__ACTOR);
@@ -323,6 +365,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return isSatisifed();
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
+			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+				return isCritical();
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
@@ -351,6 +395,9 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+				setCritical((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -384,6 +431,9 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+				setCritical(CRITICAL_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -410,6 +460,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
+			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+				return critical != CRITICAL_EDEFAULT;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
@@ -450,6 +502,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		result.append(satisifed);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
+		result.append(", critical: ");
+		result.append(critical);
 		result.append(')');
 		return result.toString();
 	}

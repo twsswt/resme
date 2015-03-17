@@ -97,4 +97,12 @@ public interface Scenario extends EObject {
 	 */
 	EList<Entity> getEntities();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void criticalityAnalysis();
+
 } // Scenario

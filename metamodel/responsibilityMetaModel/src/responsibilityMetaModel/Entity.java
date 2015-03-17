@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Entity#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +131,33 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setSatisfactionCriteria(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Critical</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Critical</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Critical</em>' attribute.
+	 * @see #setCritical(boolean)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_Critical()
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isCritical();
+
+	/**
+	 * Sets the value of the '{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Critical</em>' attribute.
+	 * @see #isCritical()
+	 * @generated
+	 */
+	void setCritical(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

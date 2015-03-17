@@ -39,6 +39,7 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getProducedResource <em>Produced Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredActor <em>Required Actor</em>}</li>
@@ -130,6 +131,26 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String satisfactionCriteria = SATISFACTION_CRITERIA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CRITICAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCritical() <em>Critical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCritical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean critical = CRITICAL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredResource() <em>Required Resource</em>}' reference list.
@@ -292,6 +313,27 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		satisfactionCriteria = newSatisfactionCriteria;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA, oldSatisfactionCriteria, satisfactionCriteria));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isCritical() {
+		return critical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCritical(boolean newCritical) {
+		boolean oldCritical = critical;
+		critical = newCritical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL, oldCritical, critical));
 	}
 
 	/**
@@ -499,6 +541,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return isSatisifed();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+				return isCritical();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				return getRequiredResource();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
@@ -535,6 +579,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+				setCritical((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				getRequiredResource().clear();
@@ -584,6 +631,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+				setCritical(CRITICAL_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				getRequiredResource().clear();
 				return;
@@ -622,6 +672,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+				return critical != CRITICAL_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				return requiredResource != null && !requiredResource.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
@@ -670,6 +722,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		result.append(satisifed);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
+		result.append(", critical: ");
+		result.append(critical);
 		result.append(')');
 		return result.toString();
 	}
