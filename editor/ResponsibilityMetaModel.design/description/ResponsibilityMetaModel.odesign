@@ -18,6 +18,12 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" message="['Relies on: ' + self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor->select(e: Actor | e.enabled=true)->select(a: Actor | a.name&lt;>self.name).name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
           <audits auditExpression="[self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor.oclAsType(Actor)->select(a: Actor | a.name&lt;>self.name)->select(e: Actor | e.enabled=true)->size()=0/]"/>
         </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()&lt;=3/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This is a critical entity" targetClass="Entity">
+          <audits auditExpression="[self.critical=false/]"/>
+        </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." padding="35" direction="LeftToRight"/>
       <defaultLayer name="Default">
@@ -276,17 +282,26 @@
           </ownedTools>
         </toolSections>
         <toolSections label="Configure">
-          <ownedTools xsi:type="tool:BehaviorTool" name="test" label="Behavior Analysis" domainClass="Resource">
+          <ownedTools xsi:type="tool:BehaviorTool" name="test" label="Behavior Analysis" precondition="true" domainClass="Scenario">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="producedResource" valueExpression="x"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="false"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="anaylse" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="anaylse" precondition="[container.eClass()&lt;>Scenario/]" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclAsType(Entity).satisfied()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="criticality" precondition="[container.eClass()=Scenario/]" forceRefresh="true">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclAsType(Scenario).criticalityAnalysis()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
