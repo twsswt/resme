@@ -232,24 +232,6 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String interpret() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		String constraint = "? and exists(GovtAgency) and (exists (telephone) or exists (internalMessageSystem))";
-		
-		constraint.replace(" and ", "&&");
-		
-		//No abitray code execution in Java
-		
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {

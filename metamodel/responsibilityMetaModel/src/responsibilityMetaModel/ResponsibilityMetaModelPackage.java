@@ -113,13 +113,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ENTITY__CRITICAL = 4;
 
 	/**
+	 * The feature id for the '<em><b>Criticality Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__CRITICALITY_COUNT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 5;
+	int ENTITY_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -193,6 +202,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESPONSIBILITY__CRITICAL = ENTITY__CRITICAL;
+
+	/**
+	 * The feature id for the '<em><b>Criticality Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSIBILITY__CRITICALITY_COUNT = ENTITY__CRITICALITY_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Required Resource</b></em>' reference list.
@@ -331,6 +349,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESOURCE__CRITICAL = ENTITY__CRITICAL;
 
 	/**
+	 * The feature id for the '<em><b>Criticality Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CRITICALITY_COUNT = ENTITY__CRITICALITY_COUNT;
+
+	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -431,6 +458,15 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ACTOR__CRITICAL = ENTITY__CRITICAL;
 
 	/**
+	 * The feature id for the '<em><b>Criticality Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__CRITICALITY_COUNT = ENTITY__CRITICALITY_COUNT;
+
+	/**
 	 * The feature id for the '<em><b>Required By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -467,13 +503,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ACTOR___SATISFIED = ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Reliance</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR___RELIANCE = ENTITY_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
+	int ACTOR_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link responsibilityMetaModel.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -987,6 +1032,16 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EOperation getActor__Satisfied();
 
 	/**
+	 * Returns the meta object for the '{@link responsibilityMetaModel.Actor#reliance() <em>Reliance</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reliance</em>' operation.
+	 * @see responsibilityMetaModel.Actor#reliance()
+	 * @generated
+	 */
+	EOperation getActor__Reliance();
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Scenario <em>Scenario</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,6 +1179,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_Critical();
+
+	/**
+	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Entity#getCriticalityCount <em>Criticality Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Criticality Count</em>'.
+	 * @see responsibilityMetaModel.Entity#getCriticalityCount()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_CriticalityCount();
 
 	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Entity#satisfied() <em>Satisfied</em>}' operation.
@@ -1463,6 +1529,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EOperation ACTOR___SATISFIED = eINSTANCE.getActor__Satisfied();
 
 		/**
+		 * The meta object literal for the '<em><b>Reliance</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTOR___RELIANCE = eINSTANCE.getActor__Reliance();
+
+		/**
 		 * The meta object literal for the '{@link responsibilityMetaModel.impl.ScenarioImpl <em>Scenario</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1569,6 +1643,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__CRITICAL = eINSTANCE.getEntity_Critical();
+
+		/**
+		 * The meta object literal for the '<em><b>Criticality Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__CRITICALITY_COUNT = eINSTANCE.getEntity_CriticalityCount();
 
 		/**
 		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.

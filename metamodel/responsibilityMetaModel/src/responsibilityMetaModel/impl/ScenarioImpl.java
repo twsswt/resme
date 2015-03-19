@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
@@ -168,7 +169,6 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * <!-- end-user-doc -->
 	 */
 	public void criticalityAnalysis() {
-		// TODO: implement this method
 
 		//The plan here is to examine each type of entity
 		//Determine which is the most critical
@@ -176,52 +176,60 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 		
 		//Not perfect as only 1-deep, but potentially cycle problems
 		
-		int count = 0;
-		int max = 0;
-		for (Resource r: resources){
-			r.setCritical(false);
-			count = r.getRequiredBy().size();
-			if (count>max){
-				max = count;
-			}
-		}
-		for (Resource r: resources){
-			if (r.getRequiredBy().size() == max){
-				r.setCritical(true);
-			}
-		}
+//		int count = 0;
+//		int max = 0;
+//		for (Resource r: resources){
+//			r.setCritical(false);
+//			count = r.getRequiredBy().size();
+//			if (count>max){
+//				max = count;
+//			}
+//		}
+//		for (Resource r: resources){
+//			if (r.getRequiredBy().size() == max){
+//				r.setCritical(true);
+//			}
+//		}
+//		
+//		//Copy paste, because I am lazy
+//		
+//		count = 0;
+//		max = 0;
+//		for (Actor a: actors){
+//			a.setCritical(false);
+//			count = a.getRequiredBy().size();
+//			if (count>max){
+//				max = count;
+//			}
+//		}
+//		for (Actor a: actors){
+//			if (a.getRequiredBy().size() == max){
+//				a.setCritical(true);
+//			}
+//		}
+//		
+//		count = 0;
+//		max = 0;
+//		for (Responsibility r: responsibilities){
+//			r.setCritical(false);
+//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
+//			if (count>max){
+//				max = count;
+//			}
+//		}
+//		for (Responsibility r: responsibilities){
+//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
+//			if (count == max){
+//				r.setCritical(true);
+//			}
+//		}
 		
-		//Copy paste, because I am lazy
-		
-		count = 0;
-		max = 0;
-		for (Actor a: actors){
-			a.setCritical(false);
-			count = a.getRequiredBy().size();
-			if (count>max){
-				max = count;
-			}
-		}
-		for (Actor a: actors){
-			if (a.getRequiredBy().size() == max){
-				a.setCritical(true);
-			}
-		}
-		
-		count = 0;
-		max = 0;
-		for (Responsibility r: responsibilities){
-			r.setCritical(false);
-			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
-			if (count>max){
-				max = count;
-			}
-		}
-		for (Responsibility r: responsibilities){
-			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
-			if (count == max){
-				r.setCritical(true);
-			}
+		//Iterating over all is painfully inefficient, but deals with the fact we have multiple trees
+		for (Entity e: getEntities()){
+			BasicEList<Entity> init = new BasicEList<Entity>();
+			EList<Responsibility> init2 = new BasicEList<Responsibility>();
+			//init.add(e);
+			e.criticalityAnalysis(init, init2, true);
 		}
 		
 	}

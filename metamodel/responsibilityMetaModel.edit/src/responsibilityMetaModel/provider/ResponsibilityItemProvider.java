@@ -55,6 +55,7 @@ public class ResponsibilityItemProvider
 			addSatisifedPropertyDescriptor(object);
 			addSatisfactionCriteriaPropertyDescriptor(object);
 			addCriticalPropertyDescriptor(object);
+			addCriticalityCountPropertyDescriptor(object);
 			addRequiredResourcePropertyDescriptor(object);
 			addProducedResourcePropertyDescriptor(object);
 			addRequiredActorPropertyDescriptor(object);
@@ -171,6 +172,28 @@ public class ResponsibilityItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Criticality Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCriticalityCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_criticalityCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_criticalityCount_feature", "_UI_Entity_type"),
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__CRITICALITY_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -360,6 +383,7 @@ public class ResponsibilityItemProvider
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -26,6 +26,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Entity">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eOperations name="reliance" ordered="false" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
         eType="#//actorRequiredRelationship" eOpposite="#//actorRequiredRelationship/actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
@@ -33,6 +34,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eOperations name="getEntities" ordered="false" upperBound="-1" eType="#//Entity"/>
+    <eOperations name="criticalityAnalysis"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Resource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibilities" upperBound="-1"
@@ -51,6 +53,10 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="satisfactionCriteria" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="critical" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalityCount" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="resourceRequiredRelationship" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"

@@ -2,7 +2,11 @@
  */
 package responsibilityMetaModel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+
+import responsibilityMetaModel.impl.CriticalityHelper;
+import responsibilityMetaModel.impl.RelianceHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#getCriticalityCount <em>Criticality Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,11 +165,48 @@ public interface Entity extends EObject {
 	void setCritical(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Criticality Count</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Criticality Count</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Criticality Count</em>' attribute.
+	 * @see #setCriticalityCount(Integer)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_CriticalityCount()
+	 * @model default="0" dataType="org.eclipse.emf.ecore.xml.type.IntObject"
+	 * @generated
+	 */
+	Integer getCriticalityCount();
+
+	/**
+	 * Sets the value of the '{@link responsibilityMetaModel.Entity#getCriticalityCount <em>Criticality Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Criticality Count</em>' attribute.
+	 * @see #getCriticalityCount()
+	 * @generated
+	 */
+	void setCriticalityCount(Integer value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 * @generated
 	 */
 	boolean satisfied();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" ordered="false"
+	 * @generated not
+	 */
+	RelianceHelper reliesOn(EList<Entity> visited, EList<Actor> depends);
+	
+	CriticalityHelper criticalityAnalysis(EList<Entity> visited, EList<Responsibility> resps, boolean flag);
 
 } // Entity

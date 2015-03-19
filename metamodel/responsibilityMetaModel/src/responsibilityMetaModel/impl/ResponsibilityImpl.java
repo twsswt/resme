@@ -4,6 +4,8 @@ package responsibilityMetaModel.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
@@ -19,6 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import responsibilityMetaModel.Actor;
+import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.Scenario;
@@ -40,6 +44,7 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isSatisifed <em>Satisifed</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isCritical <em>Critical</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getCriticalityCount <em>Criticality Count</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getProducedResource <em>Produced Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getRequiredActor <em>Required Actor</em>}</li>
@@ -151,6 +156,26 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected boolean critical = CRITICAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCriticalityCount() <em>Criticality Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCriticalityCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer CRITICALITY_COUNT_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getCriticalityCount() <em>Criticality Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCriticalityCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer criticalityCount = CRITICALITY_COUNT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredResource() <em>Required Resource</em>}' reference list.
@@ -341,6 +366,27 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Integer getCriticalityCount() {
+		return criticalityCount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCriticalityCount(Integer newCriticalityCount) {
+		Integer oldCriticalityCount = criticalityCount;
+		criticalityCount = newCriticalityCount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT, oldCriticalityCount, criticalityCount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<resourceRequiredRelationship> getRequiredResource() {
 		if (requiredResource == null) {
 			requiredResource = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESPONSIBILITY);
@@ -413,55 +459,27 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public boolean satisfied() {
-//		//A resposibility is satisifed if required entities are satisifed and resp is enabled
-//		//Yes, this is a very basic implementation of staisifcation
-//		//We are assuming AND
-//		
-//		for (actorRequiredRelationship a : requiredActor){
-//			if (!a.getActor().satisfied()){
-//				satisifed = false;
-//				return false;
-//			}
-//		}
-//		for (resourceRequiredRelationship a : requiredResource){
-//			if (!a.getResource().satisfied()){
-//				satisifed = false;
-//				return false;
-//			}
-//		}
-//		for (responsibilityRequiredRelationship a : subResponsibility){
-//			if (!a.getSubRresponsibility().satisfied()){
-//				satisifed = false;
-//				return false;
-//			}
-//		}
-//		
-//		
-//		
-//		//clear refactor
-//		satisifed = isEnabled();
-//		return isEnabled();
-		
+
 		if (!isEnabled()){
 			satisifed = false;
 			return false;
 		}
-		
+
 		else if (this.satisfactionCriteria == null || this.satisfactionCriteria.length()==0){
 			satisifed = true;
 			return true;
 		}
-		
+
 		else{
 			try {
-			CharStream stream = new ANTLRInputStream(this.satisfactionCriteria);
-			satisfactionLexer lexer = new satisfactionLexer(stream); //problem
-			UnbufferedTokenStream<Token> t = new UnbufferedTokenStream<>(lexer);
-			Scenario s = (Scenario) this.eContainer;
-			satisfactionParser sat = new satisfactionParser(t, s.getEntities());
-			System.out.println(s.getEntities());
-			satisifed = sat.eval().value;
-			return satisifed;
+				CharStream stream = new ANTLRInputStream(this.satisfactionCriteria);
+				satisfactionLexer lexer = new satisfactionLexer(stream); //problem
+				UnbufferedTokenStream<Token> t = new UnbufferedTokenStream<>(lexer);
+				Scenario s = (Scenario) this.eContainer;
+				satisfactionParser sat = new satisfactionParser(t, s.getEntities());
+				System.out.println(s.getEntities());
+				satisifed = sat.eval().value;
+				return satisifed;
 			}
 			catch (Exception e){ //This is clearly bad
 				System.err.println("Error!");
@@ -472,7 +490,82 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		}
 		//satisifed = false;
 		//return false;
+
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public RelianceHelper reliesOn(EList<Entity> visited, EList<Actor> depends){
+
+		//If not already visited, traverse
+		//First actors
+		for (actorRequiredRelationship a: requiredActor){
+			if (!visited.contains(a.getActor())){
+				visited.add(a.getActor());
+				depends = a.getActor().reliesOn(visited, depends).depends; //Update
+			}
+			if (!depends.contains(a.getActor())){
+				depends.add(a.getActor());
+			}
+		}
+
+		//Then resources
+		for (resourceRequiredRelationship r: requiredResource){
+			if (!visited.contains(r.getResource())){
+				depends = r.getResource().reliesOn(visited, depends).depends; //Update
+				visited.add(r.getResource());
+			}
+
+		}
+
+		//Then resposibilities
+
+		for (responsibilityRequiredRelationship r: subResponsibility){
+			if (!visited.contains(r.getSubRresponsibility())){
+				depends = r.getSubRresponsibility().reliesOn(visited, depends).depends; //Update
+				visited.add(r.getSubRresponsibility());
+			}
+
+		}
+
+
+		return new RelianceHelper(visited, depends);
+
+	}
+	
+	@Override
+	public CriticalityHelper criticalityAnalysis(EList<Entity> visited,
+			EList<Responsibility> resps, boolean flag) {
+
+		//For responsibilities, update count and follow required resp and production
 		
+		resps.add(this);
+
+		for (resourceProducedRelationship r : producedResource){
+			if (!visited.contains(r.getResource())){
+				visited.add(r.getResource());
+				resps.addAll(r.getResource().criticalityAnalysis(visited, resps, false).resps); //Update
+			}
+		}
+		
+		for (responsibilityRequiredRelationship r : superResponsibility){
+			if (!visited.contains(r.getSuperResponsibility())){
+				visited.add(r.getSuperResponsibility());
+				resps.addAll(r.getSuperResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+			}
+		}
+		
+		if (flag==true){
+			//Terrible duplicate removal
+			Set x = new HashSet(resps);
+			x.remove(this);
+			criticalityCount = x.size();
+		}
+		return new CriticalityHelper(visited, resps);
 		
 	}
 
@@ -543,6 +636,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
 				return isCritical();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+				return getCriticalityCount();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				return getRequiredResource();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
@@ -582,6 +677,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
 				setCritical((Boolean)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+				setCriticalityCount((Integer)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				getRequiredResource().clear();
@@ -634,6 +732,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
 				setCritical(CRITICAL_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+				setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
+				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				getRequiredResource().clear();
 				return;
@@ -674,6 +775,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
 				return critical != CRITICAL_EDEFAULT;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+				return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
 				return requiredResource != null && !requiredResource.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
@@ -724,6 +827,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		result.append(satisfactionCriteria);
 		result.append(", critical: ");
 		result.append(critical);
+		result.append(", criticalityCount: ");
+		result.append(criticalityCount);
 		result.append(')');
 		return result.toString();
 	}

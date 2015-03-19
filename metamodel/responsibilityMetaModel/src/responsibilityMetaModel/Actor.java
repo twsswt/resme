@@ -2,6 +2,8 @@
  */
 package responsibilityMetaModel;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -65,5 +67,7 @@ public interface Actor extends Entity {
 	 * @generated
 	 */
 	boolean satisfied();
+	
+	public List<Actor> reliance();
 
 } // Actor
