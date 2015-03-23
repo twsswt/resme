@@ -23,7 +23,6 @@ import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.actorHoldsRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
-import responsibilityMetaModel.resourceRequiredRelationship;
 
 /**
  * <!-- begin-user-doc -->
@@ -385,9 +384,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 
 		//If not already visited, traverse
 		for (actorHoldsRelationship a: heldResponsibility){
-			if (!visited.contains(a.getResponsibility())){ //If not visited, traverse
-				visited.add(a.getResponsibility());
-				depends = a.getResponsibility().reliesOn(visited, depends).depends; //Update
+			if (a.getResponsibility().isEnabled()){
+				if (!visited.contains(a.getResponsibility())){ //If not visited, traverse
+					visited.add(a.getResponsibility());
+					depends = a.getResponsibility().reliesOn(visited, depends).depends; //Update
+				}
 			}
 		}
 		return new RelianceHelper(visited, depends);
@@ -400,15 +401,17 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		//For actor, follow any required
 
 		for (actorRequiredRelationship r : requiredBy){
-			if (!visited.contains(r.getResponsibility())){
-				visited.add(r.getResponsibility());
-				resps.addAll(r.getResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+			if (r.getResponsibility().isEnabled()){
+				if (!visited.contains(r.getResponsibility())){
+					visited.add(r.getResponsibility());
+					resps.addAll(r.getResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+				}
 			}
 		}
-		
+
 		if (flag==true){
 			//Terrible duplicate removal
-			Set x = new HashSet(resps);
+			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			criticalityCount = x.size();
 		}
 

@@ -377,9 +377,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 
 		//If not already visited, traverse
 		for (resourceProducedRelationship r: producedBy){
-			if (!visited.contains(r.getResponsibility())){
-				visited.add(r.getResponsibility());
-				depends = r.getResponsibility().reliesOn(visited, depends).depends; //Update
+			if (r.getResponsibility().isEnabled()){
+				if (!visited.contains(r.getResponsibility())){
+					visited.add(r.getResponsibility());
+					depends = r.getResponsibility().reliesOn(visited, depends).depends; //Update
+				}
 			}
 		}
 		return new RelianceHelper(visited, depends);
@@ -596,15 +598,17 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		//For resource, follow any consumption
 
 		for (resourceRequiredRelationship r : requiredBy){
-			if (!visited.contains(r.getResponsibility())){
-				visited.add(r.getResponsibility());
-				resps.addAll(r.getResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+			if (r.getResponsibility().isEnabled()){
+				if (!visited.contains(r.getResponsibility())){
+					visited.add(r.getResponsibility());
+					resps.addAll(r.getResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+				}
 			}
 		}
-		
+
 		if (flag==true){
 			//Terrible duplicate removal
-			Set x = new HashSet(resps);
+			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			criticalityCount = x.size();
 		}
 		return new CriticalityHelper(visited, resps);

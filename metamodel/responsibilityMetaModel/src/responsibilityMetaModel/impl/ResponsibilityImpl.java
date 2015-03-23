@@ -504,20 +504,24 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		//If not already visited, traverse
 		//First actors
 		for (actorRequiredRelationship a: requiredActor){
-			if (!visited.contains(a.getActor())){
-				visited.add(a.getActor());
-				depends = a.getActor().reliesOn(visited, depends).depends; //Update
-			}
-			if (!depends.contains(a.getActor())){
-				depends.add(a.getActor());
+			if (a.getActor().isEnabled()){
+				if (!visited.contains(a.getActor())){
+					visited.add(a.getActor());
+					depends = a.getActor().reliesOn(visited, depends).depends; //Update
+				}
+				if (!depends.contains(a.getActor())){
+					depends.add(a.getActor());
+				}
 			}
 		}
 
 		//Then resources
 		for (resourceRequiredRelationship r: requiredResource){
-			if (!visited.contains(r.getResource())){
-				depends = r.getResource().reliesOn(visited, depends).depends; //Update
-				visited.add(r.getResource());
+			if (r.getResource().isEnabled()){
+				if (!visited.contains(r.getResource())){
+					depends = r.getResource().reliesOn(visited, depends).depends; //Update
+					visited.add(r.getResource());
+				}
 			}
 
 		}
@@ -525,9 +529,11 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		//Then resposibilities
 
 		for (responsibilityRequiredRelationship r: subResponsibility){
-			if (!visited.contains(r.getSubRresponsibility())){
-				depends = r.getSubRresponsibility().reliesOn(visited, depends).depends; //Update
-				visited.add(r.getSubRresponsibility());
+			if (r.getSubRresponsibility().isEnabled()){
+				if (!visited.contains(r.getSubRresponsibility())){
+					depends = r.getSubRresponsibility().reliesOn(visited, depends).depends; //Update
+					visited.add(r.getSubRresponsibility());
+				}
 			}
 
 		}
@@ -536,37 +542,41 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		return new RelianceHelper(visited, depends);
 
 	}
-	
+
 	@Override
 	public CriticalityHelper criticalityAnalysis(EList<Entity> visited,
 			EList<Responsibility> resps, boolean flag) {
 
 		//For responsibilities, update count and follow required resp and production
-		
+
 		resps.add(this);
 
 		for (resourceProducedRelationship r : producedResource){
-			if (!visited.contains(r.getResource())){
-				visited.add(r.getResource());
-				resps.addAll(r.getResource().criticalityAnalysis(visited, resps, false).resps); //Update
+			if (r.getResource().isEnabled()){
+				if (!visited.contains(r.getResource())){
+					visited.add(r.getResource());
+					resps.addAll(r.getResource().criticalityAnalysis(visited, resps, false).resps); //Update
+				}
 			}
 		}
-		
+
 		for (responsibilityRequiredRelationship r : superResponsibility){
-			if (!visited.contains(r.getSuperResponsibility())){
-				visited.add(r.getSuperResponsibility());
-				resps.addAll(r.getSuperResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+			if (r.getSuperResponsibility().isEnabled()){
+				if (!visited.contains(r.getSuperResponsibility())){
+					visited.add(r.getSuperResponsibility());
+					resps.addAll(r.getSuperResponsibility().criticalityAnalysis(visited, resps, false).resps); //Update
+				}
 			}
 		}
-		
+
 		if (flag==true){
 			//Terrible duplicate removal
-			Set x = new HashSet(resps);
+			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			x.remove(this);
 			criticalityCount = x.size();
 		}
 		return new CriticalityHelper(visited, resps);
-		
+
 	}
 
 	/**
@@ -578,18 +588,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredResource()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedResource()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredActor()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldBy()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSuperResponsibility()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubResponsibility()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredResource()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedResource()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredActor()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldBy()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getSuperResponsibility()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubResponsibility()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -602,18 +612,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return ((InternalEList<?>)getRequiredResource()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				return ((InternalEList<?>)getProducedResource()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				return ((InternalEList<?>)getRequiredActor()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				return ((InternalEList<?>)getHeldBy()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				return ((InternalEList<?>)getSuperResponsibility()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				return ((InternalEList<?>)getSubResponsibility()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			return ((InternalEList<?>)getRequiredResource()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			return ((InternalEList<?>)getProducedResource()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			return ((InternalEList<?>)getRequiredActor()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			return ((InternalEList<?>)getHeldBy()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			return ((InternalEList<?>)getSuperResponsibility()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			return ((InternalEList<?>)getSubResponsibility()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -626,30 +636,30 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
-				return getName();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
-				return isEnabled();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				return isSatisifed();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
-				return getSatisfactionCriteria();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
-				return isCritical();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
-				return getCriticalityCount();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return getRequiredResource();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				return getProducedResource();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				return getRequiredActor();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				return getHeldBy();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				return getSuperResponsibility();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				return getSubResponsibility();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
+			return getName();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
+			return isEnabled();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+			return isSatisifed();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
+			return getSatisfactionCriteria();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+			return isCritical();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+			return getCriticalityCount();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			return getRequiredResource();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			return getProducedResource();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			return getRequiredActor();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			return getHeldBy();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			return getSuperResponsibility();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			return getSubResponsibility();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -663,48 +673,48 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
-				setName((String)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
-				setEnabled((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				setSatisifed((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
-				setSatisfactionCriteria((String)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
-				setCritical((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
-				setCriticalityCount((Integer)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				getRequiredResource().clear();
-				getRequiredResource().addAll((Collection<? extends resourceRequiredRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				getProducedResource().clear();
-				getProducedResource().addAll((Collection<? extends resourceProducedRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				getRequiredActor().clear();
-				getRequiredActor().addAll((Collection<? extends actorRequiredRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				getHeldBy().clear();
-				getHeldBy().addAll((Collection<? extends actorHoldsRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				getSuperResponsibility().clear();
-				getSuperResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				getSubResponsibility().clear();
-				getSubResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
-				return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
+			setName((String)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
+			setEnabled((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+			setSatisifed((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
+			setSatisfactionCriteria((String)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+			setCritical((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+			setCriticalityCount((Integer)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			getRequiredResource().clear();
+			getRequiredResource().addAll((Collection<? extends resourceRequiredRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			getProducedResource().clear();
+			getProducedResource().addAll((Collection<? extends resourceProducedRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			getRequiredActor().clear();
+			getRequiredActor().addAll((Collection<? extends actorRequiredRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			getHeldBy().clear();
+			getHeldBy().addAll((Collection<? extends actorHoldsRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			getSuperResponsibility().clear();
+			getSuperResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			getSubResponsibility().clear();
+			getSubResponsibility().addAll((Collection<? extends responsibilityRequiredRelationship>)newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -717,42 +727,42 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
-				setEnabled(ENABLED_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				setSatisifed(SATISIFED_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
-				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
-				setCritical(CRITICAL_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
-				setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				getRequiredResource().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				getProducedResource().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				getRequiredActor().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				getHeldBy().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				getSuperResponsibility().clear();
-				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				getSubResponsibility().clear();
-				return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
+			setEnabled(ENABLED_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+			setSatisifed(SATISIFED_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
+			setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+			setCritical(CRITICAL_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+			setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			getRequiredResource().clear();
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			getProducedResource().clear();
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			getRequiredActor().clear();
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			getHeldBy().clear();
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			getSuperResponsibility().clear();
+			return;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			getSubResponsibility().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -765,30 +775,30 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
-				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				return satisifed != SATISIFED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
-				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
-				return critical != CRITICAL_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
-				return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
-				return requiredResource != null && !requiredResource.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
-				return producedResource != null && !producedResource.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
-				return requiredActor != null && !requiredActor.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
-				return heldBy != null && !heldBy.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
-				return superResponsibility != null && !superResponsibility.isEmpty();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
-				return subResponsibility != null && !subResponsibility.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
+			return enabled != ENABLED_EDEFAULT;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+			return satisifed != SATISIFED_EDEFAULT;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
+			return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
+			return critical != CRITICAL_EDEFAULT;
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICALITY_COUNT:
+			return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_RESOURCE:
+			return requiredResource != null && !requiredResource.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_RESOURCE:
+			return producedResource != null && !producedResource.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__REQUIRED_ACTOR:
+			return requiredActor != null && !requiredActor.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__HELD_BY:
+			return heldBy != null && !heldBy.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY:
+			return superResponsibility != null && !superResponsibility.isEmpty();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY:
+			return subResponsibility != null && !subResponsibility.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -801,8 +811,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY___SATISFIED:
-				return satisfied();
+		case ResponsibilityMetaModelPackage.RESPONSIBILITY___SATISFIED:
+			return satisfied();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
