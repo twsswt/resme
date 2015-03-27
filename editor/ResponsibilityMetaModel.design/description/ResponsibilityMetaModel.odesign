@@ -2,6 +2,7 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="responsibilitymetamodel" version="8.1.0">
   <ownedViewpoints name="responsibilityModel" label="Responsibility Model" modelFileExtension="rmodel">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="responsibilityDiagram" label="Responsibility Diagram" titleExpression="Responsibility Model" showOnStartup="true" domainClass="responsibilityMetaModel.Scenario" enablePopupBars="true">
+      <metamodel href="http://www.example.org/responsibilityMetaModel#/"/>
       <validationSet>
         <ownedRules xsi:type="validation:SemanticValidationRule" message="This responsibility has no assigned actors" targetClass="Responsibility">
           <audits auditExpression="[self.oclAsType(Responsibility).requiredActor.oclAsType(actorRequiredRelationship).actor.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
@@ -15,19 +16,19 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are held by this actor" targetClass="Actor">
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" message="['Relies on: ' + self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor->select(e: Actor | e.enabled=true)->select(a: Actor | a.name&lt;>self.name).name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
-          <audits auditExpression="[self.heldResponsibility.responsibility.subResponsibility.subRresponsibility.requiredActor.actor.oclAsType(Actor)->select(a: Actor | a.name&lt;>self.name)->select(e: Actor | e.enabled=true)->size()=0/]"/>
-        </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
           <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()&lt;=3/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This is a critical entity" targetClass="Entity">
           <audits auditExpression="[self.critical=false/]"/>
         </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="['Relies on: ' + reliance().name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
+          <audits auditExpression="[reliance()->size()=0/]"/>
+        </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." padding="35" direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <nodeMappings name="responsibilityNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
+        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Scenario).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
           <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -48,7 +49,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="resourceNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
+        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Scenario).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
           <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -69,7 +70,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="actorNode" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Scenario).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
           <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/ResponsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
