@@ -43,6 +43,7 @@
         eType="#//Actor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>

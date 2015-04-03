@@ -31,6 +31,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/responsibilities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/actors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/relations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Scenario/name"/>
       <genOperations ecoreOperation="responsibilityMetaModel.ecore#//Scenario/getEntities"/>
       <genOperations ecoreOperation="responsibilityMetaModel.ecore#//Scenario/criticalityAnalysis"/>
     </genClasses>
