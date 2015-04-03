@@ -567,13 +567,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int SCENARIO__RELATIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO__NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Scenario</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_FEATURE_COUNT = 4;
+	int SCENARIO_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Entities</em>' operation.
@@ -1096,6 +1105,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EReference getScenario_Relations();
 
 	/**
+	 * Returns the meta object for the attribute '{@link responsibilityMetaModel.Scenario#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see responsibilityMetaModel.Scenario#getName()
+	 * @see #getScenario()
+	 * @generated
+	 */
+	EAttribute getScenario_Name();
+
+	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Scenario#getEntities() <em>Get Entities</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1577,6 +1597,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCENARIO__RELATIONS = eINSTANCE.getScenario_Relations();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Entities</b></em>' operation.

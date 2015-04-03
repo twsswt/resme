@@ -377,6 +377,15 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getScenario_Name() {
+		return (EAttribute)scenarioEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getScenario__GetEntities() {
 		return scenarioEClass.getEOperations().get(0);
 	}
@@ -659,6 +668,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		createEReference(scenarioEClass, SCENARIO__RESPONSIBILITIES);
 		createEReference(scenarioEClass, SCENARIO__ACTORS);
 		createEReference(scenarioEClass, SCENARIO__RELATIONS);
+		createEAttribute(scenarioEClass, SCENARIO__NAME);
 		createEOperation(scenarioEClass, SCENARIO___GET_ENTITIES);
 		createEOperation(scenarioEClass, SCENARIO___CRITICALITY_ANALYSIS);
 
@@ -764,6 +774,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		initEReference(getScenario_Responsibilities(), this.getResponsibility(), null, "responsibilities", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScenario_Actors(), this.getActor(), null, "actors", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScenario_Relations(), this.getRelation(), null, "relations", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScenario_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getScenario__GetEntities(), this.getEntity(), "getEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
 

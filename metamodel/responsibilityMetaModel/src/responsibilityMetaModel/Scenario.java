@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Scenario#getResponsibilities <em>Responsibilities</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getActors <em>Actors</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getRelations <em>Relations</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Scenario#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +89,32 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	EList<Relation> getRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getScenario_Name()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link responsibilityMetaModel.Scenario#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
