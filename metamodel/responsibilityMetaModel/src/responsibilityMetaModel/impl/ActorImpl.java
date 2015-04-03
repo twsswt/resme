@@ -372,7 +372,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	public EList<Actor> reliance() {
 		EList<Entity> visited = new BasicEList<Entity>();
 		EList<Actor> depends = new BasicEList<Actor>();
-		return reliesOn(visited, depends).depends;
+		
+		EList<Actor> val = reliesOn(visited, depends).depends;
+		val.remove(this);
+		return val;
 		
 	}
 
