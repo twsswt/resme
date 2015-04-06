@@ -606,7 +606,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			}
 		}
 
-		if (flag==true){
+		if (flag==true && enabled){
 			//Terrible duplicate removal
 			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			criticalityCount = x.size();

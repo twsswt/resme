@@ -273,6 +273,7 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			BasicEList<Entity> init = new BasicEList<Entity>();
 			EList<Responsibility> init2 = new BasicEList<Responsibility>();
 			//init.add(e);
+			e.setCriticalityCount(0);
 			e.criticalityAnalysis(init, init2, true);
 		}
 

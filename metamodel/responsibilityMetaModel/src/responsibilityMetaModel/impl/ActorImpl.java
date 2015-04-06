@@ -413,7 +413,7 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			}
 		}
 
-		if (flag==true){
+		if (flag==true && enabled){
 			//Terrible duplicate removal
 			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			criticalityCount = x.size();

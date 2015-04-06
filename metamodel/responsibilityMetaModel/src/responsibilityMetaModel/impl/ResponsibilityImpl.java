@@ -569,7 +569,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			}
 		}
 
-		if (flag==true){
+		if (flag==true && enabled){
 			//Terrible duplicate removal
 			Set<Responsibility> x = new HashSet<Responsibility>(resps);
 			x.remove(this);
