@@ -196,13 +196,13 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Entity> getEntities() {
-		
+
 		EList<Entity> entityList = new UniqueEList<Entity>();
-		
+
 		entityList.addAll(getActors());
 		entityList.addAll(getResources());
 		entityList.addAll(getResponsibilities());
-		
+
 		return entityList;
 
 
@@ -217,57 +217,57 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 		//The plan here is to examine each type of entity
 		//Determine which is the most critical
 		//and set the flag on it
-		
+
 		//Not perfect as only 1-deep, but potentially cycle problems
-		
-//		int count = 0;
-//		int max = 0;
-//		for (Resource r: resources){
-//			r.setCritical(false);
-//			count = r.getRequiredBy().size();
-//			if (count>max){
-//				max = count;
-//			}
-//		}
-//		for (Resource r: resources){
-//			if (r.getRequiredBy().size() == max){
-//				r.setCritical(true);
-//			}
-//		}
-//		
-//		//Copy paste, because I am lazy
-//		
-//		count = 0;
-//		max = 0;
-//		for (Actor a: actors){
-//			a.setCritical(false);
-//			count = a.getRequiredBy().size();
-//			if (count>max){
-//				max = count;
-//			}
-//		}
-//		for (Actor a: actors){
-//			if (a.getRequiredBy().size() == max){
-//				a.setCritical(true);
-//			}
-//		}
-//		
-//		count = 0;
-//		max = 0;
-//		for (Responsibility r: responsibilities){
-//			r.setCritical(false);
-//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
-//			if (count>max){
-//				max = count;
-//			}
-//		}
-//		for (Responsibility r: responsibilities){
-//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
-//			if (count == max){
-//				r.setCritical(true);
-//			}
-//		}
-		
+
+		//		int count = 0;
+		//		int max = 0;
+		//		for (Resource r: resources){
+		//			r.setCritical(false);
+		//			count = r.getRequiredBy().size();
+		//			if (count>max){
+		//				max = count;
+		//			}
+		//		}
+		//		for (Resource r: resources){
+		//			if (r.getRequiredBy().size() == max){
+		//				r.setCritical(true);
+		//			}
+		//		}
+		//		
+		//		//Copy paste, because I am lazy
+		//		
+		//		count = 0;
+		//		max = 0;
+		//		for (Actor a: actors){
+		//			a.setCritical(false);
+		//			count = a.getRequiredBy().size();
+		//			if (count>max){
+		//				max = count;
+		//			}
+		//		}
+		//		for (Actor a: actors){
+		//			if (a.getRequiredBy().size() == max){
+		//				a.setCritical(true);
+		//			}
+		//		}
+		//		
+		//		count = 0;
+		//		max = 0;
+		//		for (Responsibility r: responsibilities){
+		//			r.setCritical(false);
+		//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
+		//			if (count>max){
+		//				max = count;
+		//			}
+		//		}
+		//		for (Responsibility r: responsibilities){
+		//			count = r.getSuperResponsibility().size()+r.getProducedResource().size();
+		//			if (count == max){
+		//				r.setCritical(true);
+		//			}
+		//		}
+
 		//Iterating over all is painfully inefficient, but deals with the fact we have multiple trees
 		for (Entity e: getEntities()){
 			BasicEList<Entity> init = new BasicEList<Entity>();
@@ -275,7 +275,46 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			//init.add(e);
 			e.criticalityAnalysis(init, init2, true);
 		}
+
+		//This approach is rough, and only allows one critical entity of each type
+		int max = 0;
+		Entity crit = null;
+		for (Actor a: actors){
+			a.setCritical(false);
+			if (a.getCriticalityCount() > max){
+				max = a.getCriticalityCount();
+				crit = a;
+			}
+		}
+		if (crit!=null){
+			crit.setCritical(true);
+		}
 		
+		max = 0;
+		crit = null;
+		for (Resource a: resources){
+			a.setCritical(false);
+			if (a.getCriticalityCount() > max){
+				max = a.getCriticalityCount();
+				crit = a;
+			}
+		}
+		if (crit!=null){
+			crit.setCritical(true);
+		}
+		
+		max = 0;
+		crit = null;
+		for (Responsibility a: responsibilities){
+			a.setCritical(false);
+			if (a.getCriticalityCount() > max){
+				max = a.getCriticalityCount();
+				crit = a;
+			}
+		}
+		if (crit!=null){
+			crit.setCritical(true);
+		}
 	}
 
 	/**
@@ -286,14 +325,14 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
-				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
-				return ((InternalEList<?>)getResponsibilities()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
-				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
-				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
+			return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
+			return ((InternalEList<?>)getResponsibilities()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
+			return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -306,16 +345,16 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
-				return getResources();
-			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
-				return getResponsibilities();
-			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
-				return getActors();
-			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
-				return getRelations();
-			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
-				return getName();
+		case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
+			return getResources();
+		case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
+			return getResponsibilities();
+		case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
+			return getActors();
+		case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			return getRelations();
+		case ResponsibilityMetaModelPackage.SCENARIO__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,25 +368,25 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
-				getResources().clear();
-				getResources().addAll((Collection<? extends Resource>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
-				getResponsibilities().clear();
-				getResponsibilities().addAll((Collection<? extends Responsibility>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
-				getActors().clear();
-				getActors().addAll((Collection<? extends Actor>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
-				getRelations().clear();
-				getRelations().addAll((Collection<? extends Relation>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
-				setName((String)newValue);
-				return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
+			getResources().clear();
+			getResources().addAll((Collection<? extends Resource>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
+			getResponsibilities().clear();
+			getResponsibilities().addAll((Collection<? extends Responsibility>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
+			getActors().clear();
+			getActors().addAll((Collection<? extends Actor>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			getRelations().clear();
+			getRelations().addAll((Collection<? extends Relation>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__NAME:
+			setName((String)newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -360,21 +399,21 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
-				getResources().clear();
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
-				getResponsibilities().clear();
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
-				getActors().clear();
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
-				getRelations().clear();
-				return;
-			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
-				setName(NAME_EDEFAULT);
-				return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
+			getResources().clear();
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
+			getResponsibilities().clear();
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
+			getActors().clear();
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			getRelations().clear();
+			return;
+		case ResponsibilityMetaModelPackage.SCENARIO__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,16 +426,16 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
-				return resources != null && !resources.isEmpty();
-			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
-				return responsibilities != null && !responsibilities.isEmpty();
-			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
-				return actors != null && !actors.isEmpty();
-			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
-				return relations != null && !relations.isEmpty();
-			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ResponsibilityMetaModelPackage.SCENARIO__RESOURCES:
+			return resources != null && !resources.isEmpty();
+		case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
+			return responsibilities != null && !responsibilities.isEmpty();
+		case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
+			return actors != null && !actors.isEmpty();
+		case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			return relations != null && !relations.isEmpty();
+		case ResponsibilityMetaModelPackage.SCENARIO__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -409,11 +448,11 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResponsibilityMetaModelPackage.SCENARIO___GET_ENTITIES:
-				return getEntities();
-			case ResponsibilityMetaModelPackage.SCENARIO___CRITICALITY_ANALYSIS:
-				criticalityAnalysis();
-				return null;
+		case ResponsibilityMetaModelPackage.SCENARIO___GET_ENTITIES:
+			return getEntities();
+		case ResponsibilityMetaModelPackage.SCENARIO___CRITICALITY_ANALYSIS:
+			criticalityAnalysis();
+			return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
