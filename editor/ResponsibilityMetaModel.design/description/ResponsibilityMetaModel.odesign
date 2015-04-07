@@ -13,7 +13,7 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are assigned to this actor" targetClass="Actor">
           <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are held by this actor" targetClass="Actor">
+        <ownedRules xsi:type="validation:SemanticValidationRule" message="No responsibilities are held by this actor" targetClass="Actor">
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
@@ -162,6 +162,22 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
+        <edgeMappings name="producedActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorProducedRelationship" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(actor.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
         <toolSections name="createOps" label="Add">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createResponsibility" label="Responsibility" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
             <variable name="container"/>
@@ -281,13 +297,25 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-        </toolSections>
-        <toolSections label="Configure">
-          <ownedTools xsi:type="tool:BehaviorTool" name="test" label="Behavior Analysis" precondition="true" domainClass="Scenario">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createProducedActor" label="Produced Actor" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@edgeMappings[name='producedActor']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="false"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.actorProducedRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
+        </toolSections>
+        <toolSections label="Configure">
           <ownedTools xsi:type="tool_1:ToolDescription" name="anaylse" precondition="[container.eClass()&lt;>Scenario/]" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
