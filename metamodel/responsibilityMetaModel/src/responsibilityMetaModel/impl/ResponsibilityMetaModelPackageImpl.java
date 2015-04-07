@@ -7,11 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
 import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Relation;
@@ -21,6 +18,7 @@ import responsibilityMetaModel.ResponsibilityMetaModelFactory;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.Scenario;
 import responsibilityMetaModel.actorHoldsRelationship;
+import responsibilityMetaModel.actorProducedRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
 import responsibilityMetaModel.resourceProducedRelationship;
 import responsibilityMetaModel.resourceRequiredRelationship;
@@ -109,6 +107,13 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 	 * @generated
 	 */
 	private EClass responsibilityRequiredRelationshipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actorProducedRelationshipEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -242,6 +247,15 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getResponsibility_ProducedActor() {
+		return (EReference)responsibilityEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getResponsibility__Satisfied() {
 		return responsibilityEClass.getEOperations().get(0);
 	}
@@ -307,6 +321,15 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 	 */
 	public EReference getActor_HeldResponsibility() {
 		return (EReference)actorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActor_ProducedBy() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -620,6 +643,33 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getactorProducedRelationship() {
+		return actorProducedRelationshipEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getactorProducedRelationship_Actor() {
+		return (EReference)actorProducedRelationshipEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getactorProducedRelationship_Responsibility() {
+		return (EReference)actorProducedRelationshipEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResponsibilityMetaModelFactory getResponsibilityMetaModelFactory() {
 		return (ResponsibilityMetaModelFactory)getEFactoryInstance();
 	}
@@ -650,6 +700,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		createEReference(responsibilityEClass, RESPONSIBILITY__HELD_BY);
 		createEReference(responsibilityEClass, RESPONSIBILITY__SUPER_RESPONSIBILITY);
 		createEReference(responsibilityEClass, RESPONSIBILITY__SUB_RESPONSIBILITY);
+		createEReference(responsibilityEClass, RESPONSIBILITY__PRODUCED_ACTOR);
 		createEOperation(responsibilityEClass, RESPONSIBILITY___SATISFIED);
 
 		resourceEClass = createEClass(RESOURCE);
@@ -660,6 +711,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__REQUIRED_BY);
 		createEReference(actorEClass, ACTOR__HELD_RESPONSIBILITY);
+		createEReference(actorEClass, ACTOR__PRODUCED_BY);
 		createEOperation(actorEClass, ACTOR___SATISFIED);
 		createEOperation(actorEClass, ACTOR___RELIANCE);
 
@@ -702,6 +754,10 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		responsibilityRequiredRelationshipEClass = createEClass(RESPONSIBILITY_REQUIRED_RELATIONSHIP);
 		createEReference(responsibilityRequiredRelationshipEClass, RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY);
 		createEReference(responsibilityRequiredRelationshipEClass, RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY);
+
+		actorProducedRelationshipEClass = createEClass(ACTOR_PRODUCED_RELATIONSHIP);
+		createEReference(actorProducedRelationshipEClass, ACTOR_PRODUCED_RELATIONSHIP__ACTOR);
+		createEReference(actorProducedRelationshipEClass, ACTOR_PRODUCED_RELATIONSHIP__RESPONSIBILITY);
 	}
 
 	/**
@@ -743,6 +799,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		actorRequiredRelationshipEClass.getESuperTypes().add(this.getRelation());
 		actorHoldsRelationshipEClass.getESuperTypes().add(this.getRelation());
 		responsibilityRequiredRelationshipEClass.getESuperTypes().add(this.getRelation());
+		actorProducedRelationshipEClass.getESuperTypes().add(this.getRelation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(responsibilityEClass, Responsibility.class, "Responsibility", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -752,6 +809,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		initEReference(getResponsibility_HeldBy(), this.getactorHoldsRelationship(), this.getactorHoldsRelationship_Responsibility(), "heldBy", null, 0, -1, Responsibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResponsibility_SuperResponsibility(), this.getresponsibilityRequiredRelationship(), this.getresponsibilityRequiredRelationship_SubRresponsibility(), "superResponsibility", null, 0, -1, Responsibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResponsibility_SubResponsibility(), this.getresponsibilityRequiredRelationship(), this.getresponsibilityRequiredRelationship_SuperResponsibility(), "subResponsibility", null, 0, -1, Responsibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponsibility_ProducedActor(), this.getactorProducedRelationship(), this.getactorProducedRelationship_Responsibility(), "producedActor", null, 0, -1, Responsibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getResponsibility__Satisfied(), theXMLTypePackage.getBoolean(), "satisfied", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -764,6 +822,7 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActor_RequiredBy(), this.getactorRequiredRelationship(), this.getactorRequiredRelationship_Actor(), "requiredBy", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActor_HeldResponsibility(), this.getactorHoldsRelationship(), this.getactorHoldsRelationship_Actor(), "heldResponsibility", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_ProducedBy(), this.getactorProducedRelationship(), this.getactorProducedRelationship_Actor(), "producedBy", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getActor__Satisfied(), theXMLTypePackage.getBoolean(), "satisfied", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -811,6 +870,10 @@ public class ResponsibilityMetaModelPackageImpl extends EPackageImpl implements 
 		initEClass(responsibilityRequiredRelationshipEClass, responsibilityRequiredRelationship.class, "responsibilityRequiredRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getresponsibilityRequiredRelationship_SubRresponsibility(), this.getResponsibility(), this.getResponsibility_SuperResponsibility(), "subRresponsibility", null, 0, 1, responsibilityRequiredRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getresponsibilityRequiredRelationship_SuperResponsibility(), this.getResponsibility(), this.getResponsibility_SubResponsibility(), "superResponsibility", null, 0, 1, responsibilityRequiredRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actorProducedRelationshipEClass, actorProducedRelationship.class, "actorProducedRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getactorProducedRelationship_Actor(), this.getActor(), this.getActor_ProducedBy(), "actor", null, 0, 1, actorProducedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getactorProducedRelationship_Responsibility(), this.getResponsibility(), this.getResponsibility_ProducedActor(), "responsibility", null, 0, 1, actorProducedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

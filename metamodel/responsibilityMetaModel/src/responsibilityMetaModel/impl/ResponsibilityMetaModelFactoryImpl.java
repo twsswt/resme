@@ -65,6 +65,7 @@ public class ResponsibilityMetaModelFactoryImpl extends EFactoryImpl implements 
 			case ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP: return createactorRequiredRelationship();
 			case ResponsibilityMetaModelPackage.ACTOR_HOLDS_RELATIONSHIP: return createactorHoldsRelationship();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP: return createresponsibilityRequiredRelationship();
+			case ResponsibilityMetaModelPackage.ACTOR_PRODUCED_RELATIONSHIP: return createactorProducedRelationship();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -158,6 +159,16 @@ public class ResponsibilityMetaModelFactoryImpl extends EFactoryImpl implements 
 	public responsibilityRequiredRelationship createresponsibilityRequiredRelationship() {
 		responsibilityRequiredRelationshipImpl responsibilityRequiredRelationship = new responsibilityRequiredRelationshipImpl();
 		return responsibilityRequiredRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public actorProducedRelationship createactorProducedRelationship() {
+		actorProducedRelationshipImpl actorProducedRelationship = new actorProducedRelationshipImpl();
+		return actorProducedRelationship;
 	}
 
 	/**

@@ -267,13 +267,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int RESPONSIBILITY__SUB_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Produced Actor</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSIBILITY__PRODUCED_ACTOR = ENTITY_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Responsibility</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSIBILITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 6;
+	int RESPONSIBILITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -485,13 +494,22 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	int ACTOR__HELD_RESPONSIBILITY = ENTITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Produced By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__PRODUCED_BY = ENTITY_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
+	int ACTOR_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Satisfied</em>' operation.
@@ -871,6 +889,52 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link responsibilityMetaModel.impl.actorProducedRelationshipImpl <em>actor Produced Relationship</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see responsibilityMetaModel.impl.actorProducedRelationshipImpl
+	 * @see responsibilityMetaModel.impl.ResponsibilityMetaModelPackageImpl#getactorProducedRelationship()
+	 * @generated
+	 */
+	int ACTOR_PRODUCED_RELATIONSHIP = 11;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_PRODUCED_RELATIONSHIP__ACTOR = RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Responsibility</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_PRODUCED_RELATIONSHIP__RESPONSIBILITY = RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>actor Produced Relationship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_PRODUCED_RELATIONSHIP_FEATURE_COUNT = RELATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>actor Produced Relationship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_PRODUCED_RELATIONSHIP_OPERATION_COUNT = RELATION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link responsibilityMetaModel.Responsibility <em>Responsibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,6 +1009,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResponsibility_SubResponsibility();
+
+	/**
+	 * Returns the meta object for the reference list '{@link responsibilityMetaModel.Responsibility#getProducedActor <em>Produced Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Produced Actor</em>'.
+	 * @see responsibilityMetaModel.Responsibility#getProducedActor()
+	 * @see #getResponsibility()
+	 * @generated
+	 */
+	EReference getResponsibility_ProducedActor();
 
 	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Responsibility#satisfied() <em>Satisfied</em>}' operation.
@@ -1029,6 +1104,17 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActor_HeldResponsibility();
+
+	/**
+	 * Returns the meta object for the reference list '{@link responsibilityMetaModel.Actor#getProducedBy <em>Produced By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Produced By</em>'.
+	 * @see responsibilityMetaModel.Actor#getProducedBy()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_ProducedBy();
 
 	/**
 	 * Returns the meta object for the '{@link responsibilityMetaModel.Actor#satisfied() <em>Satisfied</em>}' operation.
@@ -1392,6 +1478,38 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 	EReference getresponsibilityRequiredRelationship_SuperResponsibility();
 
 	/**
+	 * Returns the meta object for class '{@link responsibilityMetaModel.actorProducedRelationship <em>actor Produced Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>actor Produced Relationship</em>'.
+	 * @see responsibilityMetaModel.actorProducedRelationship
+	 * @generated
+	 */
+	EClass getactorProducedRelationship();
+
+	/**
+	 * Returns the meta object for the reference '{@link responsibilityMetaModel.actorProducedRelationship#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see responsibilityMetaModel.actorProducedRelationship#getActor()
+	 * @see #getactorProducedRelationship()
+	 * @generated
+	 */
+	EReference getactorProducedRelationship_Actor();
+
+	/**
+	 * Returns the meta object for the reference '{@link responsibilityMetaModel.actorProducedRelationship#getResponsibility <em>Responsibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Responsibility</em>'.
+	 * @see responsibilityMetaModel.actorProducedRelationship#getResponsibility()
+	 * @see #getactorProducedRelationship()
+	 * @generated
+	 */
+	EReference getactorProducedRelationship_Responsibility();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1473,6 +1591,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		EReference RESPONSIBILITY__SUB_RESPONSIBILITY = eINSTANCE.getResponsibility_SubResponsibility();
 
 		/**
+		 * The meta object literal for the '<em><b>Produced Actor</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESPONSIBILITY__PRODUCED_ACTOR = eINSTANCE.getResponsibility_ProducedActor();
+
+		/**
 		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1539,6 +1665,14 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTOR__HELD_RESPONSIBILITY = eINSTANCE.getActor_HeldResponsibility();
+
+		/**
+		 * The meta object literal for the '<em><b>Produced By</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__PRODUCED_BY = eINSTANCE.getActor_ProducedBy();
 
 		/**
 		 * The meta object literal for the '<em><b>Satisfied</b></em>' operation.
@@ -1827,6 +1961,32 @@ public interface ResponsibilityMetaModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY = eINSTANCE.getresponsibilityRequiredRelationship_SuperResponsibility();
+
+		/**
+		 * The meta object literal for the '{@link responsibilityMetaModel.impl.actorProducedRelationshipImpl <em>actor Produced Relationship</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see responsibilityMetaModel.impl.actorProducedRelationshipImpl
+		 * @see responsibilityMetaModel.impl.ResponsibilityMetaModelPackageImpl#getactorProducedRelationship()
+		 * @generated
+		 */
+		EClass ACTOR_PRODUCED_RELATIONSHIP = eINSTANCE.getactorProducedRelationship();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_PRODUCED_RELATIONSHIP__ACTOR = eINSTANCE.getactorProducedRelationship_Actor();
+
+		/**
+		 * The meta object literal for the '<em><b>Responsibility</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_PRODUCED_RELATIONSHIP__RESPONSIBILITY = eINSTANCE.getactorProducedRelationship_Responsibility();
 
 	}
 

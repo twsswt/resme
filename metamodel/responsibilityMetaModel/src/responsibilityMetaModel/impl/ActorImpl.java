@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -17,12 +16,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.actorHoldsRelationship;
+import responsibilityMetaModel.actorProducedRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
 
 /**
@@ -40,6 +39,7 @@ import responsibilityMetaModel.actorRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getCriticalityCount <em>Criticality Count</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,6 +185,16 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected EList<actorHoldsRelationship> heldResponsibility;
+
+	/**
+	 * The cached value of the '{@link #getProducedBy() <em>Produced By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProducedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<actorProducedRelationship> producedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -358,11 +368,36 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<actorProducedRelationship> getProducedBy() {
+		if (producedBy == null) {
+			producedBy = new EObjectWithInverseResolvingEList<actorProducedRelationship>(actorProducedRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY, ResponsibilityMetaModelPackage.ACTOR_PRODUCED_RELATIONSHIP__ACTOR);
+		}
+		return producedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean satisfied() {
-		//Actors are satisfied as long as they are enabled
+		//Actors are satisfied as long as they are enabled, unless they are produced
 		satisifed = isEnabled();
-		return isEnabled();
+		if (getProducedBy().size()==0){
+		}
+		else{
+			for (actorProducedRelationship a : producedBy){
+				if (a.getActor().satisfied()){ //Hopefully this will not cause cycles
+					continue;
+				}
+				else{
+					satisifed = false;
+					break;
+				}
+			}
+		}
+		return satisfied();
 	}
 
 	/**
@@ -372,11 +407,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	public EList<Actor> reliance() {
 		EList<Entity> visited = new BasicEList<Entity>();
 		EList<Actor> depends = new BasicEList<Actor>();
-		
+
 		EList<Actor> val = reliesOn(visited, depends).depends;
 		val.remove(this);
 		return val;
-		
+
 	}
 
 	/**
@@ -431,10 +466,12 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldResponsibility()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldResponsibility()).basicAdd(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedBy()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -447,10 +484,12 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return ((InternalEList<?>)getHeldResponsibility()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			return ((InternalEList<?>)getHeldResponsibility()).basicRemove(otherEnd, msgs);
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			return ((InternalEList<?>)getProducedBy()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -463,22 +502,24 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__NAME:
-				return getName();
-			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
-				return isEnabled();
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				return isSatisifed();
-			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
-				return getSatisfactionCriteria();
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
-				return isCritical();
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
-				return getCriticalityCount();
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				return getRequiredBy();
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return getHeldResponsibility();
+		case ResponsibilityMetaModelPackage.ACTOR__NAME:
+			return getName();
+		case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
+			return isEnabled();
+		case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
+			return isSatisifed();
+		case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
+			return getSatisfactionCriteria();
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+			return isCritical();
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
+			return getCriticalityCount();
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			return getRequiredBy();
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			return getHeldResponsibility();
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			return getProducedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -492,32 +533,36 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__NAME:
-				setName((String)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
-				setEnabled((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				setSatisifed((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
-				setSatisfactionCriteria((String)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
-				setCritical((Boolean)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
-				setCriticalityCount((Integer)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				getRequiredBy().clear();
-				getRequiredBy().addAll((Collection<? extends actorRequiredRelationship>)newValue);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				getHeldResponsibility().clear();
-				getHeldResponsibility().addAll((Collection<? extends actorHoldsRelationship>)newValue);
-				return;
+		case ResponsibilityMetaModelPackage.ACTOR__NAME:
+			setName((String)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
+			setEnabled((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
+			setSatisifed((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
+			setSatisfactionCriteria((String)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+			setCritical((Boolean)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
+			setCriticalityCount((Integer)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			getRequiredBy().clear();
+			getRequiredBy().addAll((Collection<? extends actorRequiredRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			getHeldResponsibility().clear();
+			getHeldResponsibility().addAll((Collection<? extends actorHoldsRelationship>)newValue);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			getProducedBy().clear();
+			getProducedBy().addAll((Collection<? extends actorProducedRelationship>)newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -530,30 +575,33 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
-				setEnabled(ENABLED_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				setSatisifed(SATISIFED_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
-				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
-				setCritical(CRITICAL_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
-				setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				getRequiredBy().clear();
-				return;
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				getHeldResponsibility().clear();
-				return;
+		case ResponsibilityMetaModelPackage.ACTOR__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
+			setEnabled(ENABLED_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
+			setSatisifed(SATISIFED_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
+			setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+			setCritical(CRITICAL_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
+			setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			getRequiredBy().clear();
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			getHeldResponsibility().clear();
+			return;
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			getProducedBy().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -566,22 +614,24 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.ACTOR__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
-				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				return satisifed != SATISIFED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
-				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
-				return critical != CRITICAL_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
-				return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
-			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
-				return requiredBy != null && !requiredBy.isEmpty();
-			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
-				return heldResponsibility != null && !heldResponsibility.isEmpty();
+		case ResponsibilityMetaModelPackage.ACTOR__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
+			return enabled != ENABLED_EDEFAULT;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
+			return satisifed != SATISIFED_EDEFAULT;
+		case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
+			return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
+			return critical != CRITICAL_EDEFAULT;
+		case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
+			return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
+		case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
+			return requiredBy != null && !requiredBy.isEmpty();
+		case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
+			return heldResponsibility != null && !heldResponsibility.isEmpty();
+		case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
+			return producedBy != null && !producedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -594,10 +644,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResponsibilityMetaModelPackage.ACTOR___SATISFIED:
-				return satisfied();
-			case ResponsibilityMetaModelPackage.ACTOR___RELIANCE:
-				return reliance();
+		case ResponsibilityMetaModelPackage.ACTOR___SATISFIED:
+			return satisfied();
+		case ResponsibilityMetaModelPackage.ACTOR___RELIANCE:
+			return reliance();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

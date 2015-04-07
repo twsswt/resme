@@ -16,6 +16,8 @@
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/subRresponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" upperBound="-1"
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedActor" upperBound="-1"
+        eType="#//actorProducedRelationship" eOpposite="#//actorProducedRelationship/responsibility"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
@@ -31,6 +33,8 @@
         eType="#//actorRequiredRelationship" eOpposite="#//actorRequiredRelationship/actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="heldResponsibility" upperBound="-1"
         eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" upperBound="-1"
+        eType="#//actorProducedRelationship" eOpposite="#//actorProducedRelationship/actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eOperations name="getEntities" ordered="false" upperBound="-1" eType="#//Entity"/>
@@ -90,5 +94,11 @@
         eOpposite="#//Responsibility/superResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" eType="#//Responsibility"
         eOpposite="#//Responsibility/subResponsibility"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="actorProducedRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/producedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
+        eOpposite="#//Responsibility/producedActor"/>
   </eClassifiers>
 </ecore:EPackage>

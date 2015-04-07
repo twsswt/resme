@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link responsibilityMetaModel.Actor#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.Actor#getHeldResponsibility <em>Held Responsibility</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Actor#getProducedBy <em>Produced By</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +60,24 @@ public interface Actor extends Entity {
 	 * @generated
 	 */
 	EList<actorHoldsRelationship> getHeldResponsibility();
+
+	/**
+	 * Returns the value of the '<em><b>Produced By</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.actorProducedRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.actorProducedRelationship#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Produced By</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Produced By</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getActor_ProducedBy()
+	 * @see responsibilityMetaModel.actorProducedRelationship#getActor
+	 * @model opposite="actor"
+	 * @generated
+	 */
+	EList<actorProducedRelationship> getProducedBy();
 
 	/**
 	 * <!-- begin-user-doc -->

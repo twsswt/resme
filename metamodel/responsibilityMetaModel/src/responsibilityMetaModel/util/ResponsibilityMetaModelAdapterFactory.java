@@ -112,6 +112,10 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 				return createresponsibilityRequiredRelationshipAdapter();
 			}
 			@Override
+			public Adapter caseactorProducedRelationship(actorProducedRelationship object) {
+				return createactorProducedRelationshipAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -282,6 +286,20 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createresponsibilityRequiredRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.actorProducedRelationship <em>actor Produced Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.actorProducedRelationship
+	 * @generated
+	 */
+	public Adapter createactorProducedRelationshipAdapter() {
 		return null;
 	}
 
