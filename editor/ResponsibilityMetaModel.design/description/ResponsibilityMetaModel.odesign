@@ -297,7 +297,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createProducedActor" label="Produced Actor" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@edgeMappings[name='producedActor']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createProducedActor" label="Produce Actor" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@edgeMappings[name='producedActor']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -316,7 +316,7 @@
           </ownedTools>
         </toolSections>
         <toolSections label="Configure">
-          <ownedTools xsi:type="tool_1:ToolDescription" name="anaylse" precondition="[container.eClass()&lt;>Scenario/]" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="satisfaction" precondition="[container.eClass()&lt;>Scenario/]" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
