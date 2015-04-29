@@ -62,6 +62,7 @@ public class ResponsibilityItemProvider
 			addHeldByPropertyDescriptor(object);
 			addSuperResponsibilityPropertyDescriptor(object);
 			addSubResponsibilityPropertyDescriptor(object);
+			addProducedActorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -322,6 +323,28 @@ public class ResponsibilityItemProvider
 				 getString("_UI_Responsibility_subResponsibility_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_subResponsibility_feature", "_UI_Responsibility_type"),
 				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__SUB_RESPONSIBILITY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Produced Actor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProducedActorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Responsibility_producedActor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Responsibility_producedActor_feature", "_UI_Responsibility_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY__PRODUCED_ACTOR,
 				 true,
 				 false,
 				 true,

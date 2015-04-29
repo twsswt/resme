@@ -234,6 +234,11 @@ public class ScenarioItemProvider
 			(createChildParameter
 				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
 				 ResponsibilityMetaModelFactory.eINSTANCE.createresponsibilityRequiredRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createactorProducedRelationship()));
 	}
 
 	/**

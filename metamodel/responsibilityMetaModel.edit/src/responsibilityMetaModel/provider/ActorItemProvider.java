@@ -58,6 +58,7 @@ public class ActorItemProvider
 			addCriticalityCountPropertyDescriptor(object);
 			addRequiredByPropertyDescriptor(object);
 			addHeldResponsibilityPropertyDescriptor(object);
+			addProducedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -230,6 +231,28 @@ public class ActorItemProvider
 				 getString("_UI_Actor_heldResponsibility_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_heldResponsibility_feature", "_UI_Actor_type"),
 				 ResponsibilityMetaModelPackage.Literals.ACTOR__HELD_RESPONSIBILITY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Produced By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProducedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_producedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_producedBy_feature", "_UI_Actor_type"),
+				 ResponsibilityMetaModelPackage.Literals.ACTOR__PRODUCED_BY,
 				 true,
 				 false,
 				 true,

@@ -279,6 +279,29 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.actorProducedRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected actorProducedRelationshipItemProvider actorProducedRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.actorProducedRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createactorProducedRelationshipAdapter() {
+		if (actorProducedRelationshipItemProvider == null) {
+			actorProducedRelationshipItemProvider = new actorProducedRelationshipItemProvider(this);
+		}
+
+		return actorProducedRelationshipItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 		if (actorRequiredRelationshipItemProvider != null) actorRequiredRelationshipItemProvider.dispose();
 		if (actorHoldsRelationshipItemProvider != null) actorHoldsRelationshipItemProvider.dispose();
 		if (responsibilityRequiredRelationshipItemProvider != null) responsibilityRequiredRelationshipItemProvider.dispose();
+		if (actorProducedRelationshipItemProvider != null) actorProducedRelationshipItemProvider.dispose();
 	}
 
 }
