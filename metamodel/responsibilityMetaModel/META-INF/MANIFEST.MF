@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Responsibility Modelling Meta Model
 Bundle-SymbolicName: responsibilityMetaModel;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.1.0
 Bundle-ClassPath: .,
  lib/
-Bundle-Vendor: %providerName
+Bundle-Vendor: Robbie Simpson
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: responsibilityMetaModel;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
