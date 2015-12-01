@@ -279,42 +279,44 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 
 		//This approach is rough, and only allows one critical entity of each type
 		int max = 0;
-		Entity crit = null;
+//		Entity crit = null;
 		for (Actor a: actors){
 			a.setCritical(false);
 			if (a.getCriticalityCount() > max){
 				max = a.getCriticalityCount();
-				crit = a;
+//				crit = a;
 			}
 		}
-		if (crit!=null){
-			crit.setCritical(true);
+		for (Entity e: actors){
+			if (e.getCriticalityCount() == max){
+				e.setCritical(true);
+			}
 		}
 		
 		max = 0;
-		crit = null;
 		for (Resource a: resources){
 			a.setCritical(false);
 			if (a.getCriticalityCount() > max){
 				max = a.getCriticalityCount();
-				crit = a;
 			}
 		}
-		if (crit!=null){
-			crit.setCritical(true);
+		for (Entity e: resources){
+			if (e.getCriticalityCount() == max){
+				e.setCritical(true);
+			}
 		}
 		
 		max = 0;
-		crit = null;
 		for (Responsibility a: responsibilities){
 			a.setCritical(false);
 			if (a.getCriticalityCount() > max){
 				max = a.getCriticalityCount();
-				crit = a;
 			}
 		}
-		if (crit!=null){
-			crit.setCritical(true);
+		for (Entity e: resources){
+			if (e.getCriticalityCount() == max){
+				e.setCritical(true);
+			}
 		}
 	}
 
