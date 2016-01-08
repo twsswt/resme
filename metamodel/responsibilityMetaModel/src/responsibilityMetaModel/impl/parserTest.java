@@ -21,7 +21,7 @@ public class parserTest {
 	//System.out.println(lexer.getAllTokens());
 	UnbufferedTokenStream<Token> t = new UnbufferedTokenStream<>(lexer);
 	List<Entity> newList = new ArrayList<Entity>();
-	satisfactionParser parser = new satisfactionParser(t, newList);
+	satisfactionParser parser = new satisfactionParser(t);
 	        
 	try
 	{

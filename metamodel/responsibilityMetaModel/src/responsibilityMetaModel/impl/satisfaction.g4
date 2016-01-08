@@ -1,4 +1,42 @@
+
+
 grammar satisfaction;
+
+@lexer::header{
+
+package responsibilityMetaModel.impl;
+
+}
+
+@parser::header{
+
+package responsibilityMetaModel.impl;
+
+import responsibilityMetaModel.Entity;
+	
+}
+
+@parser::members {
+
+	private List<Entity> context;
+		
+	public satisfactionParser(TokenStream input, List<Entity> c) {
+		super(input);
+		context = c;
+		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
+	}
+		
+	private boolean lookup(String string) {
+	
+		//Search
+		for (Entity e : context){
+			if (e.getName().equals(string)){
+				return e.satisfied(); //return status
+			}
+		}
+		return false; //if no match, return false
+	}
+}
 
 eval returns [boolean value]
 	:	exp=expression {$value=$exp.value;};
