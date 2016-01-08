@@ -64,7 +64,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//actorHoldsRelationship/actor"/>
     </genClasses>
     <genClasses ecoreClass="responsibilityMetaModel.ecore#//responsibilityRequiredRelationship">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//responsibilityRequiredRelationship/subRresponsibility"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//responsibilityRequiredRelationship/subResponsibility"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//responsibilityRequiredRelationship/superResponsibility"/>
     </genClasses>
     <genClasses ecoreClass="responsibilityMetaModel.ecore#//actorProducedRelationship">

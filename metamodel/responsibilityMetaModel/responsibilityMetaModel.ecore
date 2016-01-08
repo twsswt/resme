@@ -13,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="heldBy" upperBound="-1"
         eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/responsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" upperBound="-1"
-        eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/subRresponsibility"/>
+        eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/subResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" upperBound="-1"
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedActor" upperBound="-1"
@@ -90,7 +90,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="responsibilityRequiredRelationship"
       eSuperTypes="#//Relation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subRresponsibility" eType="#//Responsibility"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subResponsibility" eType="#//Responsibility"
         eOpposite="#//Responsibility/superResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superResponsibility" eType="#//Responsibility"
         eOpposite="#//Responsibility/subResponsibility"/>
