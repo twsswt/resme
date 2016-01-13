@@ -40,7 +40,19 @@
 		<ivy:retrieve />
 	</target>
 	
-	<target name="generate-code" depends="init,resolve">
+	<target name="generate-model-code">
+	
+		<emf.Ecore2Java
+			model="responsibilityMetaModel.ecore" 
+			genModel="${output.dir}/responsibilityMetaModel.genmodel" 
+			modelProject="${output.dir}/model"
+			modelProjectFragmentPath="src/"
+			
+		/>
+		
+	</target>
+	
+	<target name="generate-satisfaction-code" depends="init,resolve">
 		
 		<java 
 			classpathref="project.classpath" 
@@ -60,7 +72,7 @@
 	</target>
 
 	
-	<target name="compile" depends="init,resolve,generate-code">
+	<target name="compile" depends="init,resolve,generate-satisfaction-code">
 		<javac
 			destdir="${bin.dir}"
 			debug="true"
