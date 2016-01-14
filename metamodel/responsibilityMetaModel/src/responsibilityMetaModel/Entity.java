@@ -207,6 +207,9 @@ public interface Entity extends EObject {
 	 */
 	RelianceHelper reliesOn(EList<Entity> visited, EList<Actor> depends);
 	
+	/**
+	 * @generated not
+	 */
 	CriticalityHelper criticalityAnalysis(EList<Entity> visited, EList<Responsibility> resps, boolean flag);
 
 } // Entity
