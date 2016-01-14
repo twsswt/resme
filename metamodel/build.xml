@@ -16,7 +16,11 @@
 		/>
 		
 	</target>
+
+	<target name="export-plugins" >
+	</target>
 	
+	<target name="build" depends="export-plugins" />
 	
 </project>
 

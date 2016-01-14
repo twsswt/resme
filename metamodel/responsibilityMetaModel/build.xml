@@ -17,6 +17,8 @@
 	<property name="output.src.dir" value="${output.dir}/generated-sources"/>
 	<property name="antlr.output.src.dir" value="${output.dir}/generated-sources/antlr4"/>
 	
+	<property file="plugin.properties"/>
+	
 	<property environment="env"/>
 	
 	<path id="project.classpath">
@@ -70,21 +72,17 @@
 			<classpath refid="project.classpath"/>
 		</javac>
 	</target>
-	
 		
+	<target name="bundle-plugin" depends="compile" >
+		<jar destfile="${output.dir}/bundles/${pluginName}-${ivy.revision}.zip" manifest="META-INF/MANIFEST.MF">
+			<fileset dir="${bin.dir}" includes="**/*.class" />
+			<fileset dir="." includes="model/*.aird"/>
+			<fileset file="plugin.xml"/>
+			<fileset file="${ivy.lib.dir}/antlr4-4.5.1.jar"/>
+		</jar>
+	</target>
+
 	<target name="build" depends="compile" />
-	
-	<target name="bundle" depends="compile" >
-		<jar destfile="$target.dir}/bundles/${ivy.module}-${ivy.revision}.jar"
-			 basedir="${bin.dir}"
-			 includes="**/*.class" />
-	</target>
-	
-	<target name="deploy" depends ="bundle">
-		<ivy:publish resolver="local" overwrite="true">
-			<artifacts pattern="[module]-[revision].[ext]" />
-		</ivy:publish>
-	</target>
 
 	
 </project>
