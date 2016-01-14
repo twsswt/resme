@@ -24,7 +24,6 @@
 		<fileset dir="${ivy.lib.dir}"/>
 	</path>
 	
-	
 	<target name="init">
 		<mkdir dir="${bin.dir}"/>
 		<copy includeemptydirs="false" todir="${bin.dir}">
@@ -34,22 +33,9 @@
 		</copy>
 	</target>
 	
-	
 	<target name="resolve">
 		<ivy:resolve resolveMode="dynamic" />
 		<ivy:retrieve />
-	</target>
-	
-	<target name="generate-model-code">
-	
-		<emf.Ecore2Java
-			model="responsibilityMetaModel.ecore" 
-			genModel="${output.dir}/responsibilityMetaModel.genmodel" 
-			modelProject="${output.dir}/model"
-			modelProjectFragmentPath="src/"
-			
-		/>
-		
 	</target>
 	
 	<target name="generate-satisfaction-code" depends="init,resolve">
@@ -65,6 +51,7 @@
 	
 	<target name="clean">
 		<delete dir="${output.dir}"/>
+		<delete dir="${src.dir}" includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
 	</target>
 	
 	<target name="cleanall" depends="clean">
