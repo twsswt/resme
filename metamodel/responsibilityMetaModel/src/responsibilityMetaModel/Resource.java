@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.Resource#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.Resource#getProducedBy <em>Produced By</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResource()
  * @model

@@ -192,7 +192,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 		boolean oldSatisifed = satisifed;
 		satisifed = newSatisifed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.ENTITY__SATISIFED, oldSatisifed, satisifed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.ENTITY__SATISFIED, oldSatisifed, satisifed));
 	}
 
 	/**
@@ -239,7 +239,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 				return getName();
 			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 				return isSatisifed();
 			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
@@ -261,7 +261,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 				setSatisifed((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
@@ -285,7 +285,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 				setSatisifed(SATISIFED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
@@ -307,7 +307,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
@@ -323,7 +323,7 @@ public abstract class EntityImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResponsibilityMetaModelPackage.ENTITY___SATISFIED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 				return satisfied();
 		}
 		return super.eInvoke(operationID, arguments);

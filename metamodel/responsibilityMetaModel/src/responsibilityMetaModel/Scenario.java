@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.Scenario#getResources <em>Resources</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getResponsibilities <em>Responsibilities</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Scenario#getRelations <em>Relations</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getScenario()
  * @model

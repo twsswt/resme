@@ -100,20 +100,20 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The default value of the '{@link #isSatisfied() <em>Satisifed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean SATISIFED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The cached value of the '{@link #isSatisfied() <em>Satisifed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
@@ -315,7 +315,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSatisifed() {
+	public boolean isSatisfied() {
 		return satisifed;
 	}
 
@@ -324,11 +324,11 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSatisifed(boolean newSatisifed) {
+	public void setSatisfied(boolean newSatisifed) {
 		boolean oldSatisifed = satisifed;
 		satisifed = newSatisifed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED, oldSatisifed, satisifed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED, oldSatisifed, satisifed));
 	}
 
 	/**
@@ -449,7 +449,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<responsibilityRequiredRelationship> getSuperResponsibility() {
 		if (superResponsibility == null) {
-			superResponsibility = new EObjectWithInverseResolvingEList<responsibilityRequiredRelationship>(responsibilityRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY);
+			superResponsibility = new EObjectWithInverseResolvingEList<responsibilityRequiredRelationship>(responsibilityRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY);
 		}
 		return superResponsibility;
 	}
@@ -553,10 +553,10 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		//Then resposibilities
 
 		for (responsibilityRequiredRelationship r: subResponsibility){
-			if (r.getSubRresponsibility().isEnabled()){
-				if (!visited.contains(r.getSubRresponsibility())){
-					depends = r.getSubRresponsibility().reliesOn(visited, depends).depends; //Update
-					visited.add(r.getSubRresponsibility());
+			if (r.getSubResponsibility().isEnabled()){
+				if (!visited.contains(r.getSubResponsibility())){
+					depends = r.getSubResponsibility().reliesOn(visited, depends).depends; //Update
+					visited.add(r.getSubResponsibility());
 				}
 			}
 
@@ -677,8 +677,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return getName();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				return isSatisifed();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
+				return isSatisfied();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
@@ -718,8 +718,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				setSatisifed((Boolean)newValue);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
+				setSatisfied((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
@@ -776,8 +776,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
-				setSatisifed(SATISIFED_EDEFAULT);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
+				setSatisfied(SATISIFED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
@@ -825,7 +825,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
 				return satisifed != SATISIFED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
@@ -859,7 +859,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY___SATISFIED:
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
 				return satisfied();
 		}
 		return super.eInvoke(operationID, arguments);

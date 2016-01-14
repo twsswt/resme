@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.Actor#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.Actor#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.Actor#getProducedBy <em>Produced By</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getActor()
  * @model
@@ -87,6 +87,10 @@ public interface Actor extends Entity {
 	 */
 	boolean satisfied();
 	
+	
+	/**
+	 * @generated NOT
+	 */
 	public List<Actor> reliance();
 
 } // Actor

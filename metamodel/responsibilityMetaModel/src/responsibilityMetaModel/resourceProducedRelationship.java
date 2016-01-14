@@ -10,11 +10,11 @@ package responsibilityMetaModel;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.resourceProducedRelationship#getResponsibility <em>Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.resourceProducedRelationship#getResource <em>Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getresourceProducedRelationship()
  * @model

@@ -15,15 +15,15 @@ import responsibilityMetaModel.impl.RelianceHelper;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.Entity#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#isSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#getCriticalityCount <em>Criticality Count</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity()
  * @model interface="true" abstract="true"
@@ -84,31 +84,31 @@ public interface Entity extends EObject {
 	void setEnabled(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Satisifed</b></em>' attribute.
+	 * Returns the value of the '<em><b>Satisfied</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Satisifed</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Satisfied</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Satisifed</em>' attribute.
-	 * @see #setSatisifed(boolean)
-	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_Satisifed()
+	 * @return the value of the '<em>Satisfied</em>' attribute.
+	 * @see #setSatisfied(boolean)
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_Satisfied()
 	 * @model default="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 * @generated
 	 */
-	boolean isSatisifed();
+	boolean isSatisfied();
 
 	/**
-	 * Sets the value of the '{@link responsibilityMetaModel.Entity#isSatisifed <em>Satisifed</em>}' attribute.
+	 * Sets the value of the '{@link responsibilityMetaModel.Entity#isSatisfied <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Satisifed</em>' attribute.
-	 * @see #isSatisifed()
+	 * @param value the new value of the '<em>Satisfied</em>' attribute.
+	 * @see #isSatisfied()
 	 * @generated
 	 */
-	void setSatisifed(boolean value);
+	void setSatisfied(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Satisfaction Criteria</b></em>' attribute.

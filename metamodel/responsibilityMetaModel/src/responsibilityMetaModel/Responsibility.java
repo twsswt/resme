@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.Responsibility#getRequiredResource <em>Required Resource</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getProducedResource <em>Produced Resource</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link responsibilityMetaModel.Responsibility#getSubResponsibility <em>Sub Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.Responsibility#getProducedActor <em>Produced Actor</em>}</li>
  * </ul>
- * </p>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility()
  * @model
@@ -102,7 +102,7 @@ public interface Responsibility extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Super Responsibility</b></em>' reference list.
 	 * The list contents are of type {@link responsibilityMetaModel.responsibilityRequiredRelationship}.
-	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.responsibilityRequiredRelationship#getSubRresponsibility <em>Sub Rresponsibility</em>}'.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.responsibilityRequiredRelationship#getSubResponsibility <em>Sub Responsibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Super Responsibility</em>' reference list isn't clear,
@@ -111,8 +111,8 @@ public interface Responsibility extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Super Responsibility</em>' reference list.
 	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getResponsibility_SuperResponsibility()
-	 * @see responsibilityMetaModel.responsibilityRequiredRelationship#getSubRresponsibility
-	 * @model opposite="subRresponsibility"
+	 * @see responsibilityMetaModel.responsibilityRequiredRelationship#getSubResponsibility
+	 * @model opposite="subResponsibility"
 	 * @generated
 	 */
 	EList<responsibilityRequiredRelationship> getSuperResponsibility();
