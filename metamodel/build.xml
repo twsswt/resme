@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project
+	name="resme-metamodel"
+	basedir="."
+	default="build"
+	>
+	
+	<target name="generate-model-code">
+	
+		<emf.Ecore2Java
+			model="responsibilityMetaModel.ecore" 
+			genModel="responsibilityMetaModel.genmodel" 
+			modelProject="responsibilityMetaModel"
+			modelProjectFragmentPath="src/"
+		/>
+		
+	</target>
+	
+	
+</project>
+
