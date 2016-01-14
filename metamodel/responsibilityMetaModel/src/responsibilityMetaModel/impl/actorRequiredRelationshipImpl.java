@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import responsibilityMetaModel.Actor;
@@ -23,15 +22,15 @@ import responsibilityMetaModel.actorRequiredRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.actorRequiredRelationshipImpl#getResponsibility <em>Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.actorRequiredRelationshipImpl#getActor <em>Actor</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class actorRequiredRelationshipImpl extends EObjectImpl implements actorRequiredRelationship {
+public class actorRequiredRelationshipImpl extends MinimalEObjectImpl.Container implements actorRequiredRelationship {
 	/**
 	 * The cached value of the '{@link #getResponsibility() <em>Responsibility</em>}' reference.
 	 * <!-- begin-user-doc -->

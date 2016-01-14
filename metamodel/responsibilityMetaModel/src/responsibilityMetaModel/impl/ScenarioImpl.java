@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,7 +31,6 @@ import responsibilityMetaModel.Scenario;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getResponsibilities <em>Responsibilities</em>}</li>
@@ -40,10 +38,11 @@ import responsibilityMetaModel.Scenario;
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getRelations <em>Relations</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getName <em>Name</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class ScenarioImpl extends EObjectImpl implements Scenario {
+public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenario {
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -442,6 +441,23 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResponsibilityMetaModelPackage.SCENARIO___GET_ENTITIES:
+				return getEntities();
+			case ResponsibilityMetaModelPackage.SCENARIO___CRITICALITY_ANALYSIS:
+				criticalityAnalysis();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

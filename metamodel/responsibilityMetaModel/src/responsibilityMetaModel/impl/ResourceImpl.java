@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,7 +31,6 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
@@ -43,10 +41,11 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class ResourceImpl extends EObjectImpl implements Resource {
+public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -550,6 +549,20 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 				return producedBy != null && !producedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResponsibilityMetaModelPackage.RESOURCE___SATISFIED:
+				return satisfied();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

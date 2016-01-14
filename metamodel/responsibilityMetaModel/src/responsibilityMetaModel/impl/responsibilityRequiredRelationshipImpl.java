@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import responsibilityMetaModel.Responsibility;
@@ -22,24 +21,24 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- *   <li>{@link responsibilityMetaModel.impl.responsibilityRequiredRelationshipImpl#getSubResponsibility <em>Sub Responsibility</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.responsibilityRequiredRelationshipImpl#getSubRresponsibility <em>Sub Rresponsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.responsibilityRequiredRelationshipImpl#getSuperResponsibility <em>Super Responsibility</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class responsibilityRequiredRelationshipImpl extends EObjectImpl implements responsibilityRequiredRelationship {
+public class responsibilityRequiredRelationshipImpl extends MinimalEObjectImpl.Container implements responsibilityRequiredRelationship {
 	/**
-	 * The cached value of the '{@link #getSubResponsibility() <em>Sub Responsibility</em>}' reference.
+	 * The cached value of the '{@link #getSubRresponsibility() <em>Sub Rresponsibility</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubResponsibility()
+	 * @see #getSubRresponsibility()
 	 * @generated
 	 * @ordered
 	 */
-	protected Responsibility subResponsibility;
+	protected Responsibility subRresponsibility;
 
 	/**
 	 * The cached value of the '{@link #getSuperResponsibility() <em>Super Responsibility</em>}' reference.
@@ -75,16 +74,16 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Responsibility getSubResponsibility() {
-		if (subResponsibility != null && subResponsibility.eIsProxy()) {
-			InternalEObject oldSubResponsibility = (InternalEObject)subResponsibility;
-			subResponsibility = (Responsibility)eResolveProxy(oldSubResponsibility);
-			if (subResponsibility != oldSubResponsibility) {
+	public Responsibility getSubRresponsibility() {
+		if (subRresponsibility != null && subRresponsibility.eIsProxy()) {
+			InternalEObject oldSubRresponsibility = (InternalEObject)subRresponsibility;
+			subRresponsibility = (Responsibility)eResolveProxy(oldSubRresponsibility);
+			if (subRresponsibility != oldSubRresponsibility) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY, oldSubResponsibility, subResponsibility));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY, oldSubRresponsibility, subRresponsibility));
 			}
 		}
-		return subResponsibility;
+		return subRresponsibility;
 	}
 
 	/**
@@ -92,8 +91,8 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Responsibility basicGetSubResponsibility() {
-		return subResponsibility;
+	public Responsibility basicGetSubRresponsibility() {
+		return subRresponsibility;
 	}
 
 	/**
@@ -101,11 +100,11 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubResponsibility(Responsibility newSubResponsibility, NotificationChain msgs) {
-		Responsibility oldSubResponsibility = subResponsibility;
-		subResponsibility = newSubResponsibility;
+	public NotificationChain basicSetSubRresponsibility(Responsibility newSubRresponsibility, NotificationChain msgs) {
+		Responsibility oldSubRresponsibility = subRresponsibility;
+		subRresponsibility = newSubRresponsibility;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY, oldSubResponsibility, newSubResponsibility);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY, oldSubRresponsibility, newSubRresponsibility);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -116,18 +115,18 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubResponsibility(Responsibility newSubResponsibility) {
-		if (newSubResponsibility != subResponsibility) {
+	public void setSubRresponsibility(Responsibility newSubRresponsibility) {
+		if (newSubRresponsibility != subRresponsibility) {
 			NotificationChain msgs = null;
-			if (subResponsibility != null)
-				msgs = ((InternalEObject)subResponsibility).eInverseRemove(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
-			if (newSubResponsibility != null)
-				msgs = ((InternalEObject)newSubResponsibility).eInverseAdd(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
-			msgs = basicSetSubResponsibility(newSubResponsibility, msgs);
+			if (subRresponsibility != null)
+				msgs = ((InternalEObject)subRresponsibility).eInverseRemove(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
+			if (newSubRresponsibility != null)
+				msgs = ((InternalEObject)newSubRresponsibility).eInverseAdd(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
+			msgs = basicSetSubRresponsibility(newSubRresponsibility, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY, newSubResponsibility, newSubResponsibility));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY, newSubRresponsibility, newSubRresponsibility));
 	}
 
 	/**
@@ -198,10 +197,10 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				if (subResponsibility != null)
-					msgs = ((InternalEObject)subResponsibility).eInverseRemove(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
-				return basicSetSubResponsibility((Responsibility)otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				if (subRresponsibility != null)
+					msgs = ((InternalEObject)subRresponsibility).eInverseRemove(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUPER_RESPONSIBILITY, Responsibility.class, msgs);
+				return basicSetSubRresponsibility((Responsibility)otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				if (superResponsibility != null)
 					msgs = ((InternalEObject)superResponsibility).eInverseRemove(this, ResponsibilityMetaModelPackage.RESPONSIBILITY__SUB_RESPONSIBILITY, Responsibility.class, msgs);
@@ -218,8 +217,8 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				return basicSetSubResponsibility(null, msgs);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				return basicSetSubRresponsibility(null, msgs);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				return basicSetSuperResponsibility(null, msgs);
 		}
@@ -234,9 +233,9 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				if (resolve) return getSubResponsibility();
-				return basicGetSubResponsibility();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				if (resolve) return getSubRresponsibility();
+				return basicGetSubRresponsibility();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				if (resolve) return getSuperResponsibility();
 				return basicGetSuperResponsibility();
@@ -252,8 +251,8 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				setSubResponsibility((Responsibility)newValue);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				setSubRresponsibility((Responsibility)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				setSuperResponsibility((Responsibility)newValue);
@@ -270,8 +269,8 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				setSubResponsibility((Responsibility)null);
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				setSubRresponsibility((Responsibility)null);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				setSuperResponsibility((Responsibility)null);
@@ -288,8 +287,8 @@ public class responsibilityRequiredRelationshipImpl extends EObjectImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY:
-				return subResponsibility != null;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY:
+				return subRresponsibility != null;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUPER_RESPONSIBILITY:
 				return superResponsibility != null;
 		}
