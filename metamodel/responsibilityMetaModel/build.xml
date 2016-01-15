@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <project
-	name="resme"
+	name="resme-metamodel-model"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
 	default="build"
@@ -78,6 +78,7 @@
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset dir="." includes="model/*.aird"/>
 			<fileset file="plugin.xml"/>
+			<fileset file="plugin.properties"/>
 			<fileset file="${ivy.lib.dir}/antlr4-4.5.1.jar"/>
 		</jar>
 	</target>

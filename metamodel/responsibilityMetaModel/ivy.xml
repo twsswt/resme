@@ -1,6 +1,6 @@
 <ivy-module version="2.0">
 
-	<info organisation="uk.ac.glasgow" module="resme" revision="0.0.1"/>
+	<info organisation="uk.ac.glasgow" module="resme-metamodel" revision="0.0.1"/>
 
 	<dependencies>
 

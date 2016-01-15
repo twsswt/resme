@@ -1,4 +1,4 @@
-package responsibilityMetaModel.impl;
+package responsibilityMetaModel.tests;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +9,8 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.UnbufferedTokenStream;
 
 import responsibilityMetaModel.Entity;
+import responsibilityMetaModel.impl.satisfactionLexer;
+import responsibilityMetaModel.impl.satisfactionParser;
 
 public class parserTest {
 	
