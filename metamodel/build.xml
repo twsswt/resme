@@ -18,6 +18,7 @@
 			modelProjectFragmentPath="src/"
 		>
 			<arg line="-editProject responsibilityMetaModel.edit src" />
+			<arg line="-editorProject responsibilityMetaModel.editor src" />
 			<arg line="-testsProject responsibilityMetaModel.tests src" />
 
 		</emf.Ecore2Java>
