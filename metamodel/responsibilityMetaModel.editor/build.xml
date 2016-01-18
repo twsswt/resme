@@ -57,7 +57,7 @@
 		
 		
 	<target name="bundle-plugin" depends="compile" >
-		<jar destfile="${output.dir}/bundles/${ant.project.name}.zip" manifest="META-INF/MANIFEST.MF">
+		<jar destfile="${output.dir}/bundles/${ant.project.name}-${ivy.revision}.jar" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset file="plugin.xml"/>
 			<fileset file="plugin.properties"/>

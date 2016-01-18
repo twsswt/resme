@@ -83,7 +83,7 @@
 	<target name="bundle-plugin" depends="compile" >
 		
 		<jar
-			destfile="${output.dir}/bundles/${ant.project.name}-${ivy.version}.zip"
+			destfile="${output.dir}/bundles/${ant.project.name}-${ivy.revision}.jar"
 			manifest="META-INF/MANIFEST.MF"
 			>
 			

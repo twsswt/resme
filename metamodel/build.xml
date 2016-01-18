@@ -40,13 +40,10 @@
 		<ant inheritall="false" dir="responsibilityMetaModel.tests"></ant>
 
 		<zip destfile="resme-metamodel.zip">
-			<zipfileset prefix="plugins" dir="."
-				includes=
-					"responsibilityMetaModel/target/bundles/resme-metamodel-model-${release}.jar,
-					 responsibilityMetaModel.edit/target/bundles/resme-metamodel-edit-${release}.jar,
-					 responsibilityMetaModel.editor/target/bundles/resme-metamodel-editor-${release}.jar,
-					 responsibilityMetaModel.tests//target/bundles/resme-metamodel-tests-${release}.jar"
-				/>
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel/target/bundles" includes="resme-metamodel-model-${release}.jar"/> 
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel.edit/target/bundles" includes="resme-metamodel-edit-${release}.jar"/> 
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel.editor/target/bundles" includes="resme-metamodel-editor-${release}.jar"/> 
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel.tests/target/bundles" includes="resme-metamodel-tests-${release}.jar"/> 
 		</zip>
 		
 	</target>
