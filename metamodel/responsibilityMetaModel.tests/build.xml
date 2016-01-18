@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <project
-	name="${ivy.module}"
+	name="resme-metamodel-tests"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
 	default="build"
@@ -43,8 +43,8 @@
 	
 	<target name="clean">
 		<delete dir="${output.dir}"/>
-		<delete dir="${src.dir}" includes="**/*.java" excludes="**/ParserTest.java" />
 	</target>
+
 	
 	<target name="cleanall" depends="clean">
 		<ivy:cleancache/>
@@ -83,7 +83,7 @@
 	<target name="bundle-plugin" depends="compile" >
 		
 		<jar
-			destfile="${output.dir}/bundles/${ivy.module}-${ivy.revision}.zip"
+			destfile="${output.dir}/bundles/${ant.project.name}-${ivy.version}.zip"
 			manifest="META-INF/MANIFEST.MF"
 			>
 			

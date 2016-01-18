@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <project
-	name="${ivy.module}"
+	name="resme-metamodel-model"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
 	default="build"
@@ -19,10 +19,15 @@
 	<property environment="env"/>
 	
 	<path id="project.classpath">
+		<fileset dir="${ivy.lib.dir}"/>
 		<pathelement location="${bin.dir}"/>
+		<fileset dir="${eclipse.home}/plugins"/>
+	</path>
+
+	<path id="antlr.classpath">
 		<fileset dir="${ivy.lib.dir}"/>
 	</path>
-	
+
 	
 	<target name="init">
 		<mkdir dir="${bin.dir}"/>
@@ -43,7 +48,7 @@
 	<target name="generate-satisfaction-code" depends="init,retrieve-dependencies">
 		
 		<java 
-			classpathref="project.classpath" 
+			classpathref="antlr.classpath" 
 			classname="org.antlr.v4.Tool">
 			<arg line="-o ${antlr.output.src.dir}/responsibilityMetaModel/impl" />
 			<arg line="src/responsibilityMetaModel/impl/satisfaction.g4" />
@@ -53,7 +58,6 @@
 	
 	<target name="clean">
 		<delete dir="${output.dir}"/>
-		<delete dir="${src.dir}" includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
 	</target>
 
 	
@@ -76,7 +80,7 @@
 
 	
 	<target name="bundle-plugin" depends="compile" >
-		<jar destfile="${output.dir}/bundles/${ivy.module}-${ivy.revision}.zip" manifest="META-INF/MANIFEST.MF">
+		<jar destfile="${output.dir}/bundles/${ant.project.name}.zip" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset dir="." includes="model/*.aird"/>
 			<fileset file="plugin.xml"/>
