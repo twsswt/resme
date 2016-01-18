@@ -29,15 +29,19 @@
 	</target>
 
 	<target name="clean">
+		<ant inheritall="false" dir="responsibilityMetaModel" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.edit" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.editor" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.tests" target="clean" />
 		<delete dir="." includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
 	</target>
 	
 	<target name="export-plugins" depends="">
 
-		<ant inheritall="false" dir="responsibilityMetaModel"></ant>
-		<ant inheritall="false" dir="responsibilityMetaModel.edit"></ant>
-		<ant inheritall="false" dir="responsibilityMetaModel.editor"></ant>
-		<ant inheritall="false" dir="responsibilityMetaModel.tests"></ant>
+		<ant inheritall="false" dir="responsibilityMetaModel"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.edit"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.editor"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.tests"/>
 
 		<zip destfile="resme-metamodel.zip">
 			<zipfileset prefix="plugins" dir="responsibilityMetaModel/target/bundles" includes="resme-metamodel-model-${release}.jar"/> 
