@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <project
-	name="resme-metamodel-edit"
+	name="${ivy.module}"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
 	default="build"
 	>
 	
-	<property name="release" value="0.0.1" />
-
+	
 	<property name="src.dir" value="src"/>
+	
 	<property name="output.dir" value="target"/>
-
 	<property name="bin.dir" value="${output.dir}/bin"/>
 	<property name="ivy.lib.dir" value="${output.dir}/lib"/>
-	<property name="output.src.dir" value="${output.dir}/generated-sources"/>
 	<property name="reports.tests" value="${output.dir}/reports/junit"/>
 	
-	<property file="plugin.properties"/>
 	
 	<property environment="env"/>
 	
@@ -26,6 +23,7 @@
 		<pathelement location="../responsibilityMetaModel/${bin.dir}"/>
 		<fileset dir="${ivy.lib.dir}"/>
 	</path>
+	
 	
 	<target name="init">
 		<mkdir dir="${bin.dir}"/>
@@ -36,14 +34,16 @@
 		</copy>
 	</target>
 	
-	<target name="resolve">
+	
+	<target name="retrieve-dependencies">
 		<ivy:resolve resolveMode="dynamic" />
 		<ivy:retrieve />
 	</target>
-		
+	
+	
 	<target name="clean">
 		<delete dir="${output.dir}"/>
-		<delete dir="${src.dir}" includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
+		<delete dir="${src.dir}" includes="**/*.java" excludes="**/ParserTest.java" />
 	</target>
 	
 	<target name="cleanall" depends="clean">
@@ -51,7 +51,7 @@
 	</target>
 
 	
-	<target name="compile" depends="init,resolve">
+	<target name="compile" depends="init,retrieve-dependencies">
 		<javac
 			destdir="${bin.dir}"
 			debug="true"
@@ -81,15 +81,23 @@
 	
 		
 	<target name="bundle-plugin" depends="compile" >
-		<jar destfile="${output.dir}/bundles/${pluginName}-${ivy.revision}.zip" manifest="META-INF/MANIFEST.MF">
+		
+		<jar
+			destfile="${output.dir}/bundles/${ivy.module}-${ivy.revision}.zip"
+			manifest="META-INF/MANIFEST.MF"
+			>
+			
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset file="plugin.xml"/>
 			<fileset file="plugin.properties"/>
 			<fileset dir="." includes="icons/**/*.gif"/>
+		
 		</jar>
+		
 	</target>
+	
 
-	<target name="build" depends="compile" />
+	<target name="build" depends="bundle-plugin" />
 
 	
 </project>

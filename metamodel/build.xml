@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <project
-	name="resme-metamodel-test"
+	name="resme-metamodel"
 	basedir="."
 	default="build"
 	>
+	
+	<property name="release" value="0.0.1" />
 	
 	<target name="generate-model-code">
 	
@@ -26,7 +28,23 @@
 		
 	</target>
 
-	<target name="export-plugins" >
+	<target name="export-plugins" depends="generate-model-code">
+
+		<ant dir="responsibilityMetaModel"></ant>
+		<ant dir="responsibilityMetaModel.edit"></ant>
+		<ant dir="responsibilityMetaModel.editor"></ant>
+		<ant dir="responsibilityMetaModel.tests"></ant>
+
+		<zip destfile="resme-metamodel.zip">
+			<zipfileset prefix="plugins" 
+				includes=
+					"responsibilityMetaModel/resme-metamodel-model-${release}.jar,
+					 responsibilityMetaModel.edit/resme-metamodel-edit-${release}.jar,
+					 responsibilityMetaModel.editor/resme-metamodel-editor-${release}.jar,
+					 responsibilityMetaModel.tests/resme-metamodel-tests-${release}.jar"
+				/>
+		</zip>
+		
 	</target>
 	
 	<target name="build" depends="export-plugins" />

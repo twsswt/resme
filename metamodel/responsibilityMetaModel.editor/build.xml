@@ -7,21 +7,23 @@
 	default="build"
 	>
 	
-		
+	
 	<property name="src.dir" value="src"/>
 
 	<property name="output.dir" value="target"/>
 	<property name="bin.dir" value="${output.dir}/bin"/>
 	<property name="ivy.lib.dir" value="${output.dir}/lib"/>
 	
+	
 	<property environment="env"/>
 	
 	<path id="project.classpath">
 		<pathelement location="${bin.dir}"/>
 		<pathelement location="../responsibilityMetaModel/${bin.dir}"/>
+		<pathelement location="../responsibilityMetaModel.edit/${bin.dir}"/>
 		<fileset dir="${ivy.lib.dir}"/>
 	</path>
-
+	
 	
 	<target name="init">
 		<mkdir dir="${bin.dir}"/>
@@ -31,7 +33,7 @@
 			</fileset>
 		</copy>
 	</target>
-
+	
 	
 	<target name="retrieve-dependencies">
 		<ivy:resolve resolveMode="dynamic" />
@@ -41,9 +43,9 @@
 	
 	<target name="clean">
 		<delete dir="${output.dir}"/>
-		<delete dir="${src.dir}" includes="**/*.java" excludes="**/EntityItemProvider.java" />
+		<delete dir="${src.dir}" />
 	</target>
-
+	
 	
 	<target name="cleanall" depends="clean">
 		<ivy:cleancache/>
@@ -60,8 +62,8 @@
 			<classpath refid="project.classpath"/>
 		</javac>
 	</target>
-
-	
+		
+		
 	<target name="bundle-plugin" depends="compile" >
 		<jar destfile="${output.dir}/bundles/${ivy.module}-${ivy.revision}.zip" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="${bin.dir}" includes="**/*.class" />
@@ -71,7 +73,6 @@
 		</jar>
 	</target>
 
-	
 	<target name="build" depends="bundle-plugin" />
 
 	
