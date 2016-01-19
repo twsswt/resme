@@ -36,7 +36,7 @@
 		<delete dir="." includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
 	</target>
 	
-	<target name="export-plugins" depends="">
+	<target name="export-plugins" depends="generate-model-code">
 
 		<ant inheritall="false" dir="responsibilityMetaModel"/>
 		<ant inheritall="false" dir="responsibilityMetaModel.edit"/>

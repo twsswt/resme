@@ -48,6 +48,7 @@
 	<target name="generate-satisfaction-code" depends="init,retrieve-dependencies">
 		
 		<java 
+			fork="true"
 			classpathref="antlr.classpath" 
 			classname="org.antlr.v4.Tool">
 			<arg line="-o ${antlr.output.src.dir}/responsibilityMetaModel/impl" />
