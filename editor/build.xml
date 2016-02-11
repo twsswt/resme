@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project
+	name="resme-editor"
+	basedir="."
+	default="build"
+	>
+	
+	<property name="release" value="0.0.1" />
+	
+	<target name="clean">
+		<ant inheritall="false" dir="responsibilityMetaModel.design" target="clean" />
+	</target>
+	
+	<target name="export-plugins" >
+
+		<ant inheritall="false" dir="responsibilityMetaModel.design"/>
+
+		<zip destfile="resme-editor.zip">
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel.design/target/bundles" includes="resme-editor-design-${release}.jar"/> 
+		</zip>
+		
+	</target>
+	
+	<target name="build" depends="export-plugins" />
+	
+</project>
+
