@@ -17,7 +17,7 @@
 		<ant inheritall="false" dir="responsibilityMetaModel.design"/>
 
 		<zip destfile="resme-editor.zip">
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel.design/target/bundles" includes="resme-editor-design-${release}.jar"/> 
+			<zipfileset prefix="plugins" dir="responsibilityMetaModel.design/target/bundles" includes="*.jar"/> 
 		</zip>
 		
 	</target>
