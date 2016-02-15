@@ -12,7 +12,8 @@
 
 	<property name="output.dir" value="target"/>
 	<property name="bin.dir" value="${output.dir}/bin"/>
-	<property name="ivy.lib.dir" value="${output.dir}/lib"/>
+	
+	<property file="META-INF/MANIFEST.MF"/>
 	
 	<property environment="env"/>
 	
@@ -57,7 +58,7 @@
 
 	
 	<target name="bundle-plugin" depends="compile" >
-		<jar destfile="${output.dir}/bundles/${ant.project.name}-${ivy.revision}.jar" manifest="META-INF/MANIFEST.MF">
+		<jar destfile="${output.dir}/bundles/${ant.project.name}_${Bundle-Version}.jar" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset file="plugin.xml"/>
 			<fileset file="plugin.properties"/>

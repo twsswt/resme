@@ -16,6 +16,8 @@
 	<property name="output.src.dir" value="${output.dir}/generated-sources"/>
 	<property name="antlr.output.src.dir" value="${output.dir}/generated-sources/antlr4"/>
 		
+	<property file="META-INF/MANIFEST.MF"/>
+	
 	<property environment="env"/>
 	
 	<path id="project.classpath">
@@ -81,7 +83,7 @@
 
 	
 	<target name="bundle-plugin" depends="compile" >
-		<jar destfile="${output.dir}/bundles/${ant.project.name}-${ivy.revision}.jar" manifest="META-INF/MANIFEST.MF">
+		<jar destfile="${output.dir}/bundles/${ant.project.name}_${Bundle-Version}.jar" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset dir="." includes="model/*.aird"/>
 			<fileset file="plugin.xml"/>
