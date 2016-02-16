@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Responsibility Modelling Meta Model
 Bundle-SymbolicName: responsibilityMetaModel;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.0.1
 Bundle-ClassPath: .,
  antlr4-4.5.1.jar
 Bundle-Vendor: Robbie Simpson
