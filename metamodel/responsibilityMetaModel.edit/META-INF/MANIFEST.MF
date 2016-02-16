@@ -5,7 +5,7 @@ Bundle-SymbolicName: responsibilityMetaModel.edit;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: responsibilityMetaModel.provider.ResponsibilityMetaModelEditPlugin$Implementation
-Bundle-Vendor: Robbie Simpson
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: responsibilityMetaModel.provider
