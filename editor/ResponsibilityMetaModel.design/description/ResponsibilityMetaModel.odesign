@@ -82,6 +82,13 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
+        <nodeMappings name="sourceNode" preconditionExpression="[container.oclAsType(Scenario).sources->includes(self)/]" domainClass="responsibilityMetaModel.Source">
+          <style xsi:type="style:NoteDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
         <edgeMappings name="requiredResource" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="responsibilityMetaModel.resourceRequiredRelationship" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -178,6 +185,14 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
+        <edgeMappings name="attribution" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='actorNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='sourceNode']" targetFinderExpression="feature:source" sourceFinderExpression="feature:entity" domainClass="responsibilityMetaModel.attributionRelationship" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <toolSections name="createOps" label="Add">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createResponsibility" label="Responsibility" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
             <variable name="container"/>
@@ -208,6 +223,17 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Actor" referenceName="actors">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Actor"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='sourceNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Source" referenceName="sources">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Source"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -308,6 +334,23 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@edgeMappings[name='attribution']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.attributionRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:source">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:target"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
