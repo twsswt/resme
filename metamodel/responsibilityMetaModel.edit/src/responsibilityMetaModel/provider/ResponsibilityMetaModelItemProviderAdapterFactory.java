@@ -302,6 +302,52 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.Source} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SourceItemProvider sourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.Source}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSourceAdapter() {
+		if (sourceItemProvider == null) {
+			sourceItemProvider = new SourceItemProvider(this);
+		}
+
+		return sourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link responsibilityMetaModel.attributionRelationship} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected attributionRelationshipItemProvider attributionRelationshipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link responsibilityMetaModel.attributionRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createattributionRelationshipAdapter() {
+		if (attributionRelationshipItemProvider == null) {
+			attributionRelationshipItemProvider = new attributionRelationshipItemProvider(this);
+		}
+
+		return attributionRelationshipItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,6 +456,8 @@ public class ResponsibilityMetaModelItemProviderAdapterFactory extends Responsib
 		if (actorHoldsRelationshipItemProvider != null) actorHoldsRelationshipItemProvider.dispose();
 		if (responsibilityRequiredRelationshipItemProvider != null) responsibilityRequiredRelationshipItemProvider.dispose();
 		if (actorProducedRelationshipItemProvider != null) actorProducedRelationshipItemProvider.dispose();
+		if (sourceItemProvider != null) sourceItemProvider.dispose();
+		if (attributionRelationshipItemProvider != null) attributionRelationshipItemProvider.dispose();
 	}
 
 }

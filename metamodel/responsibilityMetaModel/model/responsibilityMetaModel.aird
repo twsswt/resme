@@ -463,6 +463,30 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_aY-L0d0eEeSdnLFZNIOKSA" fontName="Cantarell" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aY-L0t0eEeSdnLFZNIOKSA" x="771" y="160" width="87" height="62"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_YSuu0NS1EeWVrqe8THE3jw" type="2003" element="_YR_vANS1EeWVrqe8THE3jw">
+            <children xmi:type="notation:Node" xmi:id="_YSvV4NS1EeWVrqe8THE3jw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_YSvV4dS1EeWVrqe8THE3jw" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_cXFVENS1EeWVrqe8THE3jw" type="3010" element="_cWTR8NS1EeWVrqe8THE3jw">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_cXFVEdS1EeWVrqe8THE3jw"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_grnFUNS1EeWVrqe8THE3jw" type="3010" element="_gqx-4NS1EeWVrqe8THE3jw">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_grnFUdS1EeWVrqe8THE3jw"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_YSvV4tS1EeWVrqe8THE3jw"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_YSvV49S1EeWVrqe8THE3jw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_YSuu0dS1EeWVrqe8THE3jw" fontName="Cantarell" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YSuu0tS1EeWVrqe8THE3jw" x="880" y="589" width="120" height="100"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gmUKENS_EeWVrqe8THE3jw" type="2003" element="_glLhoNS_EeWVrqe8THE3jw">
+            <children xmi:type="notation:Node" xmi:id="_gmUxINS_EeWVrqe8THE3jw" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_gmUxIdS_EeWVrqe8THE3jw" type="7004">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_gmUxItS_EeWVrqe8THE3jw"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_gmUxI9S_EeWVrqe8THE3jw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gmUKEdS_EeWVrqe8THE3jw" fontName="Cantarell" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gmUKEtS_EeWVrqe8THE3jw" x="700" y="580" width="118" height="68"/>
+          </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_rbb4Qq4AEeS3V5v6i-TIRw"/>
           <edges xmi:type="notation:Edge" xmi:id="_GpJmwK4BEeS3V5v6i-TIRw" type="4001" element="_Gn_wMK4BEeS3V5v6i-TIRw" source="_AJIPUK4BEeS3V5v6i-TIRw" target="_uOOI8K4AEeS3V5v6i-TIRw">
             <children xmi:type="notation:Node" xmi:id="_GpKN0K4BEeS3V5v6i-TIRw" type="6001">
@@ -864,6 +888,70 @@
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Z3RiEN0gEeSdnLFZNIOKSA" id="(0.4942528735632184,0.5)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Z3RiEd0gEeSdnLFZNIOKSA" id="(0.5,0.5)"/>
           </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_cLI8ENS7EeWVrqe8THE3jw" type="4001" element="_cKXgANS7EeWVrqe8THE3jw" source="_AJIPUK4BEeS3V5v6i-TIRw" target="_YSuu0NS1EeWVrqe8THE3jw">
+            <children xmi:type="notation:Node" xmi:id="_cLJjINS7EeWVrqe8THE3jw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cLJjIdS7EeWVrqe8THE3jw" x="14" y="-65"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_cLKKMNS7EeWVrqe8THE3jw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cLKKMdS7EeWVrqe8THE3jw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_cLKKMtS7EeWVrqe8THE3jw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cLKKM9S7EeWVrqe8THE3jw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_cLI8EdS7EeWVrqe8THE3jw" routing="Rectilinear"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_cLI8EtS7EeWVrqe8THE3jw" fontColor="7490599" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cLI8E9S7EeWVrqe8THE3jw" points="[0, 5, -367, -534]$[522, 5, 155, -534]$[522, 589, 155, 50]$[345, 589, -22, 50]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cLKxQNS7EeWVrqe8THE3jw" id="(1.0,0.15306122448979592)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cLKxQdS7EeWVrqe8THE3jw" id="(0.847457627118644,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lQokINS_EeWVrqe8THE3jw" type="4001" element="_lP8noNS_EeWVrqe8THE3jw" source="_YSuu0NS1EeWVrqe8THE3jw" target="_gmUKENS_EeWVrqe8THE3jw">
+            <children xmi:type="notation:Node" xmi:id="_lQpLMNS_EeWVrqe8THE3jw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQpLMdS_EeWVrqe8THE3jw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lQpLMtS_EeWVrqe8THE3jw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQpLM9S_EeWVrqe8THE3jw" x="8" y="34"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lQpyQNS_EeWVrqe8THE3jw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lQpyQdS_EeWVrqe8THE3jw" x="6" y="-59"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lQokIdS_EeWVrqe8THE3jw" routing="Rectilinear"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lQokItS_EeWVrqe8THE3jw" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lQokI9S_EeWVrqe8THE3jw" points="[880, 589, 880, 589]$[700, 580, 700, 580]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lQpyQtS_EeWVrqe8THE3jw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lQpyQ9S_EeWVrqe8THE3jw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_l0LWENS_EeWVrqe8THE3jw" type="4001" element="_lzYr4NS_EeWVrqe8THE3jw" source="_8tkKcLH9EeS8vpuFdYfWeQ" target="_gmUKENS_EeWVrqe8THE3jw">
+            <children xmi:type="notation:Node" xmi:id="_l0LWFNS_EeWVrqe8THE3jw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l0LWFdS_EeWVrqe8THE3jw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_l0L9INS_EeWVrqe8THE3jw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l0L9IdS_EeWVrqe8THE3jw" x="8" y="-27"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_l0L9ItS_EeWVrqe8THE3jw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l0L9I9S_EeWVrqe8THE3jw" x="10" y="60"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_l0LWEdS_EeWVrqe8THE3jw" routing="Rectilinear"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_l0LWEtS_EeWVrqe8THE3jw" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l0LWE9S_EeWVrqe8THE3jw" points="[500, 580, 500, 580]$[700, 580, 700, 580]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l0MkMNS_EeWVrqe8THE3jw" id="(0.4965034965034965,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l0MkMdS_EeWVrqe8THE3jw" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_uHwV0NS_EeWVrqe8THE3jw" type="4001" element="_uGdVUNS_EeWVrqe8THE3jw" source="_gmUKENS_EeWVrqe8THE3jw" target="_vs270LN_EeS8vpuFdYfWeQ">
+            <children xmi:type="notation:Node" xmi:id="_uHwV1NS_EeWVrqe8THE3jw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uHwV1dS_EeWVrqe8THE3jw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uHw84NS_EeWVrqe8THE3jw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uHw84dS_EeWVrqe8THE3jw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uHw84tS_EeWVrqe8THE3jw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uHw849S_EeWVrqe8THE3jw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_uHwV0dS_EeWVrqe8THE3jw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_uHwV0tS_EeWVrqe8THE3jw" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uHwV09S_EeWVrqe8THE3jw" points="[0, 0, 670, 520]$[0, -455, 670, 65]$[-669, -455, 1, 65]$[-669, -484, 1, 36]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uHw85NS_EeWVrqe8THE3jw" id="(0.43103448275862066,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uHw85dS_EeWVrqe8THE3jw" id="(0.5,0.5)"/>
+          </edges>
         </data>
       </ownedAnnotationEntries>
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_GoCzgK4BEeS3V5v6i-TIRw" source="DANNOTATION_CUSTOMIZATION_KEY">
@@ -904,6 +992,15 @@
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </endLabelStyleDescription>
           </computedStyleDescriptions>
+          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_cKYHENS7EeWVrqe8THE3jw" sourceArrow="FillDiamond" sizeComputationExpression="1" routingStyle="manhattan">
+            <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_cKYHEdS7EeWVrqe8THE3jw" showIcon="false" labelExpression="service:render">
+              <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_cKYHEtS7EeWVrqe8THE3jw" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
+              <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </endLabelStyleDescription>
+          </computedStyleDescriptions>
           <cache xmi:type="diagram:DiagramElementMapping2ModelElement" xmi:id="_GoCzgq4BEeS3V5v6i-TIRw">
             <key xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
             <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_GoCzg64BEeS3V5v6i-TIRw">
@@ -934,6 +1031,14 @@
               <key xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Scenario/relations"/>
               <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_6BsosLN_EeS8vpuFdYfWeQ" key="_6BqMcLN_EeS8vpuFdYfWeQ">
                 <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_6BvsALN_EeS8vpuFdYfWeQ" value="_6BtPwLN_EeS8vpuFdYfWeQ">
+                  <key xmi:type="ecore:EPackage" href="../responsibilityMetaModel.ecore#/"/>
+                </value>
+              </value>
+            </value>
+            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_cKXgAdS7EeWVrqe8THE3jw">
+              <key xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Scenario/sources"/>
+              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_cKXgAtS7EeWVrqe8THE3jw" key="_cKXgANS7EeWVrqe8THE3jw">
+                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_cKYHE9S7EeWVrqe8THE3jw" value="_cKYHENS7EeWVrqe8THE3jw">
                   <key xmi:type="ecore:EPackage" href="../responsibilityMetaModel.ecore#/"/>
                 </value>
               </value>
@@ -1030,7 +1135,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_AIfWIK4BEeS3V5v6i-TIRw" name="Scenario" tooltipText="" outgoingEdges="_Gn_wMK4BEeS3V5v6i-TIRw _HCNnAK4BEeS3V5v6i-TIRw _HctKoK4BEeS3V5v6i-TIRw _6BqMcLN_EeS8vpuFdYfWeQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_AIfWIK4BEeS3V5v6i-TIRw" name="Scenario" tooltipText="" outgoingEdges="_Gn_wMK4BEeS3V5v6i-TIRw _HCNnAK4BEeS3V5v6i-TIRw _HctKoK4BEeS3V5v6i-TIRw _6BqMcLN_EeS8vpuFdYfWeQ _cKXgANS7EeWVrqe8THE3jw" width="12" height="10">
         <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Scenario"/>
         <semanticElements xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Scenario"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1126,18 +1231,18 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_8q0_gLH9EeS8vpuFdYfWeQ" name="Entity" tooltipText="" incomingEdges="_C4e0kLH-EeS8vpuFdYfWeQ _HmQyULH-EeS8vpuFdYfWeQ _IaedgLH-EeS8vpuFdYfWeQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_8q0_gLH9EeS8vpuFdYfWeQ" name="Entity" tooltipText="" outgoingEdges="_lzYr4NS_EeWVrqe8THE3jw" incomingEdges="_C4e0kLH-EeS8vpuFdYfWeQ _HmQyULH-EeS8vpuFdYfWeQ _IaedgLH-EeS8vpuFdYfWeQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Entity"/>
         <semanticElements xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Entity"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_dal1QM4hEeSKQI8a1PsI_g" labelFormat="italic" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_interface.gif" backgroundStyle="Liquid">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_dal1Qc4hEeSKQI8a1PsI_g"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5JctMNS1EeWVrqe8THE3jw" labelFormat="italic" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_interface.gif" backgroundStyle="Liquid">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_5JctMdS1EeWVrqe8THE3jw"/>
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_dal1Qs4hEeSKQI8a1PsI_g" red="125" green="125" blue="125"/>
-          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_dal1Q84hEeSKQI8a1PsI_g" red="255" green="255" blue="255"/>
-          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_dal1RM4hEeSKQI8a1PsI_g" red="228" green="228" blue="228"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_5JctMtS1EeWVrqe8THE3jw" red="125" green="125" blue="125"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_5JctM9S1EeWVrqe8THE3jw" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_5JctNNS1EeWVrqe8THE3jw" red="228" green="228" blue="228"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_NRLGsLH-EeS8vpuFdYfWeQ" name="name : String" tooltipText="">
@@ -1310,7 +1415,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_vqhZgLN_EeS8vpuFdYfWeQ" name="Relation" tooltipText="" incomingEdges="_3Cg6wLN_EeS8vpuFdYfWeQ _6BqMcLN_EeS8vpuFdYfWeQ _hxr9QLX3EeSunswVxqWL9Q _OxvE8LX4EeSunswVxqWL9Q _e6QAoLX4EeSunswVxqWL9Q _1OiiELX4EeSunswVxqWL9Q _Z2uIcN0gEeSdnLFZNIOKSA" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_vqhZgLN_EeS8vpuFdYfWeQ" name="Relation" tooltipText="" incomingEdges="_3Cg6wLN_EeS8vpuFdYfWeQ _6BqMcLN_EeS8vpuFdYfWeQ _hxr9QLX3EeSunswVxqWL9Q _OxvE8LX4EeSunswVxqWL9Q _e6QAoLX4EeSunswVxqWL9Q _1OiiELX4EeSunswVxqWL9Q _Z2uIcN0gEeSdnLFZNIOKSA _uGdVUNS_EeWVrqe8THE3jw" width="12" height="10">
         <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Relation"/>
         <semanticElements xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Relation"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1667,6 +1772,121 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
       </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_YR_vANS1EeWVrqe8THE3jw" name="Source" tooltipText="" outgoingEdges="_lP8noNS_EeWVrqe8THE3jw" incomingEdges="_cKXgANS7EeWVrqe8THE3jw" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Source"/>
+        <semanticElements xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//Source"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_i0Hp8NS1EeWVrqe8THE3jw" backgroundStyle="Liquid">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_i0Hp8dS1EeWVrqe8THE3jw"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_i0Hp8tS1EeWVrqe8THE3jw"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_i0Hp89S1EeWVrqe8THE3jw" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_i0Hp9NS1EeWVrqe8THE3jw" red="255" green="252" blue="216"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_cWTR8NS1EeWVrqe8THE3jw" name="name : String" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@45ddccc3{platform:/resource/responsibilityMetaModel/responsibilityMetaModel.ecore#//Source/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+          <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fTv6gNS1EeWVrqe8THE3jw" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_fTv6gdS1EeWVrqe8THE3jw"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_fTv6gtS1EeWVrqe8THE3jw"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_fTv6g9S1EeWVrqe8THE3jw"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gqx-4NS1EeWVrqe8THE3jw" name="author : String" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@e706d06{platform:/resource/responsibilityMetaModel/responsibilityMetaModel.ecore#//Source/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+          <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/author"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/author"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_i0SpENS1EeWVrqe8THE3jw" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_i0SpEdS1EeWVrqe8THE3jw"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_i0SpEtS1EeWVrqe8THE3jw"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_i0SpE9S1EeWVrqe8THE3jw"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_cKXgANS7EeWVrqe8THE3jw" name="[0..*] sources" sourceNode="_AIfWIK4BEeS3V5v6i-TIRw" targetNode="_YR_vANS1EeWVrqe8THE3jw">
+        <target xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Scenario/sources"/>
+        <semanticElements xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Scenario/sources"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_cKYHFNS7EeWVrqe8THE3jw" description="_cKYHENS7EeWVrqe8THE3jw" sourceArrow="FillDiamond" routingStyle="manhattan">
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_cKYHFdS7EeWVrqe8THE3jw"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_cKYHFtS7EeWVrqe8THE3jw" showIcon="false">
+            <customFeatures>labelSize</customFeatures>
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cKYHF9S7EeWVrqe8THE3jw"/>
+          </centerLabelStyle>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_cKYHGNS7EeWVrqe8THE3jw" showIcon="false">
+            <customFeatures>labelSize</customFeatures>
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cKYHGdS7EeWVrqe8THE3jw" red="39" green="76" blue="114"/>
+          </endLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_glLhoNS_EeWVrqe8THE3jw" name="attributionRelationship" tooltipText="" outgoingEdges="_uGdVUNS_EeWVrqe8THE3jw" incomingEdges="_lP8noNS_EeWVrqe8THE3jw _lzYr4NS_EeWVrqe8THE3jw" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//attributionRelationship"/>
+        <semanticElements xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//attributionRelationship"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_glMIsNS_EeWVrqe8THE3jw" backgroundStyle="Liquid">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_glMIsdS_EeWVrqe8THE3jw"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_glMIstS_EeWVrqe8THE3jw"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_glMIs9S_EeWVrqe8THE3jw" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_glMItNS_EeWVrqe8THE3jw" red="255" green="252" blue="216"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lP8noNS_EeWVrqe8THE3jw" sourceNode="_YR_vANS1EeWVrqe8THE3jw" targetNode="_glLhoNS_EeWVrqe8THE3jw" beginLabel="[0..1] source" endLabel="[0..*] attributedTo">
+        <target xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Source/attributedTo"/>
+        <semanticElements xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Source/attributedTo"/>
+        <semanticElements xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//attributionRelationship/source"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lP9OsNS_EeWVrqe8THE3jw" sourceArrow="InputArrow" routingStyle="manhattan">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lP9OsdS_EeWVrqe8THE3jw"/>
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_lP9OstS_EeWVrqe8THE3jw" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lP9Os9S_EeWVrqe8THE3jw"/>
+          </beginLabelStyle>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_lP9OtNS_EeWVrqe8THE3jw" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lP9OtdS_EeWVrqe8THE3jw"/>
+          </endLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lzYr4NS_EeWVrqe8THE3jw" sourceNode="_8q0_gLH9EeS8vpuFdYfWeQ" targetNode="_glLhoNS_EeWVrqe8THE3jw" beginLabel="[0..1] entity" endLabel="[0..*] referencedBy">
+        <target xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Entity/referencedBy"/>
+        <semanticElements xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//attributionRelationship/entity"/>
+        <semanticElements xmi:type="ecore:EReference" href="../responsibilityMetaModel.ecore#//Entity/referencedBy"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lzZS8NS_EeWVrqe8THE3jw" sourceArrow="InputArrow" routingStyle="manhattan">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lzZS8dS_EeWVrqe8THE3jw"/>
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_lzZS8tS_EeWVrqe8THE3jw" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lzZS89S_EeWVrqe8THE3jw"/>
+          </beginLabelStyle>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_lzZS9NS_EeWVrqe8THE3jw" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lzZS9dS_EeWVrqe8THE3jw"/>
+          </endLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_uGdVUNS_EeWVrqe8THE3jw" sourceNode="_glLhoNS_EeWVrqe8THE3jw" targetNode="_vqhZgLN_EeS8vpuFdYfWeQ">
+        <target xmi:type="ecore:EClass" href="../responsibilityMetaModel.ecore#//attributionRelationship"/>
+        <semanticElements xmi:type="ecore:EGenericType" href="../responsibilityMetaModel.ecore#//attributionRelationship/@eGenericSuperTypes.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_uGd8YNS_EeWVrqe8THE3jw" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_uGd8YdS_EeWVrqe8THE3jw" red="136" green="136" blue="136"/>
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_uGd8YtS_EeWVrqe8THE3jw" labelFormat="italic" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_uGd8Y9S_EeWVrqe8THE3jw"/>
+          </beginLabelStyle>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_uGd8ZNS_EeWVrqe8THE3jw" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_uGd8ZdS_EeWVrqe8THE3jw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+      </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_rbbRNa4AEeS3V5v6i-TIRw"/>
       <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
@@ -1688,36 +1908,6 @@
       <target xmi:type="genmodel:GenPackage" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel"/>
       <lines xmi:type="table:DLine" xmi:id="_rblHUbOUEeSrjfXVetrxJw" label="Responsibility">
         <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility"/>
-        <lines xmi:type="table:DLine" xmi:id="_rblHUrOUEeSrjfXVetrxJw" label="satisfactionCriteria">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHU7OUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHVLOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHVbOUEeSrjfXVetrxJw" label="holder">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHVrOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHV7OUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHWLOUEeSrjfXVetrxJw" label="producedResource">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHWbOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHWrOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHW7OUEeSrjfXVetrxJw" label="superResponsibility">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHXLOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHXbOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHXrOUEeSrjfXVetrxJw" label="subResponsibility">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHX7OUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHYLOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHYbOUEeSrjfXVetrxJw" label="actorRequired">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHYrOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHY7OUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
         <lines xmi:type="table:DLine" xmi:id="_rblHZLOUEeSrjfXVetrxJw" label="requiredResource">
           <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredResource"/>
           <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredResource"/>
@@ -1731,16 +1921,89 @@
             <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredResource"/>
           </cells>
         </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jK9KsNS3EeWVrqe8THE3jw" label="producedResource">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNbP4NS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNceANS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedResource"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jK9xwNS3EeWVrqe8THE3jw" label="requiredActor">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNdFENS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNdsINS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/requiredActor"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jK-_4NS3EeWVrqe8THE3jw" label="heldBy">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNeTMNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNeTMdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/heldBy"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jK_m8NS3EeWVrqe8THE3jw" label="superResponsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNe6QNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNfhUNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/superResponsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLAOANS3EeWVrqe8THE3jw" label="subResponsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNgIYNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNgvcNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/subResponsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLA1ENS3EeWVrqe8THE3jw" label="producedActor">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNhWgNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNh9kNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility/producedActor"/>
+          </cells>
+        </lines>
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Responsibility"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
       </lines>
       <lines xmi:type="table:DLine" xmi:id="_rblHZ7OUEeSrjfXVetrxJw" label="Resource">
         <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource"/>
-        <lines xmi:type="table:DLine" xmi:id="_rblHaLOUEeSrjfXVetrxJw" label="producer">
-          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHabOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHarOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
-        </lines>
         <lines xmi:type="table:DLine" xmi:id="_rblHa7OUEeSrjfXVetrxJw" label="requiredBy">
           <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/requiredBy"/>
           <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/requiredBy"/>
@@ -1754,26 +2017,81 @@
             <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/requiredBy"/>
           </cells>
         </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLCqQNS3EeWVrqe8THE3jw" label="producedBy">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNjLsNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNjywNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource/producedBy"/>
+          </cells>
+        </lines>
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Resource"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
       </lines>
       <lines xmi:type="table:DLine" xmi:id="_rblHbrOUEeSrjfXVetrxJw" label="Actor">
         <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor"/>
-        <lines xmi:type="table:DLine" xmi:id="_rblHb7OUEeSrjfXVetrxJw" label="heldResponsibility">
+        <lines xmi:type="table:DLine" xmi:id="_jLFGgNS3EeWVrqe8THE3jw" label="requiredBy">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
           <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHcLOUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHcbOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNkZ0NS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNkZ0dS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/requiredBy"/>
+          </cells>
         </lines>
-        <lines xmi:type="table:DLine" xmi:id="_rblHcrOUEeSrjfXVetrxJw" label="requiredBy">
+        <lines xmi:type="table:DLine" xmi:id="_jLFtkNS3EeWVrqe8THE3jw" label="heldResponsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
           <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHc7OUEeSrjfXVetrxJw" column="_rbluYbOUEeSrjfXVetrxJw"/>
-          <cells xmi:type="table:DCell" xmi:id="_rblHdLOUEeSrjfXVetrxJw" column="_rbluYrOUEeSrjfXVetrxJw"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNlA4NS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNln8NS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/heldResponsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLHiwNS3EeWVrqe8THE3jw" label="producedBy">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNm2ENS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNm2EdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor/producedBy"/>
+          </cells>
         </lines>
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Actor"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
       </lines>
       <lines xmi:type="table:DLine" xmi:id="_rblHdbOUEeSrjfXVetrxJw" label="Scenario">
         <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLIw4NS3EeWVrqe8THE3jw" label="name">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNndINS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNoEMNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario/name"/>
+          </cells>
+        </lines>
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Scenario"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
       </lines>
@@ -1804,6 +2122,63 @@
             <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/enabled"/>
             <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/enabled"/>
           </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLLNINS3EeWVrqe8THE3jw" label="satisifed">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNqgcNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNrHgNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLL0MNS3EeWVrqe8THE3jw" label="satisfactionCriteria">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNrukNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNrukdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfactionCriteria"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLMbQNS3EeWVrqe8THE3jw" label="critical">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNsVoNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNs8sNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/critical"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLNCUNS3EeWVrqe8THE3jw" label="criticalityCount">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNtjwNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNuK0NS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/criticalityCount"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLNCUdS3EeWVrqe8THE3jw" label="source">
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNuK0dS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNux4NS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw"/>
         </lines>
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
@@ -1844,10 +2219,201 @@
         <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Relation"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
       </lines>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_rbluYbOUEeSrjfXVetrxJw" label="Category" cells="_rblHU7OUEeSrjfXVetrxJw _rblHVrOUEeSrjfXVetrxJw _rblHWbOUEeSrjfXVetrxJw _rblHXLOUEeSrjfXVetrxJw _rblHX7OUEeSrjfXVetrxJw _rblHYrOUEeSrjfXVetrxJw _rblHZbOUEeSrjfXVetrxJw _rblHabOUEeSrjfXVetrxJw _rblHbLOUEeSrjfXVetrxJw _rblHcLOUEeSrjfXVetrxJw _rblHc7OUEeSrjfXVetrxJw _rblHeLOUEeSrjfXVetrxJw _rblHe7OUEeSrjfXVetrxJw _rblHf7OUEeSrjfXVetrxJw _rblHgrOUEeSrjfXVetrxJw" width="585" featureName="propertyCategory">
+      <lines xmi:type="table:DLine" xmi:id="_jHzJANS3EeWVrqe8THE3jw" label="resourceProducedRelationship">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLTI8NS3EeWVrqe8THE3jw" label="responsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNx1MNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNycQNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/responsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLTwANS3EeWVrqe8THE3jw" label="resource">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jNzDUNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jNzqYNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship/resource"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/resourceProducedRelationship"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_jHzwENS3EeWVrqe8THE3jw" label="actorRequiredRelationship">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLU-INS3EeWVrqe8THE3jw" label="responsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN0RcNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN04gNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/responsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLWMQNS3EeWVrqe8THE3jw" label="actor">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN04gdS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN1fkNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship/actor"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorRequiredRelationship"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_jH0XINS3EeWVrqe8THE3jw" label="actorHoldsRelationship">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLXaYNS3EeWVrqe8THE3jw" label="responsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN2GoNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN2tsNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/responsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLXaYdS3EeWVrqe8THE3jw" label="actor">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN3UwNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN3UwdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship/actor"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorHoldsRelationship"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_jH0-MNS3EeWVrqe8THE3jw" label="responsibilityRequiredRelationship">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLZ2oNS3EeWVrqe8THE3jw" label="subResponsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN370NS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN4i4NS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/subResponsibility"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLbr0NS3EeWVrqe8THE3jw" label="superResponsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN5J8NS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN5xANS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship/superResponsibility"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/responsibilityRequiredRelationship"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_jH0-MdS3EeWVrqe8THE3jw" label="actorProducedRelationship">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLdhANS3EeWVrqe8THE3jw" label="actor">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN6_INS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN6_IdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/actor"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLeIENS3EeWVrqe8THE3jw" label="responsibility">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN7mMNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN8NQNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship/responsibility"/>
+          </cells>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/actorProducedRelationship"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_jH1lQNS3EeWVrqe8THE3jw" label="Source">
+        <target xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLfWMNS3EeWVrqe8THE3jw" label="name">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN80UNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN9bYNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/name"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLf9QNS3EeWVrqe8THE3jw" label="author">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN-CcNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_jN-CcdS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source/author"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_jLgkUNS3EeWVrqe8THE3jw" label="application">
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN-pgNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw"/>
+          <cells xmi:type="table:DCell" xmi:id="_jN_QkNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw"/>
+        </lines>
+        <semanticElements xmi:type="genmodel:GenClass" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Source"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']"/>
+      </lines>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_rbluYbOUEeSrjfXVetrxJw" label="Category" cells="_rblHZbOUEeSrjfXVetrxJw _rblHbLOUEeSrjfXVetrxJw _rblHeLOUEeSrjfXVetrxJw _rblHe7OUEeSrjfXVetrxJw _rblHf7OUEeSrjfXVetrxJw _rblHgrOUEeSrjfXVetrxJw _jNbP4NS3EeWVrqe8THE3jw _jNdFENS3EeWVrqe8THE3jw _jNeTMNS3EeWVrqe8THE3jw _jNe6QNS3EeWVrqe8THE3jw _jNgIYNS3EeWVrqe8THE3jw _jNhWgNS3EeWVrqe8THE3jw _jNjLsNS3EeWVrqe8THE3jw _jNkZ0NS3EeWVrqe8THE3jw _jNlA4NS3EeWVrqe8THE3jw _jNm2ENS3EeWVrqe8THE3jw _jNndINS3EeWVrqe8THE3jw _jNqgcNS3EeWVrqe8THE3jw _jNrukNS3EeWVrqe8THE3jw _jNsVoNS3EeWVrqe8THE3jw _jNtjwNS3EeWVrqe8THE3jw _jNuK0dS3EeWVrqe8THE3jw _jNx1MNS3EeWVrqe8THE3jw _jNzDUNS3EeWVrqe8THE3jw _jN0RcNS3EeWVrqe8THE3jw _jN04gdS3EeWVrqe8THE3jw _jN2GoNS3EeWVrqe8THE3jw _jN3UwNS3EeWVrqe8THE3jw _jN370NS3EeWVrqe8THE3jw _jN5J8NS3EeWVrqe8THE3jw _jN6_INS3EeWVrqe8THE3jw _jN7mMNS3EeWVrqe8THE3jw _jN80UNS3EeWVrqe8THE3jw _jN-CcNS3EeWVrqe8THE3jw _jN-pgNS3EeWVrqe8THE3jw" width="585" featureName="propertyCategory">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedColumnMappings[name='Category']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_rbluYrOUEeSrjfXVetrxJw" label="Description" cells="_rblHVLOUEeSrjfXVetrxJw _rblHV7OUEeSrjfXVetrxJw _rblHWrOUEeSrjfXVetrxJw _rblHXbOUEeSrjfXVetrxJw _rblHYLOUEeSrjfXVetrxJw _rblHY7OUEeSrjfXVetrxJw _rblHZrOUEeSrjfXVetrxJw _rblHarOUEeSrjfXVetrxJw _rblHbbOUEeSrjfXVetrxJw _rblHcbOUEeSrjfXVetrxJw _rblHdLOUEeSrjfXVetrxJw _rblHebOUEeSrjfXVetrxJw _rblHfLOUEeSrjfXVetrxJw _rblHgLOUEeSrjfXVetrxJw _rblHg7OUEeSrjfXVetrxJw" featureName="propertyDescription">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_rbluYrOUEeSrjfXVetrxJw" label="Description" cells="_rblHZrOUEeSrjfXVetrxJw _rblHbbOUEeSrjfXVetrxJw _rblHebOUEeSrjfXVetrxJw _rblHfLOUEeSrjfXVetrxJw _rblHgLOUEeSrjfXVetrxJw _rblHg7OUEeSrjfXVetrxJw _jNceANS3EeWVrqe8THE3jw _jNdsINS3EeWVrqe8THE3jw _jNeTMdS3EeWVrqe8THE3jw _jNfhUNS3EeWVrqe8THE3jw _jNgvcNS3EeWVrqe8THE3jw _jNh9kNS3EeWVrqe8THE3jw _jNjywNS3EeWVrqe8THE3jw _jNkZ0dS3EeWVrqe8THE3jw _jNln8NS3EeWVrqe8THE3jw _jNm2EdS3EeWVrqe8THE3jw _jNoEMNS3EeWVrqe8THE3jw _jNrHgNS3EeWVrqe8THE3jw _jNrukdS3EeWVrqe8THE3jw _jNs8sNS3EeWVrqe8THE3jw _jNuK0NS3EeWVrqe8THE3jw _jNux4NS3EeWVrqe8THE3jw _jNycQNS3EeWVrqe8THE3jw _jNzqYNS3EeWVrqe8THE3jw _jN04gNS3EeWVrqe8THE3jw _jN1fkNS3EeWVrqe8THE3jw _jN2tsNS3EeWVrqe8THE3jw _jN3UwdS3EeWVrqe8THE3jw _jN4i4NS3EeWVrqe8THE3jw _jN5xANS3EeWVrqe8THE3jw _jN6_IdS3EeWVrqe8THE3jw _jN8NQNS3EeWVrqe8THE3jw _jN9bYNS3EeWVrqe8THE3jw _jN-CcdS3EeWVrqe8THE3jw _jN_QkNS3EeWVrqe8THE3jw" featureName="propertyDescription">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedColumnMappings[name='Decription']"/>
       </columns>
       <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']"/>

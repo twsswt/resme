@@ -34,6 +34,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/actors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/relations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Scenario/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Scenario/sources"/>
       <genOperations ecoreOperation="responsibilityMetaModel.ecore#//Scenario/getEntities"/>
       <genOperations ecoreOperation="responsibilityMetaModel.ecore#//Scenario/criticalityAnalysis"/>
     </genClasses>
@@ -44,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Entity/satisfactionCriteria"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Entity/critical"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Entity/criticalityCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Entity/referencedBy"/>
       <genOperations ecoreOperation="responsibilityMetaModel.ecore#//Entity/satisfied"/>
     </genClasses>
     <genClasses ecoreClass="responsibilityMetaModel.ecore#//resourceRequiredRelationship">
@@ -70,6 +72,15 @@
     <genClasses ecoreClass="responsibilityMetaModel.ecore#//actorProducedRelationship">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//actorProducedRelationship/actor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//actorProducedRelationship/responsibility"/>
+    </genClasses>
+    <genClasses ecoreClass="responsibilityMetaModel.ecore#//Source">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Source/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute responsibilityMetaModel.ecore#//Source/author"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//Source/attributedTo"/>
+    </genClasses>
+    <genClasses ecoreClass="responsibilityMetaModel.ecore#//attributionRelationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//attributionRelationship/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference responsibilityMetaModel.ecore#//attributionRelationship/entity"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

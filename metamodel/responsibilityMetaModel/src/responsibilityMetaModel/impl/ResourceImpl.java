@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -16,12 +15,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
+import responsibilityMetaModel.attributionRelationship;
 import responsibilityMetaModel.resourceProducedRelationship;
 import responsibilityMetaModel.resourceRequiredRelationship;
 
@@ -38,6 +37,7 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getCriticalityCount <em>Criticality Count</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getReferencedBy <em>Referenced By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
@@ -165,6 +165,16 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @ordered
 	 */
 	protected Integer criticalityCount = CRITICALITY_COUNT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferencedBy() <em>Referenced By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferencedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<attributionRelationship> referencedBy;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -336,6 +346,18 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<attributionRelationship> getReferencedBy() {
+		if (referencedBy == null) {
+			referencedBy = new EObjectWithInverseResolvingEList<attributionRelationship>(attributionRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY, ResponsibilityMetaModelPackage.ATTRIBUTION_RELATIONSHIP__ENTITY);
+		}
+		return referencedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<resourceRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<resourceRequiredRelationship>(resourceRequiredRelationship.class, this, ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY, ResponsibilityMetaModelPackage.RESOURCE_REQUIRED_RELATIONSHIP__RESOURCE);
@@ -396,6 +418,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferencedBy()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -412,6 +436,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				return ((InternalEList<?>)getReferencedBy()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -440,6 +466,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return isCritical();
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICALITY_COUNT:
 				return getCriticalityCount();
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				return getReferencedBy();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:
@@ -474,6 +502,10 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICALITY_COUNT:
 				setCriticalityCount((Integer)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				getReferencedBy().clear();
+				getReferencedBy().addAll((Collection<? extends attributionRelationship>)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -513,6 +545,9 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICALITY_COUNT:
 				setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				getReferencedBy().clear();
+				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -543,6 +578,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return critical != CRITICAL_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICALITY_COUNT:
 				return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
+			case ResponsibilityMetaModelPackage.RESOURCE__REFERENCED_BY:
+				return referencedBy != null && !referencedBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.RESOURCE__PRODUCED_BY:

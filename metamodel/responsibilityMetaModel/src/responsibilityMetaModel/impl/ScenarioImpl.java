@@ -24,6 +24,7 @@ import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.Scenario;
+import responsibilityMetaModel.Source;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,7 @@ import responsibilityMetaModel.Scenario;
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getRelations <em>Relations</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getName <em>Name</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getSources <em>Sources</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +104,16 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSources() <em>Sources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Source> sources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +201,18 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.SCENARIO__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Source> getSources() {
+		if (sources == null) {
+			sources = new EObjectContainmentEList<Source>(Source.class, this, ResponsibilityMetaModelPackage.SCENARIO__SOURCES);
+		}
+		return sources;
 	}
 
 	/**
@@ -336,6 +360,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
 				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
+				return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -358,6 +384,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return getRelations();
 			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
 				return getName();
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
+				return getSources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -390,6 +418,10 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
 				setName((String)newValue);
 				return;
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
+				getSources().clear();
+				getSources().addAll((Collection<? extends Source>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -417,6 +449,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
+				getSources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -439,6 +474,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return relations != null && !relations.isEmpty();
 			case ResponsibilityMetaModelPackage.SCENARIO__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
+				return sources != null && !sources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

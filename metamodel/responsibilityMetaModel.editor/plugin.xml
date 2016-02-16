@@ -28,7 +28,7 @@
             id="responsibilityMetaModel.presentation.ResponsibilityMetaModelEditorID"
             name="%_UI_ResponsibilityMetaModelEditor_label"
             icon="icons/full/obj16/ResponsibilityMetaModelModelFile.gif"
-            extensions="rmodel"
+            extensions="responsibilitymetamodel"
             class="responsibilityMetaModel.presentation.ResponsibilityMetaModelEditor"
             contributorClass="responsibilityMetaModel.presentation.ResponsibilityMetaModelActionBarContributor">
       </editor>

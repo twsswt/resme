@@ -23,6 +23,7 @@ import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.actorHoldsRelationship;
 import responsibilityMetaModel.actorProducedRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
+import responsibilityMetaModel.attributionRelationship;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,7 @@ import responsibilityMetaModel.actorRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getCriticalityCount <em>Criticality Count</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getReferencedBy <em>Referenced By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getProducedBy <em>Produced By</em>}</li>
@@ -165,6 +167,16 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @ordered
 	 */
 	protected Integer criticalityCount = CRITICALITY_COUNT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferencedBy() <em>Referenced By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferencedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<attributionRelationship> referencedBy;
 
 	/**
 	 * The cached value of the '{@link #getRequiredBy() <em>Required By</em>}' reference list.
@@ -346,6 +358,18 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<attributionRelationship> getReferencedBy() {
+		if (referencedBy == null) {
+			referencedBy = new EObjectWithInverseResolvingEList<attributionRelationship>(attributionRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY, ResponsibilityMetaModelPackage.ATTRIBUTION_RELATIONSHIP__ENTITY);
+		}
+		return referencedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<actorRequiredRelationship> getRequiredBy() {
 		if (requiredBy == null) {
 			requiredBy = new EObjectWithInverseResolvingEList<actorRequiredRelationship>(actorRequiredRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY, ResponsibilityMetaModelPackage.ACTOR_REQUIRED_RELATIONSHIP__ACTOR);
@@ -466,6 +490,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferencedBy()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredBy()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
@@ -484,6 +510,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				return ((InternalEList<?>)getReferencedBy()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return ((InternalEList<?>)getRequiredBy()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
@@ -514,6 +542,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return isCritical();
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
 				return getCriticalityCount();
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				return getReferencedBy();
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return getRequiredBy();
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:
@@ -550,6 +580,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
 				setCriticalityCount((Integer)newValue);
+				return;
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				getReferencedBy().clear();
+				getReferencedBy().addAll((Collection<? extends attributionRelationship>)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
@@ -593,6 +627,9 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
 				setCriticalityCount(CRITICALITY_COUNT_EDEFAULT);
 				return;
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				getReferencedBy().clear();
+				return;
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				getRequiredBy().clear();
 				return;
@@ -626,6 +663,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return critical != CRITICAL_EDEFAULT;
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICALITY_COUNT:
 				return CRITICALITY_COUNT_EDEFAULT == null ? criticalityCount != null : !CRITICALITY_COUNT_EDEFAULT.equals(criticalityCount);
+			case ResponsibilityMetaModelPackage.ACTOR__REFERENCED_BY:
+				return referencedBy != null && !referencedBy.isEmpty();
 			case ResponsibilityMetaModelPackage.ACTOR__REQUIRED_BY:
 				return requiredBy != null && !requiredBy.isEmpty();
 			case ResponsibilityMetaModelPackage.ACTOR__HELD_RESPONSIBILITY:

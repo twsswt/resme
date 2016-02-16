@@ -57,26 +57,26 @@ public class responsibilityRequiredRelationshipItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSubRresponsibilityPropertyDescriptor(object);
+			addSubResponsibilityPropertyDescriptor(object);
 			addSuperResponsibilityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Sub Rresponsibility feature.
+	 * This adds a property descriptor for the Sub Responsibility feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSubRresponsibilityPropertyDescriptor(Object object) {
+	protected void addSubResponsibilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_responsibilityRequiredRelationship_subRresponsibility_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_responsibilityRequiredRelationship_subRresponsibility_feature", "_UI_responsibilityRequiredRelationship_type"),
-				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RRESPONSIBILITY,
+				 getString("_UI_responsibilityRequiredRelationship_subResponsibility_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_responsibilityRequiredRelationship_subResponsibility_feature", "_UI_responsibilityRequiredRelationship_type"),
+				 ResponsibilityMetaModelPackage.Literals.RESPONSIBILITY_REQUIRED_RELATIONSHIP__SUB_RESPONSIBILITY,
 				 true,
 				 false,
 				 true,

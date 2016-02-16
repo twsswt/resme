@@ -56,6 +56,7 @@ public class ActorItemProvider
 			addSatisfactionCriteriaPropertyDescriptor(object);
 			addCriticalPropertyDescriptor(object);
 			addCriticalityCountPropertyDescriptor(object);
+			addReferencedByPropertyDescriptor(object);
 			addRequiredByPropertyDescriptor(object);
 			addHeldResponsibilityPropertyDescriptor(object);
 			addProducedByPropertyDescriptor(object);
@@ -191,6 +192,28 @@ public class ActorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Referenced By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_referencedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_referencedBy_feature", "_UI_Entity_type"),
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__REFERENCED_BY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

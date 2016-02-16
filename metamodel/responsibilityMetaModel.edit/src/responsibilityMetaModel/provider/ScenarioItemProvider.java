@@ -106,6 +106,7 @@ public class ScenarioItemProvider
 			childrenFeatures.add(ResponsibilityMetaModelPackage.Literals.SCENARIO__RESPONSIBILITIES);
 			childrenFeatures.add(ResponsibilityMetaModelPackage.Literals.SCENARIO__ACTORS);
 			childrenFeatures.add(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS);
+			childrenFeatures.add(ResponsibilityMetaModelPackage.Literals.SCENARIO__SOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -178,6 +179,7 @@ public class ScenarioItemProvider
 			case ResponsibilityMetaModelPackage.SCENARIO__RESPONSIBILITIES:
 			case ResponsibilityMetaModelPackage.SCENARIO__ACTORS:
 			case ResponsibilityMetaModelPackage.SCENARIO__RELATIONS:
+			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -239,6 +241,16 @@ public class ScenarioItemProvider
 			(createChildParameter
 				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
 				 ResponsibilityMetaModelFactory.eINSTANCE.createactorProducedRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__RELATIONS,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createattributionRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResponsibilityMetaModelPackage.Literals.SCENARIO__SOURCES,
+				 ResponsibilityMetaModelFactory.eINSTANCE.createSource()));
 	}
 
 	/**

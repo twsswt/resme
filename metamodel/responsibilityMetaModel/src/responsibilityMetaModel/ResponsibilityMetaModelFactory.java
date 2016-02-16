@@ -112,6 +112,24 @@ public interface ResponsibilityMetaModelFactory extends EFactory {
 	actorProducedRelationship createactorProducedRelationship();
 
 	/**
+	 * Returns a new object of class '<em>Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source</em>'.
+	 * @generated
+	 */
+	Source createSource();
+
+	/**
+	 * Returns a new object of class '<em>attribution Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>attribution Relationship</em>'.
+	 * @generated
+	 */
+	attributionRelationship createattributionRelationship();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

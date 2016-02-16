@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link responsibilityMetaModel.Scenario#getActors <em>Actors</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getRelations <em>Relations</em>}</li>
  *   <li>{@link responsibilityMetaModel.Scenario#getName <em>Name</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Scenario#getSources <em>Sources</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +116,22 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Sources</b></em>' containment reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.Source}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sources</em>' containment reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getScenario_Sources()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Source> getSources();
 
 	/**
 	 * <!-- begin-user-doc -->
