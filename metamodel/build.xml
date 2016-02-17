@@ -9,12 +9,13 @@
 	<property name="release" value="0.0.1" />
 	
 	<target name="generate-model-code">
-	
+			
 		<emf.Ecore2Java
 			model="responsibilityMetaModel.ecore" 
 			genModel="responsibilityMetaModel.genmodel" 
 			modelProject="responsibilityMetaModel"
 			generateeditproject="true"
+			
 			generateeditorproject="true"
 			generatetestsproject="true"
 			modelProjectFragmentPath="src/"

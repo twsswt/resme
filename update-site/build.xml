@@ -18,15 +18,28 @@
 
 
 	<target name="init">
-		<mkdir dir="target/jars" />			
+		<mkdir dir="${jar.dir}" />
 	</target>
 
 	
 	<target name="gather-jars" depends="init">
+
+		<!-- This is a hack because of a bug in the ecore2java task.  
+		The task doesn't find the .project file of generated projects 
+		if the parent ant task is not executed from the metamodel directory. 
+		 I suspect that the file resource open code uses the java working
+		  directory rather than the ant basedir property.-->
+		  	
+		<exec command="eclipsec" dir="../metamodel">
+			<arg value="-noSplash"/>
+			<arg line="-data ."/>
+			<arg line="-application org.eclipse.ant.core.antRunner"/>
+			<arg line="-buildfile build.xml"/>
+			<arg line="build"/>
+		</exec>
 		
-		<ant dir="../metamodel" />
-		<ant dir="../editor" />
-		<ant dir="../feature" />
+		<ant dir="../editor" inheritAll="false" />
+		<ant dir="../feature" inheritAll="false" />
 
 		<copy todir="${plugins.dir}">
 			<fileset dir="../metamodel/responsibilityMetaModel/target/bundles/" includes="*.jar" />
