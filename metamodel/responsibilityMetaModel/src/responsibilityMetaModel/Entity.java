@@ -23,6 +23,7 @@ import responsibilityMetaModel.impl.RelianceHelper;
  *   <li>{@link responsibilityMetaModel.Entity#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.Entity#getCriticalityCount <em>Criticality Count</em>}</li>
+ *   <li>{@link responsibilityMetaModel.Entity#getReferencedBy <em>Referenced By</em>}</li>
  * </ul>
  *
  * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity()
@@ -190,6 +191,24 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setCriticalityCount(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Referenced By</b></em>' reference list.
+	 * The list contents are of type {@link responsibilityMetaModel.attributionRelationship}.
+	 * It is bidirectional and its opposite is '{@link responsibilityMetaModel.attributionRelationship#getEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Referenced By</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referenced By</em>' reference list.
+	 * @see responsibilityMetaModel.ResponsibilityMetaModelPackage#getEntity_ReferencedBy()
+	 * @see responsibilityMetaModel.attributionRelationship#getEntity
+	 * @model opposite="entity"
+	 * @generated
+	 */
+	EList<attributionRelationship> getReferencedBy();
 
 	/**
 	 * <!-- begin-user-doc -->

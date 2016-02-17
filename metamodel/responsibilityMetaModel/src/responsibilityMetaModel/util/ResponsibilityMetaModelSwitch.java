@@ -147,6 +147,19 @@ public class ResponsibilityMetaModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResponsibilityMetaModelPackage.SOURCE: {
+				Source source = (Source)theEObject;
+				T result = caseSource(source);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResponsibilityMetaModelPackage.ATTRIBUTION_RELATIONSHIP: {
+				attributionRelationship attributionRelationship = (attributionRelationship)theEObject;
+				T result = caseattributionRelationship(attributionRelationship);
+				if (result == null) result = caseRelation(attributionRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -328,6 +341,36 @@ public class ResponsibilityMetaModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseactorProducedRelationship(actorProducedRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSource(Source object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>attribution Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>attribution Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseattributionRelationship(attributionRelationship object) {
 		return null;
 	}
 

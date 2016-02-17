@@ -18,10 +18,10 @@
 	<property environment="env"/>
 	
 	<path id="project.classpath">
-		<fileset dir="${eclipse.home}/plugins"/>
 		<pathelement location="${bin.dir}"/>
 		<pathelement location="../responsibilityMetaModel/${bin.dir}"/>
 		<pathelement location="../responsibilityMetaModel.edit/${bin.dir}"/>
+		<fileset dir="${eclipse.home}/plugins"/>
 	</path>
 	
 	

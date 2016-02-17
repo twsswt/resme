@@ -48,6 +48,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
         eType="#//Relation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
+        eType="#//Source" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
@@ -62,6 +64,8 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalityCount" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedBy" upperBound="-1"
+        eType="#//attributionRelationship" eOpposite="#//attributionRelationship/entity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="resourceRequiredRelationship" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
@@ -100,5 +104,17 @@
         eOpposite="#//Actor/producedBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibility" eType="#//Responsibility"
         eOpposite="#//Responsibility/producedActor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Source">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributedTo" upperBound="-1"
+        eType="#//attributionRelationship" eOpposite="#//attributionRelationship/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="attributionRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Source"
+        eOpposite="#//Source/attributedTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"
+        eOpposite="#//Entity/referencedBy"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -19,10 +19,10 @@
 	<property environment="env"/>
 	
 	<path id="project.classpath">
-		<fileset dir="${eclipse.home}"/>
 		<pathelement location="${bin.dir}"/>
 		<pathelement location="../responsibilityMetaModel/${bin.dir}"/>
 		<fileset dir="${ivy.lib.dir}"/>
+		<fileset dir="${eclipse.home}"/>
 	</path>
 	
 	

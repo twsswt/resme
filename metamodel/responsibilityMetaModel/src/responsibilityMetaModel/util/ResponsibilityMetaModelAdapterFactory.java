@@ -116,6 +116,14 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 				return createactorProducedRelationshipAdapter();
 			}
 			@Override
+			public Adapter caseSource(Source object) {
+				return createSourceAdapter();
+			}
+			@Override
+			public Adapter caseattributionRelationship(attributionRelationship object) {
+				return createattributionRelationshipAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +308,34 @@ public class ResponsibilityMetaModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createactorProducedRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.Source <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.Source
+	 * @generated
+	 */
+	public Adapter createSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link responsibilityMetaModel.attributionRelationship <em>attribution Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see responsibilityMetaModel.attributionRelationship
+	 * @generated
+	 */
+	public Adapter createattributionRelationshipAdapter() {
 		return null;
 	}
 
