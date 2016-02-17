@@ -45,7 +45,7 @@
 			<fileset dir="../metamodel/responsibilityMetaModel/target/bundles/" includes="*.jar" />
 			<fileset dir="../metamodel/responsibilityMetaModel.edit/target/bundles/" includes="*.jar" />
 			<fileset dir="../metamodel/responsibilityMetaModel.editor/target/bundles/" includes="*.jar" />
-			<fileset dir="../editor/responsibilityMetaModel.design/target/bundles/" includes="*.jar" />
+			<fileset dir="../editor/ResponsibilityMetaModel.design/target/bundles/" includes="*.jar" />
 		</copy>
 				
 		<copy todir="${features.dir}">
