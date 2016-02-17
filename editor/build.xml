@@ -12,17 +12,13 @@
 		<ant inheritall="false" dir="responsibilityMetaModel.design" target="clean" />
 	</target>
 	
-	<target name="export-plugins" >
+	<target name="create-plugins" >
 
 		<ant inheritall="false" dir="responsibilityMetaModel.design"/>
-
-		<zip destfile="resme-editor.zip">
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel.design/target/bundles" includes="*.jar"/> 
-		</zip>
 		
 	</target>
 	
-	<target name="build" depends="export-plugins" />
+	<target name="build" depends="create-plugins" />
 	
 </project>
 

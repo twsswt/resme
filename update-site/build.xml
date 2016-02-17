@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project
+	name="resme-update-site"
+	basedir="."
+	default="build"
+	>
+		
+	<property name ="output.dir" value="target"/>
+	<property name ="jar.dir" value="${output.dir}/jars"/>
+	<property name ="plugins.dir" value="${jar.dir}/plugins"/>
+	<property name ="features.dir" value="${jar.dir}/features"/>
+	<property name ="update-site.dir" value="${output.dir}/update-site"/>
+	
+
+	<target name="clean">
+		<delete dir="target"/>
+	</target>
+
+
+	<target name="init">
+		<mkdir dir="target/jars" />			
+	</target>
+
+	
+	<target name="gather-jars" depends="init">
+		
+		<ant dir="../metamodel" />
+		<ant dir="../editor" />
+		<ant dir="../feature" />
+
+		<copy todir="${plugins.dir}">
+			<fileset dir="../metamodel/responsibilityMetaModel/target/bundles/" includes="*.jar" />
+			<fileset dir="../metamodel/responsibilityMetaModel.edit/target/bundles/" includes="*.jar" />
+			<fileset dir="../metamodel/responsibilityMetaModel.editor/target/bundles/" includes="*.jar" />
+			<fileset dir="../editor/responsibilityMetaModel.design/target/bundles/" includes="*.jar" />
+		</copy>
+				
+		<copy todir="${features.dir}">
+			<fileset dir="../feature/target/features/" includes="*.jar"/>
+		</copy>
+
+	</target>
+
+	<target name="publish-update-site" depends="gather-jars">
+						
+		<copy file="site.xml" todir="${update-site.dir}" />
+	
+		<p2.publish.featuresAndBundles
+			repository="file:///${basedir}/${update-site.dir}"
+			source="${jar.dir}"
+			compress="true"
+			publishartifacts="true"
+		/>
+	
+	</target>
+	
+	<target name="build" depends="publish-update-site" />
+	
+</project>
+

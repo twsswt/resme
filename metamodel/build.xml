@@ -36,23 +36,16 @@
 		<delete dir="." includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
 	</target>
 	
-	<target name="export-plugins" depends="generate-model-code">
+	<target name="create-plugins" depends="generate-model-code">
 
 		<ant inheritall="false" dir="responsibilityMetaModel"/>
 		<ant inheritall="false" dir="responsibilityMetaModel.edit"/>
 		<ant inheritall="false" dir="responsibilityMetaModel.editor"/>
 		<ant inheritall="false" dir="responsibilityMetaModel.tests"/>
-
-		<zip destfile="resme-metamodel.zip">
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel/target/bundles" includes="*.jar"/> 
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel.edit/target/bundles" includes="*.jar"/> 
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel.editor/target/bundles" includes="*.jar"/> 
-			<zipfileset prefix="plugins" dir="responsibilityMetaModel.tests/target/bundles" includes="*.jar"/> 
-		</zip>
 		
 	</target>
-	
-	<target name="build" depends="export-plugins" />
+		
+	<target name="build" depends="create-plugins" />
 	
 </project>
 

@@ -5,15 +5,16 @@
       version="0.0.1"
       provider-name="Robbie Simpson">
 
-   <description url="http://www.example.com/description">
-      Plugins required for responsibility meta model.
+   <description>
+      This feature provides the plugins required for the Responsibility
+Model Editor.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
+   <copyright>
       [Enter Copyright Description here.]
    </copyright>
 
-   <license url="http://www.example.com/license">
+   <license url="">
       [Enter License Description here.]
    </license>
 
