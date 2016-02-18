@@ -125,7 +125,7 @@ public class EntityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Entity_satisifed_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_satisifed_feature", "_UI_Entity_type"),
-				 ResponsibilityMetaModelPackage.Literals.ENTITY__SATISIFED,
+				 ResponsibilityMetaModelPackage.Literals.ENTITY__SATISFIED,
 				 true,
 				 false,
 				 false,
@@ -195,7 +195,7 @@ public class EntityItemProvider
 		switch (notification.getFeatureID(Entity.class)) {
 			case ResponsibilityMetaModelPackage.ENTITY__NAME:
 			case ResponsibilityMetaModelPackage.ENTITY__ENABLED:
-			case ResponsibilityMetaModelPackage.ENTITY__SATISIFED:
+			case ResponsibilityMetaModelPackage.ENTITY__SATISFIED:
 			case ResponsibilityMetaModelPackage.ENTITY__SATISFACTION_CRITERIA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -10,8 +10,7 @@
       <!-- @generated responsibilityMetaModel -->
       <package
             uri="http://www.example.org/responsibilityMetaModel"
-            class="responsibilityMetaModel.ResponsibilityMetaModelPackage"
-            genModel="responsibilityMetaModel.genmodel"/>
+            class="responsibilityMetaModel.ResponsibilityMetaModelPackage"/>
    </extension>
 
 </plugin>

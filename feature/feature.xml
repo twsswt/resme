@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="responsibilityMetaModel.feature"
+      label="Responsibility Modelling Editor"
+      version="0.0.1"
+      provider-name="Robbie Simpson">
+
+   <description>
+      This feature provides the plugins required for the Responsibility
+Model Editor.
+   </description>
+
+   <copyright>
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Responsibility Modelling Editor" url="http://rote.dcs.gla.ac.uk/resme-updates-site"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.emf.ecore.editor" version="2.11.0.v20150806-0404"/>
+   </requires>
+
+   <plugin
+         id="responsibilityMetaModel"
+         download-size="0"
+         install-size="0"
+         version="0.0.1"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.1"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.1"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.1"
+         unpack="false"/>
+
+</feature>

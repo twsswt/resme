@@ -1267,9 +1267,9 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_6OA7QLkCEeSH3IRiTGYqjw" name="satisifed : Boolean = true" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Entity/satisifed"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Entity/satisifed"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_6OA7QLkCEeSH3IRiTGYqjw" name="satisfied : Boolean = true" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Entity/satisfied"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Entity/satisfied"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_UJlscLkDEeSH3IRiTGYqjw" labelAlignment="LEFT">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_UJlscbkDEeSH3IRiTGYqjw"/>
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
@@ -2123,17 +2123,17 @@
             <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/enabled"/>
           </cells>
         </lines>
-        <lines xmi:type="table:DLine" xmi:id="_jLLNINS3EeWVrqe8THE3jw" label="satisifed">
-          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
-          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+        <lines xmi:type="table:DLine" xmi:id="_jLLNINS3EeWVrqe8THE3jw" label="satisfied">
+          <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
+          <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
           <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']/@ownedRepresentations[name='GenPackage%20Attributes']/@ownedLineMappings[name='GenClass']/@ownedSubLines[name='GenFeature']"/>
           <cells xmi:type="table:DCell" xmi:id="_jNqgcNS3EeWVrqe8THE3jw" column="_rbluYbOUEeSrjfXVetrxJw">
-            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
-            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
           </cells>
           <cells xmi:type="table:DCell" xmi:id="_jNrHgNS3EeWVrqe8THE3jw" column="_rbluYrOUEeSrjfXVetrxJw">
-            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
-            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisifed"/>
+            <target xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
+            <semanticElements xmi:type="genmodel:GenFeature" href="../responsibilityMetaModel.genmodel#//responsibilityMetaModel/Entity/satisfied"/>
           </cells>
         </lines>
         <lines xmi:type="table:DLine" xmi:id="_jLL0MNS3EeWVrqe8THE3jw" label="satisfactionCriteria">

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,10 +32,11 @@ import responsibilityMetaModel.attributionRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getCriticalityCount <em>Criticality Count</em>}</li>
@@ -43,11 +45,10 @@ import responsibilityMetaModel.attributionRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
+public class ActorImpl extends EObjectImpl implements Actor {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,24 +90,24 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The default value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SATISIFED_EDEFAULT = true;
+	protected static final boolean SATISFIED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The cached value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean satisifed = SATISIFED_EDEFAULT;
+	protected boolean satisfied = SATISFIED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
@@ -274,8 +275,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSatisifed() {
-		return satisifed;
+	public boolean isSatisfied() {
+		return satisfied;
 	}
 
 	/**
@@ -283,11 +284,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSatisifed(boolean newSatisifed) {
-		boolean oldSatisifed = satisifed;
-		satisifed = newSatisifed;
+	public void setSatisfied(boolean newSatisfied) {
+		boolean oldSatisfied = satisfied;
+		satisfied = newSatisfied;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.ACTOR__SATISIFED, oldSatisifed, satisifed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.ACTOR__SATISFIED, oldSatisfied, satisfied));
 	}
 
 	/**
@@ -407,7 +408,7 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 */
 	public boolean satisfied() {
 		//Actors are satisfied as long as they are enabled, unless they are produced
-		satisifed = isEnabled();
+		satisfied = isEnabled();
 		if (getProducedBy().size()==0){
 		}
 		else{
@@ -416,12 +417,12 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 					continue;
 				}
 				else{
-					satisifed = false;
+					satisfied = false;
 					break;
 				}
 			}
 		}
-		return satisifed;
+		return satisfied;
 	}
 
 	/**
@@ -534,8 +535,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return getName();
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				return isSatisifed();
+			case ResponsibilityMetaModelPackage.ACTOR__SATISFIED:
+				return isSatisfied();
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
@@ -569,8 +570,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				setSatisifed((Boolean)newValue);
+			case ResponsibilityMetaModelPackage.ACTOR__SATISFIED:
+				setSatisfied((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
@@ -615,8 +616,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				setSatisifed(SATISIFED_EDEFAULT);
+			case ResponsibilityMetaModelPackage.ACTOR__SATISFIED:
+				setSatisfied(SATISFIED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
@@ -655,8 +656,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.ACTOR__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.ACTOR__SATISIFED:
-				return satisifed != SATISIFED_EDEFAULT;
+			case ResponsibilityMetaModelPackage.ACTOR__SATISFIED:
+				return satisfied != SATISFIED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.ACTOR__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.ACTOR__CRITICAL:
@@ -681,22 +682,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ResponsibilityMetaModelPackage.ACTOR___SATISFIED:
-				return satisfied();
-			case ResponsibilityMetaModelPackage.ACTOR___RELIANCE:
-				return reliance();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -705,8 +690,8 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		result.append(name);
 		result.append(", enabled: ");
 		result.append(enabled);
-		result.append(", satisifed: ");
-		result.append(satisifed);
+		result.append(", satisfied: ");
+		result.append(satisfied);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
 		result.append(", critical: ");

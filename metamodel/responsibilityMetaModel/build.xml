@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project
+	name="responsibilityMetaModel"
+	xmlns:ivy="antlib:org.apache.ivy.ant"
+	basedir="."
+	default="build"
+	>
+	
+	
+	<property name="src.dir" value="src"/>
+	
+	<property name="output.dir" value="target"/>
+	<property name="bin.dir" value="${output.dir}/bin"/>
+	<property name="ivy.lib.dir" value="${output.dir}/lib"/>
+	<property name="output.src.dir" value="${output.dir}/generated-sources"/>
+	<property name="antlr.output.src.dir" value="${output.dir}/generated-sources/antlr4"/>
+		
+	<property file="META-INF/MANIFEST.MF"/>
+	
+	<property environment="env"/>
+	
+	<path id="project.classpath">
+		<fileset dir="${ivy.lib.dir}"/>
+		<pathelement location="${bin.dir}"/>
+		<fileset dir="${eclipse.home}/plugins"/>
+	</path>
+
+	<path id="antlr.classpath">
+		<fileset dir="${ivy.lib.dir}"/>
+	</path>
+
+	
+	<target name="init">
+		<mkdir dir="${bin.dir}"/>
+		<copy includeemptydirs="false" todir="${bin.dir}">
+			<fileset dir="${src.dir}">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	
+	<target name="retrieve-dependencies">
+		<ivy:resolve resolveMode="dynamic" />
+		<ivy:retrieve />
+	</target>
+	
+	
+	<target name="generate-satisfaction-code" depends="init,retrieve-dependencies">
+		
+		<java 
+			fork="true"
+			classpathref="antlr.classpath" 
+			classname="org.antlr.v4.Tool">
+			<arg line="-o ${antlr.output.src.dir}/responsibilityMetaModel/impl" />
+			<arg line="src/responsibilityMetaModel/impl/satisfaction.g4" />
+		</java>
+		
+	</target>
+	
+	<target name="clean">
+		<delete dir="${output.dir}"/>
+	</target>
+
+	
+	<target name="cleanall" depends="clean">
+		<ivy:cleancache/>
+	</target>
+
+	
+	<target name="compile" depends="init,retrieve-dependencies,generate-satisfaction-code">
+		<javac
+			destdir="${bin.dir}"
+			debug="true"
+			debuglevel="lines,vars,source" 
+		>
+			<src path="${src.dir}"/>
+			<src path="${antlr.output.src.dir}"/>
+			<classpath refid="project.classpath"/>
+		</javac>
+	</target>
+
+	
+	<target name="bundle-plugin" depends="compile" >
+		<jar destfile="${output.dir}/bundles/${ant.project.name}_${Bundle-Version}.jar" manifest="META-INF/MANIFEST.MF">
+			<fileset dir="${bin.dir}" includes="**/*.class" />
+			<fileset dir="." includes="model/*.aird"/>
+			<fileset file="plugin.xml"/>
+			<fileset file="plugin.properties"/>
+			<fileset file="${ivy.lib.dir}/antlr4-4.5.1.jar"/>
+		</jar>
+	</target>
+
+	
+	<target name="build" depends="bundle-plugin" />
+
+	
+</project>
+

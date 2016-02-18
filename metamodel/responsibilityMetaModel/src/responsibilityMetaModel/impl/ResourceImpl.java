@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -30,10 +31,11 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getCriticalityCount <em>Criticality Count</em>}</li>
@@ -41,11 +43,10 @@ import responsibilityMetaModel.resourceRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResourceImpl#getProducedBy <em>Produced By</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
+public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,24 +88,24 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The default value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SATISIFED_EDEFAULT = true;
+	protected static final boolean SATISFIED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isSatisifed() <em>Satisifed</em>}' attribute.
+	 * The cached value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSatisifed()
+	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean satisifed = SATISIFED_EDEFAULT;
+	protected boolean satisfied = SATISFIED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
@@ -262,8 +263,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSatisifed() {
-		return satisifed;
+	public boolean isSatisfied() {
+		return satisfied;
 	}
 
 	/**
@@ -271,11 +272,11 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSatisifed(boolean newSatisifed) {
-		boolean oldSatisifed = satisifed;
-		satisifed = newSatisifed;
+	public void setSatisfied(boolean newSatisfied) {
+		boolean oldSatisfied = satisfied;
+		satisfied = newSatisfied;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESOURCE__SATISIFED, oldSatisifed, satisifed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESOURCE__SATISFIED, oldSatisfied, satisfied));
 	}
 
 	/**
@@ -385,12 +386,12 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 
 		//Resources are satisfied if they are enabled and produced
 		for (resourceProducedRelationship r : this.producedBy){
-			if (r.getResponsibility().isSatisifed()){
-				satisifed = this.isEnabled();
+			if (r.getResponsibility().isSatisfied()){
+				satisfied = this.isEnabled();
 				return this.isEnabled(); //we have found a satisfied producer
 			}
 		}
-		satisifed = false;
+		satisfied = false;
 		return false; //if no valid producers found, resource not satisfied
 	}
 
@@ -458,8 +459,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return getName();
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return isEnabled();
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
-				return isSatisifed();
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFIED:
+				return isSatisfied();
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				return getSatisfactionCriteria();
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
@@ -491,8 +492,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
-				setSatisifed((Boolean)newValue);
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFIED:
+				setSatisfied((Boolean)newValue);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria((String)newValue);
@@ -533,8 +534,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
-				setSatisifed(SATISIFED_EDEFAULT);
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFIED:
+				setSatisfied(SATISFIED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
@@ -570,8 +571,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.RESOURCE__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
-			case ResponsibilityMetaModelPackage.RESOURCE__SATISIFED:
-				return satisifed != SATISIFED_EDEFAULT;
+			case ResponsibilityMetaModelPackage.RESOURCE__SATISFIED:
+				return satisfied != SATISFIED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESOURCE__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.RESOURCE__CRITICAL:
@@ -594,20 +595,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ResponsibilityMetaModelPackage.RESOURCE___SATISFIED:
-				return satisfied();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -616,8 +603,8 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
 		result.append(name);
 		result.append(", enabled: ");
 		result.append(enabled);
-		result.append(", satisifed: ");
-		result.append(satisifed);
+		result.append(", satisfied: ");
+		result.append(satisfied);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
 		result.append(", critical: ");
