@@ -121,7 +121,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="requiredResponsibility" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:subRresponsibility" sourceFinderExpression="feature:superResponsibility" domainClass="responsibilityMetaModel.responsibilityRequiredRelationship" useDomainElement="true">
+        <edgeMappings name="requiredResponsibility" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:subResponsibility" sourceFinderExpression="feature:superResponsibility" domainClass="responsibilityMetaModel.responsibilityRequiredRelationship" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -298,7 +298,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.responsibilityRequiredRelationship" referenceName="relations">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="subRresponsibility" valueExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="subResponsibility" valueExpression="var:target">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="superResponsibility" valueExpression="var:source"/>
                     </subModelOperations>
                   </subModelOperations>
