@@ -35,6 +35,7 @@
 		<ant inheritall="false" dir="responsibilityMetaModel.editor" target="clean" />
 		<ant inheritall="false" dir="responsibilityMetaModel.tests" target="clean" />
 		<delete dir="." includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
+		<delete dir="responsibilityMetaModel.edit/icons" />
 	</target>
 	
 	<target name="create-plugins" depends="generate-model-code">
