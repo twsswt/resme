@@ -572,7 +572,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 
 		}
 
-		//Then resposibilities
+		//Then responsibilities
 
 		for (responsibilityRequiredRelationship r: subResponsibility){
 			if (r.getSubResponsibility().isEnabled()){
