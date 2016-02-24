@@ -1786,7 +1786,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_i0Hp9NS1EeWVrqe8THE3jw" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_cWTR8NS1EeWVrqe8THE3jw" name="name : String" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@45ddccc3{platform:/resource/responsibilityMetaModel/responsibilityMetaModel.ecore#//Source/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_cWTR8NS1EeWVrqe8THE3jw" name="name : String" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/name"/>
           <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/name"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fTv6gNS1EeWVrqe8THE3jw" labelAlignment="LEFT">
@@ -1797,7 +1797,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gqx-4NS1EeWVrqe8THE3jw" name="author : String" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@e706d06{platform:/resource/responsibilityMetaModel/responsibilityMetaModel.ecore#//Source/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gqx-4NS1EeWVrqe8THE3jw" name="author : String" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/author"/>
           <semanticElements xmi:type="ecore:EAttribute" href="../responsibilityMetaModel.ecore#//Source/author"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_i0SpENS1EeWVrqe8THE3jw" labelAlignment="LEFT">
