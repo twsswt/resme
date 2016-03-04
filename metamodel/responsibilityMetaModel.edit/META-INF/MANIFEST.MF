@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Responsibility Modelling Edit Parts
 Bundle-SymbolicName: responsibilityMetaModel.edit;singleton:=true
-Bundle-Version: 0.0.1
+Bundle-Version: 0.0.2
 Bundle-ClassPath: .
 Bundle-Activator: responsibilityMetaModel.provider.ResponsibilityMetaModelEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Robbie Simpson
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: responsibilityMetaModel.provider
