@@ -5,9 +5,7 @@
 	basedir="."
 	default="build"
 	>
-	
-	<property name="release" value="0.0.1" />
-	
+		
 	<target name="clean">
 		<ant inheritall="false" dir="ResponsibilityMetaModel.design" target="clean" />
 	</target>
