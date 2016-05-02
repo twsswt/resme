@@ -14,7 +14,7 @@ Contributors
 
 An update site for the Responsibility Model Editor is available at:
 
-    http://rote.dcs.gla.ac.uk/resme-update-site/
+    http://www.dcs.gla.ac.uk/~tws/resme-update-site/
     
 In your IDE, choose Help -> Install New Software and click Add... to add a new update site.  Enter a name for the site (e.g. Responsibility Model Editor) and the URL above.  Now follow the instructions in the wizard for installing the Responsibility Model Editor feature from the site.
 
