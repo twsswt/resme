@@ -6,7 +6,7 @@ Contributors
     University of Glasgow
     Email: r.simpson.3@research.gla.ac.uk
    
-  * Tim Storer (tws)
+  * Tim Storer (twsswt/tws)
     University of Glasgow.
     Email: timothy.storer@glasgow.ac.uk
 
