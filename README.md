@@ -42,6 +42,3 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
   9. Select the appropriate model file and Scenario object.
   10. Finish
   11. Name the representation file (default is 'Responsibility Model').
-
-
-
