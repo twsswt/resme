@@ -25,7 +25,7 @@ needs to be executed from within Eclipse, since it depends on a number of
 custom Eclipse tasks.  To do this, execute the following command line arguments:
 
     %>cd <resme>/update-site
-    %>eclipse -noSplash -data . -application org.apache.ant.core.antRunner clean create-plugins
+    %>eclipse -noSplash -data . -application org.eclipse.ant.core.antRunner clean create-plugins
 
 This will create an update site in <pre><resme>/update-site/target/update-site</pre>.  This can then be opened in an Eclipse project to install the Responsibility Model Editor features.
 

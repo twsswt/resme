@@ -67,7 +67,7 @@
 	<target name="test" depends="compile">
 		<mkdir dir="${reports.tests}"/>
 		
-		<junit showoutput="true" printsummary="true">
+		<junit showoutput="false" printsummary="true">
 			<classpath refid="project.classpath"/>
 			<formatter type="xml"/>
 			<batchtest todir="${reports.tests}">
