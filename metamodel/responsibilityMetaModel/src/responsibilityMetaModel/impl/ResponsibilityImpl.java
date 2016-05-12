@@ -553,7 +553,6 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			if (a.getActor().isEnabled()){
 				if (!visited.contains(a.getActor())){
 					visited.add(a.getActor());
-					depends = a.getActor().reliesOn(visited, depends).depends; //Update
 				}
 				if (!depends.contains(a.getActor())){
 					depends.add(a.getActor());
