@@ -338,7 +338,7 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				max = a.getCriticalityCount();
 			}
 		}
-		for (Entity e: resources){
+		for (Entity e: responsibilities){
 			if (e.getCriticalityCount() == max){
 				e.setCritical(true);
 			}
