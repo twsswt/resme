@@ -5,7 +5,9 @@ package responsibilityMetaModel.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import responsibilityMetaModel.Actor;
 import responsibilityMetaModel.Entity;
 import responsibilityMetaModel.Responsibility;
@@ -551,7 +554,14 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		//First actors
 		for (actorRequiredRelationship a: requiredActor){
 			if (a.getActor().isEnabled()){
+				//Special treatment to cover 'Produced Actor'
 				if (!visited.contains(a.getActor())){
+					EList<actorProducedRelationship> pro = a.getActor().getProducedBy(); //get all resps producing actor
+					for (actorProducedRelationship aP: pro){
+						if (!visited.contains(aP.getResponsibility())){
+							depends = aP.getResponsibility().reliesOn(visited, depends).depends;
+						}
+					}
 					visited.add(a.getActor());
 				}
 				if (!depends.contains(a.getActor())){
