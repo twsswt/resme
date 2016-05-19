@@ -2,7 +2,7 @@
 <feature
       id="responsibilityMetaModel.feature"
       label="Responsibility Modelling Editor"
-      version="0.0.2"
+      version="0.0.3"
       provider-name="Robbie Simpson">
 
    <description>
@@ -30,28 +30,28 @@ Model Editor.
          id="responsibilityMetaModel"
          download-size="0"
          install-size="0"
-         version="0.0.2"
+         version="0.0.3"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.design"
          download-size="0"
          install-size="0"
-         version="0.0.2"
+         version="0.0.3"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.edit"
          download-size="0"
          install-size="0"
-         version="0.0.2"
+         version="0.0.3"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.editor"
          download-size="0"
          install-size="0"
-         version="0.0.2"
+         version="0.0.3"
          unpack="false"/>
 
 </feature>
