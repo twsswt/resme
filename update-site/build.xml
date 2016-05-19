@@ -30,7 +30,7 @@
 		 I suspect that the file resource open code uses the java working
 		  directory rather than the ant basedir property.-->
 		  	
-		<exec command="eclipse" dir="../metamodel">
+		<exec command="obeodesigner" dir="../metamodel">
 			<arg value="-noSplash"/>
 			<arg line="-data ."/>
 			<arg line="-application org.eclipse.ant.core.antRunner"/>
