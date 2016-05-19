@@ -2,7 +2,7 @@
 
 Contributors
 
-  * Robbie Simpson (robbies)
+  * Robbie Simpson (rsimpson/robmods)
     University of Glasgow
     Email: r.simpson.3@research.gla.ac.uk
    
@@ -42,3 +42,12 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
   9. Select the appropriate model file and Scenario object.
   10. Finish
   11. Name the representation file (default is 'Responsibility Model').
+
+
+##Notes on Version Numbers
+
+Version numbers may vary slightly, as they are defined in three seperate locations:
+
+1) site.xml, for the update site
+2) feature.xml, for the bundle of projects
+3) the individual manifests of the projects
