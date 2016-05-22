@@ -4,13 +4,13 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="responsibilityDiagram" label="Responsibility Diagram" titleExpression="[self.name + ' Responsibility Model'/]" showOnStartup="true" domainClass="responsibilityMetaModel.Scenario" enablePopupBars="true">
       <metamodel href="http://www.example.org/responsibilityMetaModel#/"/>
       <validationSet>
-        <ownedRules xsi:type="validation:SemanticValidationRule" message="This responsibility has no assigned actors" targetClass="Responsibility">
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
           <audits auditExpression="[self.oclAsType(Responsibility).requiredActor.oclAsType(actorRequiredRelationship).actor.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This resource is not produced" targetClass="Resource">
           <audits auditExpression="[self.oclAsType(Resource).producedBy.oclAsType(resourceProducedRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="No responsibilities are assigned to this actor" targetClass="Actor">
+        <ownedRules xsi:type="validation:SemanticValidationRule" message="No responsibilities are assigned to this actor" targetClass="Actor">
           <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" message="No responsibilities are held by this actor" targetClass="Actor">
