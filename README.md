@@ -48,10 +48,10 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
 
 1. Update Version numbers defined in three seperate locations across the project eco-system:
 
-  1. update-site/site.xml, for the update site
-  2. feature/feature.xml, for the feature itself and the bundle of projects that constitute the feature.
-  3. the individual manifests (MANIFEST.MF) of the sub-projects for each of the bundles.
+  * update-site/site.xml, for the update site
+  * feature/feature.xml, for the feature itself and the bundle of projects that constitute the feature.
+  * the individual manifests (MANIFEST.MF) of the sub-projects for each of the bundles.
 
 2. Commit the project to trunk.
 
-3. Create an SVN tag 'release-<VERSION>'.
+3. Create an SVN tag 'release-&lt;VERSION&gt;'.
