@@ -57,7 +57,6 @@
 	<target name="publish-update-site" depends="gather-jars">
 						
 		<copy file="site.xml" todir="${update-site.dir}" />
-		<copy file="category.xml" todir="${update-site.dir}" />
 	
 		<p2.publish.featuresAndBundles
 			repository="file:///${basedir}/${update-site.dir}"
