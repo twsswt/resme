@@ -3,8 +3,9 @@
    <feature url="features/responsibilityMetaModel.feature_0.0.3.jar" id="responsibilityMetaModel.feature" version="0.0.3">
       <category name="responsibilityMetaModel.category"/>
    </feature>
-   <category-def name="responsibilityMetaModel.category" label="Responsibility Model Editor"/>
+   <category-def name="responsibilityMetaModel.category" label="Responsibility Model Editor">
    <description>
    A tool for constructing and analysing responsibility models
    </description>
+   </category>
 </site>
