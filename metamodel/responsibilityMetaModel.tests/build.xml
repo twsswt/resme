@@ -4,28 +4,26 @@
 	name="responsibilityMetaModel.tests"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
-	default="build"
-	>
-	
-	
+	default="build">
+
+
 	<property name="src.dir" value="src"/>
-	
+
 	<property name="output.dir" value="target"/>
 	<property name="bin.dir" value="${output.dir}/bin"/>
 	<property name="ivy.lib.dir" value="${output.dir}/lib"/>
 	<property name="reports.tests" value="${output.dir}/reports/junit"/>
-	
-	
+
 	<property environment="env"/>
-	
+
 	<path id="project.classpath">
 		<pathelement location="${bin.dir}"/>
 		<pathelement location="../responsibilityMetaModel/${bin.dir}"/>
 		<fileset dir="${ivy.lib.dir}"/>
 		<fileset dir="${eclipse.home}"/>
 	</path>
-	
-	
+
+
 	<target name="init">
 		<mkdir dir="${bin.dir}"/>
 		<copy includeemptydirs="false" todir="${bin.dir}">
@@ -34,39 +32,38 @@
 			</fileset>
 		</copy>
 	</target>
-	
-	
+
+
 	<target name="retrieve-dependencies">
 		<ivy:resolve resolveMode="dynamic" />
 		<ivy:retrieve />
 	</target>
-	
-	
+
+
 	<target name="clean">
 		<delete dir="${output.dir}"/>
 	</target>
 
-	
+
 	<target name="cleanall" depends="clean">
 		<ivy:cleancache/>
 	</target>
 
-	
+
 	<target name="compile" depends="init,retrieve-dependencies">
 		<javac
 			destdir="${bin.dir}"
 			debug="true"
-			debuglevel="lines,vars,source" 
-		>
+			debuglevel="lines,vars,source"
+			target="6">
 			<src path="${src.dir}"/>
 			<classpath refid="project.classpath"/>
 		</javac>
 	</target>
-	
-	
+
+
 	<target name="test" depends="compile">
 		<mkdir dir="${reports.tests}"/>
-		
 		<junit showoutput="false" printsummary="true">
 			<classpath refid="project.classpath"/>
 			<formatter type="xml"/>
@@ -77,26 +74,21 @@
 				</fileset>
 			</batchtest>
 		</junit>
-
 	</target>
-	
-		
-	<target name="bundle-plugin" depends="compile" >
-		
+
+
+	<target name="bundle-plugin" depends="compile">
 		<jar
 			destfile="${output.dir}/bundles/${ant.project.name}-${ivy.revision}.jar"
-			manifest="META-INF/MANIFEST.MF"
-			>
+			manifest="META-INF/MANIFEST.MF">
 			
 			<fileset dir="${bin.dir}" includes="**/*.class" />
 			<fileset file="plugin.xml"/>
 			<fileset file="plugin.properties"/>
-			<fileset dir="." includes="icons/**/*.gif"/>
-		
+			<fileset dir="." includes="icons/**/*.gif"/>		
 		</jar>
-		
 	</target>
-	
+
 
 	<target name="build" depends="bundle-plugin" />
 
