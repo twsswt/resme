@@ -71,12 +71,12 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Scenario).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/ResponsibilityMetaModel.design/images/g3056.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.enabled=false/]">
-            <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/ResponsibilityMetaModel.design/images/g3056.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
