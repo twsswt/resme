@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Responsibility Modelling Meta Model
 Bundle-SymbolicName: responsibilityMetaModel;singleton:=true
-Bundle-Version: 0.0.3
+Bundle-Version: 0.0.4
 Bundle-ClassPath: .,
  antlr4-4.5.1.jar
 Bundle-Vendor: Robbie Simpson
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: responsibilityMetaModel;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
  responsibilityMetaModel.impl;uses:="org.antlr.v4.runtime,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.antlr.v4.runtime.atn,  org.eclipse.emf.common.notify,  org.eclipse.emf.ecore.impl,  org.antlr.v4.runtime.tree,  responsibilityMetaModel",
  responsibilityMetaModel.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.common.notify,  responsibilityMetaModel"
