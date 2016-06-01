@@ -23,7 +23,8 @@ Model Editor.
    </url>
 
    <requires>
-      <import feature="org.eclipse.emf.ecore.editor" version="2.11.0.v20150806-0404"/>
+      <import feature="org.eclipse.emf"/>
+      <import feature="org.eclipse.sirius"/>
    </requires>
 
    <plugin
