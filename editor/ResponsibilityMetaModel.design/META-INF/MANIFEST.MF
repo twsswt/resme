@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common.acceleo.mtl,
  responsibilityMetaModel,
  responsibilityMetaModel.edit,
- responsibilityMetaModel.editor
+ responsibilityMetaModel.editor,
+ org.eclipse.sirius.common.ui;bundle-version="2.0.3"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
