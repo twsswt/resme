@@ -52,7 +52,8 @@
 			destdir="${bin.dir}"
 			debug="true"
 			debuglevel="lines,vars,source" 
-			target="6">
+			source="7"
+			target="7">
 			<src path="${src.dir}"/>
 			<classpath refid="project.classpath"/>
 		</javac>
