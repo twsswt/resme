@@ -34,17 +34,18 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
 
 ##How to create a new Responsibility Model:
 
-  1. Create a new Modelling Project (File -> New -> Modelling Project or File -> New -> Other and choose Modelling Project).
-  2. In that project, go to New-> Other -> Example EMF Model Creation Wizards -> ResponsibilityMetaModel Model/
-  3. Click Next.
-  4. Select `Scenario' as the Model Object. Finish.  This should create a responsibilitymodel file.
-  5. Right click on the project and select `Viewpoints Selection'.
-  6. Select `Responsibility Model'
-  7. Right click on the project and select `Create Representation'
-  8. Select 'Responsibility Diagram'
-  9. Select the appropriate model file and Scenario object.
-  10. Finish
-  11. Name the representation file (default is 'Responsibility Model').
+  1. Switch to the `Sirius' Perspective (Window -> Open Perspective -> Other - > Sirius)
+  2. Create a new Modelling Project (File -> New -> Modelling Project or File -> New -> Other and choose Modelling Project).
+  3. In that project, go to New-> Other -> Example EMF Model Creation Wizards -> ResponsibilityMetaModel Model/
+  4. Click Next.
+  5. Select `Scenario' as the Model Object. Finish.  This should create a responsibilitymodel file.
+  6. Right click on the project and select `Viewpoints Selection'.
+  7. Select `Responsibility Model'
+  8. Right click on the project and select `Create Representation'
+  9. Select 'Responsibility Diagram'
+  10. Select the appropriate model file and Scenario object.
+  11. Finish
+  12. Name the representation file (default is 'Responsibility Model').
 
 
 ##Procedure for updating Version Numbers
