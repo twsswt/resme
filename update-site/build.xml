@@ -30,7 +30,7 @@
 		 I suspect that the file resource open code uses the java working
 		  directory rather than the ant basedir property.-->
 		  	
-		<exec command="obeodesigner" dir="../metamodel">
+		<exec command="eclipsec" dir="../metamodel">
 			<arg value="-noSplash"/>
 			<arg line="-data ."/>
 			<arg line="-application org.eclipse.ant.core.antRunner"/>
@@ -55,15 +55,16 @@
 	</target>
 
 	<target name="publish-update-site" depends="gather-jars">
-						
-		<copy file="site.xml" todir="${update-site.dir}" />
-	
-		<p2.publish.featuresAndBundles
-			repository="file:///${basedir}/${update-site.dir}"
-			source="${jar.dir}"
-			compress="true"
-			publishartifacts="true"
-		/>
+
+		<eclipse.publish.featuresAndBundles
+			artifactRepository="file:///${basedir}/${update-site.dir}"
+			metadataRepository="file:///${basedir}/${update-site.dir}"
+			category="file:///${basedir}/category.xml"
+		>
+			<features dir="${jar.dir}/features" />
+			<bundles dir="${jar.dir}/plugins" />
+
+		</eclipse.publish.featuresAndBundles>
 	
 	</target>
 	

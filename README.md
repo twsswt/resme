@@ -53,6 +53,7 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
 
   * update-site/site.xml, for the update site
   * feature/feature.xml, for the feature itself and the bundle of projects that constitute the feature.
+  * feature/build.xml, for the file name for the feature.
   * the individual manifests (MANIFEST.MF) of the sub-projects for each of the bundles.
 
 2. Commit the project to trunk.
