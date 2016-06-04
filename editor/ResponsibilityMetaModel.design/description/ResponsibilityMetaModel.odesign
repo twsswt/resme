@@ -164,7 +164,7 @@
             </centerLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="[(actor.enabled=false)._or(responsibility.enabled=false)/]">
-            <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <style lineStyle="dash" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <centerLabelStyleDescription>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
