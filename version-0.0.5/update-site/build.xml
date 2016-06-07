@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project
+	name="resme-update-site"
+	basedir="."
+	default="build"
+	>
+		
+	<property name ="output.dir" value="target"/>
+	<property name ="jar.dir" value="${output.dir}/jars"/>
+	<property name ="plugins.dir" value="${jar.dir}/plugins"/>
+	<property name ="features.dir" value="${jar.dir}/features"/>
+	<property name ="update-site.dir" value="${output.dir}/update-site"/>
+	
+
+	<target name="clean">
+		<delete dir="target"/>
+	</target>
+
+
+	<target name="init">
+		<mkdir dir="${jar.dir}" />
+	</target>
+
+	
+	<target name="gather-jars" depends="init">
+
+		<!-- This is a hack because of a bug in the ecore2java task.  
+		The task doesn't find the .project file of generated projects 
+		if the parent ant task is not executed from the metamodel directory. 
+		 I suspect that the file resource open code uses the java working
+		  directory rather than the ant basedir property.-->
+		  	
+		<exec command="obeodesigner" dir="../metamodel">
+			<arg value="-noSplash"/>
+			<arg line="-data ."/>
+			<arg line="-application org.eclipse.ant.core.antRunner"/>
+			<arg line="-buildfile build.xml"/>
+			<arg line="build"/>
+		</exec>
+		
+		<ant dir="../editor" inheritAll="false" />
+		<ant dir="../feature" inheritAll="false" />
+
+		<copy todir="${plugins.dir}">
+			<fileset dir="../metamodel/responsibilityMetaModel/target/bundles/" includes="*.jar" />
+			<fileset dir="../metamodel/responsibilityMetaModel.edit/target/bundles/" includes="*.jar" />
+			<fileset dir="../metamodel/responsibilityMetaModel.editor/target/bundles/" includes="*.jar" />
+			<fileset dir="../editor/ResponsibilityMetaModel.design/target/bundles/" includes="*.jar" />
+		</copy>
+				
+		<copy todir="${features.dir}">
+			<fileset dir="../feature/target/features/" includes="*.jar"/>
+		</copy>
+
+	</target>
+
+	<target name="publish-update-site" depends="gather-jars">
+
+		<eclipse.publish.featuresAndBundles
+			artifactRepository="file:///${basedir}/${update-site.dir}"
+			metadataRepository="file:///${basedir}/${update-site.dir}"
+			category="file:///${basedir}/category.xml"
+		>
+			<features dir="${jar.dir}/features" />
+			<bundles dir="${jar.dir}/plugins" />
+
+		</eclipse.publish.featuresAndBundles>
+	
+	</target>
+	
+	<target name="build" depends="publish-update-site" />
+	
+</project>
+

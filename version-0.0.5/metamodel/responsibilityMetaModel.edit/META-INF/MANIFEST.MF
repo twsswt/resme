@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Responsibility Modelling Edit Parts
+Bundle-SymbolicName: responsibilityMetaModel.edit;singleton:=true
+Bundle-Version: 0.0.5
+Bundle-ClassPath: .
+Bundle-Activator: responsibilityMetaModel.provider.ResponsibilityMetaModelEditPlugin$Implementation
+Bundle-Vendor: Robbie Simpson
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: responsibilityMetaModel.provider
+Require-Bundle: org.eclipse.core.runtime,
+ responsibilityMetaModel;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore
+Bundle-ActivationPolicy: lazy

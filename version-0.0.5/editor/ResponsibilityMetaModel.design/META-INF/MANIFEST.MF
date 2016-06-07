@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: responsibilityMetaModel.design
+Bundle-SymbolicName: responsibilityMetaModel.design;singleton:=true
+Bundle-Version: 0.0.5
+Bundle-Activator: ResponsibilityMetaModel.design.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.sirius,
+ org.eclipse.sirius.common.acceleo.mtl,
+ responsibilityMetaModel,
+ responsibilityMetaModel.edit,
+ responsibilityMetaModel.editor,
+ org.eclipse.sirius.common.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

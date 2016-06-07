@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project
+	name="resme-metamodel"
+	basedir="."
+	default="build"
+	>
+		
+	<target name="generate-model-code">
+			
+		<emf.Ecore2Java
+			model="responsibilityMetaModel.ecore" 
+			genModel="responsibilityMetaModel.genmodel" 
+			modelProject="responsibilityMetaModel"
+			generateeditproject="true"
+			
+			generateeditorproject="true"
+			generatetestsproject="true"
+			modelProjectFragmentPath="src/"
+		>
+			<arg line="-editProject responsibilityMetaModel.edit src" />
+			<arg line="-editorProject responsibilityMetaModel.editor src" />
+			<arg line="-testsProject responsibilityMetaModel.tests src" />
+
+		</emf.Ecore2Java>
+			
+		
+	</target>
+
+	<target name="clean">
+		<ant inheritall="false" dir="responsibilityMetaModel" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.edit" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.editor" target="clean" />
+		<ant inheritall="false" dir="responsibilityMetaModel.tests" target="clean" />
+		<delete dir="." includes="**/*.java" excludesfile="versionedjavasourcefiles.txt" />
+		<delete dir="responsibilityMetaModel.edit/icons" />
+	</target>
+	
+	<target name="create-plugins" depends="generate-model-code">
+
+		<ant inheritall="false" dir="responsibilityMetaModel"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.edit"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.editor"/>
+		<ant inheritall="false" dir="responsibilityMetaModel.tests"/>
+		
+	</target>
+		
+	<target name="build" depends="create-plugins" />
+	
+</project>
+

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: responsibilityMetaModel.tests;singleton:=true
+Bundle-Version: 0.0.4
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: responsibilityMetaModel.tests
+Require-Bundle: org.eclipse.core.runtime,
+ responsibilityMetaModel;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.junit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

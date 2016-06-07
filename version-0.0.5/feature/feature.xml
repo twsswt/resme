@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="responsibilityMetaModel.feature"
+      label="Responsibility Modelling Editor"
+      version="0.0.5"
+      provider-name="Robbie Simpson">
+
+   <description>
+      This feature provides the plugins required for the Responsibility
+Model Editor.
+   </description>
+
+   <copyright>
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Responsibility Modelling Editor" url="http://rote.dcs.gla.ac.uk/resme-updates-site"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.mtl"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.sirius.common.ui" version="2.0.3" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="responsibilityMetaModel"
+         download-size="0"
+         install-size="0"
+         version="0.0.4"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.4"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.4"
+         unpack="false"/>
+
+   <plugin
+         id="responsibilityMetaModel.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.4"
+         unpack="false"/>
+
+</feature>

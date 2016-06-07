@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project
+	name="resme-editor"
+	basedir="."
+	default="build"
+	>
+		
+	<target name="clean">
+		<ant inheritall="false" dir="ResponsibilityMetaModel.design" target="clean" />
+	</target>
+	
+	<target name="create-plugins" >
+
+		<ant inheritall="false" dir="ResponsibilityMetaModel.design"/>
+		
+	</target>
+	
+	<target name="build" depends="create-plugins" />
+	
+</project>
+
