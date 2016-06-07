@@ -12,9 +12,7 @@ Contributors
 
 ##Installing the Plugin in Eclipse or Obeo
 
-An update site for the Responsibility Model Editor is available at:
-
-    http://www.dcs.gla.ac.uk/~tws/software/resme-update-site/
+An update site for the Responsibility Model Editor is [available](http://www.dcs.gla.ac.uk/~tws/software/resme-update-site/).
 
 For ease of installation, first install Eclipse Sirius via the Eclipse Marketplace.
     
@@ -29,8 +27,10 @@ An Ant script is provided for constructing an update site from source.  This
 needs to be executed from within Eclipse, since it depends on a number of 
 custom Eclipse tasks.  To do this, execute the following command line arguments:
 
-    %>cd <resme>/update-site
-    %>eclipse -noSplash -data . -application org.eclipse.ant.core.antRunner clean create-plugins
+```
+%>cd <resme>/update-site
+%>eclipse -noSplash -data . -application org.eclipse.ant.core.antRunner clean create-plugins
+```
 
 This will create an update site in <pre><resme>/update-site/target/update-site</pre>.  This can then be opened in an Eclipse project to install the Responsibility Model Editor features.
 
@@ -53,7 +53,7 @@ This will create an update site in <pre><resme>/update-site/target/update-site</
 ##Importing an existing Responsibility Model:
 
 A Responsibility Model comprises two files: a metamodel description
-<code>.responsibilitymetamodel</code> file and a <code>.aird</code>
+`.responsibilitymetamodel` file and a `.aird`
 representation file.  These should be appear in the root directory of an Eclipse
 project, but can be retrieved in a variety of ways in Eclipse.  We recommend
 storing model files in a version control system, such as Subversion or Git,
@@ -86,4 +86,6 @@ For example, to import the TCAS Case Study  model from GitHub:
 
 3. Create an SVN tag "release-&lt;VERSION&gt;".  To do this in a working copy type:
 
-    svn copy ^/trunk ^/tags/release-<VERSION>
+```
+svn copy ^/trunk ^/tags/release-<VERSION>
+```
