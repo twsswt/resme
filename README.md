@@ -84,8 +84,8 @@ For example, to import the TCAS Case Study  model from GitHub:
 
 2. Commit the project to trunk.
 
-3. Create an SVN tag "release-&lt;VERSION&gt;".  To do this in a working copy type:
+3. Create an SVN tag "release-&lt;RELEASE&gt;".  To do this in a working copy type:
 
 ```
-svn copy ^/trunk ^/tags/release-<VERSION>
+svn copy ^/trunk ^/tags/release-<RELEASE>
 ```
