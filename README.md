@@ -15,6 +15,8 @@ Contributors
 An update site for the Responsibility Model Editor is available at:
 
     http://www.dcs.gla.ac.uk/~tws/software/resme-update-site/
+
+For ease of installation, first install Eclipse Sirius via the Eclipse Marketplace.
     
 In your IDE, choose Help -> Install New Software and click Add... to add a new update site.  Enter a name for the site (e.g. Responsibility Model Editor) and the URL above. Unselect `Group items by 
 category' to show the Responsibility Model Editor.
