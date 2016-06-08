@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/responsibilityMetaModel.feature_0.0.5.jar" id="responsibilityMetaModel.feature" version="0.0.4">
+   <feature url="features/responsibilityMetaModel.feature_0.0.6.jar" id="responsibilityMetaModel.feature" version="0.0.6">
       <category name="responsibilityMetaModel.category"/>
    </feature>
    <category-def name="responsibilityMetaModel.category" label="Responsibility Model Editor">

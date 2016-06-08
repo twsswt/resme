@@ -6,7 +6,7 @@
 	>
 	
 	<property name="feature.id" value="responsibilityMetaModel.feature"/>
-	<property name="feature.version" value="0.0.5"/>
+	<property name="feature.version" value="0.0.6"/>
 		
 	<property name ="output.dir" value="target"/>
 	<property name ="features.dir" value="${output.dir}/features"/>
