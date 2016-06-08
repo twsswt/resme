@@ -33,35 +33,35 @@ Model Editor.
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.sirius.common.ui" version="2.0.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.ui"/>
    </requires>
 
    <plugin
          id="responsibilityMetaModel"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.design"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.edit"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="responsibilityMetaModel.editor"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
 </feature>
