@@ -488,5 +488,468 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="sectionDiagram" label="Section Diagram" titleExpression="[self.name + ' Section Model'/]" domainClass="responsibilityMetaModel.Section" enablePopupBars="true">
+      <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Scenario).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
+          <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.enabled=false/]">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
+            <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Scenario).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
+          <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.enabled=false/]">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Scenario).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+          <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.enabled=false/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <edgeMappings name="requiredResource" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="responsibilityMetaModel.resourceRequiredRelationship" useDomainElement="true">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(resource.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="requiredActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorRequiredRelationship" useDomainElement="true">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(actor.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="requiredResponsibility" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:subResponsibility" sourceFinderExpression="feature:superResponsibility" domainClass="responsibilityMetaModel.responsibilityRequiredRelationship" useDomainElement="true">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(subResponsibility.enabled=false)._or(superResponsibility.enabled=false)/]">
+            <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="produces" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="resourceProducedRelationship" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(resource.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="holds" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:responsibility" sourceFinderExpression="feature:actor" domainClass="actorHoldsRelationship" useDomainElement="true">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(actor.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="producedActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorProducedRelationship" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(actor.enabled=false)._or(responsibility.enabled=false)/]">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <toolSections name="createOps" label="Add">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResponsibility" label="Responsibility" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Responsibility" referenceName="responsibilities">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Responsibility"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResource" label="Resource" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Resource" referenceName="resources">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Resource"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createActor" label="Actor" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Actor" referenceName="actors">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Actor"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createHolds" label="Holds" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='holds']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="actorHoldsRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createProduces" label="Produces" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='produces']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.resourceProducedRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRequiredActor" label="Required Actor" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='requiredActor']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="actorRequiredRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRequiredResponsibility" label="Required Responsibility" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='requiredResponsibility']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.responsibilityRequiredRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="subResponsibility" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="superResponsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRequiredResource" label="Required Resource" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='requiredResource']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="resourceRequiredRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createProducedActor" label="Produce Actor" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@edgeMappings[name='producedActor']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.actorProducedRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="responsibility" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="rightClick" label="Right Click Menu">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="popup" label="Enable / Disable">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="popup2" label="Disable" precondition="[self.oclAsType(Entity).enabled=true/]">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="false"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="enable" label="Enable" precondition="[self.oclAsType(Entity).enabled=false/]">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="true"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="doubleClick">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="dlbClickToggle" mappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="[not(element.oclAsType(Entity).enabled)/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="deletion">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteResource">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Resource).producedBy/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="i">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Resource).requiredBy/]" iteratorName="j">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="j">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteActor">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Actor).heldResponsibility/]" iteratorName="held">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="held">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Actor).requiredBy/]" iteratorName="requiredBy">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredBy">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteResponsibility">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).subResponsibility/]" iteratorName="sub">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="sub">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).heldBy/]" iteratorName="held">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="held">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).requiredActor/]" iteratorName="requiredActor">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredActor">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).superResponsibility/]" iteratorName="superR">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="superR">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).requiredResource/]" iteratorName="requiredResource">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="requiredResource">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(Responsibility).producedResource/]" iteratorName="producedResource">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="producedResource">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Sourcing" activeByDefault="true">
+        <nodeMappings name="sourceNode" preconditionExpression="[container.oclAsType(Scenario).sources->includes(self)/]" domainClass="responsibilityMetaModel.Source">
+          <style xsi:type="style:NoteDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="attribution" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='actorNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@additionalLayers[name='Sourcing']/@nodeMappings[name='sourceNode']" targetFinderExpression="feature:source" sourceFinderExpression="feature:entity" domainClass="responsibilityMetaModel.attributionRelationship" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[(entity.enabled=false)/]">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <toolSections name="createOpsS" label="Sources">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.Source" referenceName="sources">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Source"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.attributionRelationship" referenceName="relations">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:source">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:target"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
