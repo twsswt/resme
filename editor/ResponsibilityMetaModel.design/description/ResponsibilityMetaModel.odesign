@@ -28,7 +28,7 @@
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Scenario).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
+        <nodeMappings name="responsibilityNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
           <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -50,7 +50,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Scenario).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
+        <nodeMappings name="resourceNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
           <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -72,7 +72,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Scenario).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+        <nodeMappings name="actorNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
           <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -491,7 +491,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="sectionDiagram" label="Section Diagram" titleExpression="[self.name + ' Section Model'/]" domainClass="responsibilityMetaModel.Section" enablePopupBars="true">
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Scenario).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
+        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Section).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
           <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -513,7 +513,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Scenario).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
+        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Section).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
           <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -535,7 +535,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Scenario).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Section).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
           <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
