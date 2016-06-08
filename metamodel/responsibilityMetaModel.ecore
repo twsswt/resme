@@ -50,6 +50,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
         eType="#//Source" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" ordered="false"
+        upperBound="-1" eType="#//Section"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
@@ -116,5 +118,19 @@
         eOpposite="#//Source/attributedTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"
         eOpposite="#//Entity/referencedBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section">
+    <eOperations name="getEntities" ordered="false" upperBound="-1" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibilities" upperBound="-1"
+        eType="#//Responsibility" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+        eType="#//Relation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
+        eType="#//Source" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
