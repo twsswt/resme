@@ -489,6 +489,29 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="sectionDiagram" label="Section Diagram" titleExpression="[self.name + ' Section Model'/]" domainClass="responsibilityMetaModel.Section" enablePopupBars="true">
+      <validationSet>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
+          <audits auditExpression="[self.oclAsType(Responsibility).requiredActor.oclAsType(actorRequiredRelationship).actor.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="production" level="WARNING" message="This resource is not produced" targetClass="Resource">
+          <audits auditExpression="[self.oclAsType(Resource).producedBy.oclAsType(resourceProducedRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="assign" message="No responsibilities are assigned to this actor" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="hold" message="No responsibilities are held by this actor" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="overload" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()&lt;=3/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="critical" level="WARNING" message="This is a critical entity" targetClass="Entity">
+          <audits auditExpression="[self.critical=false/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="relies" level="WARNING" message="['Relies on: ' + reliance().name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
+          <audits auditExpression="[reliance()->size()=0/]"/>
+        </ownedRules>
+      </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
       <defaultLayer name="Default">
         <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Section).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
