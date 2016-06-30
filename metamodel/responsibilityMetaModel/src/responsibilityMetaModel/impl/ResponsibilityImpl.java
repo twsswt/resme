@@ -267,6 +267,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	
+	protected int load;
+	
 	protected ResponsibilityImpl() {
 		super();
 	}
@@ -935,6 +938,17 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		result.append(criticalityCount);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public int getLoad() {
+		return load;
+	}
+
+	@Override
+	public void setLoad(int value) {
+		load = value;
+		
 	}
 
 } //ResponsibilityImpl

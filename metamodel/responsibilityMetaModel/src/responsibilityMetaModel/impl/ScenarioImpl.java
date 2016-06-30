@@ -25,6 +25,7 @@ import responsibilityMetaModel.Resource;
 import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.Scenario;
+import responsibilityMetaModel.Section;
 import responsibilityMetaModel.Source;
 
 /**
@@ -41,6 +42,7 @@ import responsibilityMetaModel.Source;
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getRelations <em>Relations</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getSources <em>Sources</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ScenarioImpl#getSection <em>Section</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,6 +117,16 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 	 * @ordered
 	 */
 	protected EList<Source> sources;
+
+	/**
+	 * The cached value of the '{@link #getSection() <em>Section</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Section> section;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,6 +226,18 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 			sources = new EObjectContainmentEList<Source>(Source.class, this, ResponsibilityMetaModelPackage.SCENARIO__SOURCES);
 		}
 		return sources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Section> getSection() {
+		if (section == null) {
+			section = new EObjectContainmentEList<Section>(Section.class, this, ResponsibilityMetaModelPackage.SCENARIO__SECTION);
+		}
+		return section;
 	}
 
 	/**
@@ -363,6 +387,8 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
 				return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.SCENARIO__SECTION:
+				return ((InternalEList<?>)getSection()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -387,6 +413,8 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				return getName();
 			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
 				return getSources();
+			case ResponsibilityMetaModelPackage.SCENARIO__SECTION:
+				return getSection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -423,6 +451,10 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				getSources().clear();
 				getSources().addAll((Collection<? extends Source>)newValue);
 				return;
+			case ResponsibilityMetaModelPackage.SCENARIO__SECTION:
+				getSection().clear();
+				getSection().addAll((Collection<? extends Section>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -453,6 +485,9 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
 				getSources().clear();
 				return;
+			case ResponsibilityMetaModelPackage.SCENARIO__SECTION:
+				getSection().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +512,8 @@ public class ScenarioImpl extends EObjectImpl implements Scenario {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResponsibilityMetaModelPackage.SCENARIO__SOURCES:
 				return sources != null && !sources.isEmpty();
+			case ResponsibilityMetaModelPackage.SCENARIO__SECTION:
+				return section != null && !section.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

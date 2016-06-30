@@ -23,6 +23,7 @@ import responsibilityMetaModel.Responsibility;
 import responsibilityMetaModel.ResponsibilityMetaModelPackage;
 import responsibilityMetaModel.actorHoldsRelationship;
 import responsibilityMetaModel.actorProducedRelationship;
+import responsibilityMetaModel.actorRealisationRelationship;
 import responsibilityMetaModel.actorRequiredRelationship;
 import responsibilityMetaModel.attributionRelationship;
 
@@ -44,6 +45,7 @@ import responsibilityMetaModel.attributionRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRequiredBy <em>Required By</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getHeldResponsibility <em>Held Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getProducedBy <em>Produced By</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ActorImpl#getRealisedBy <em>Realised By</em>}</li>
  * </ul>
  *
  * @generated
@@ -208,6 +210,16 @@ public class ActorImpl extends EObjectImpl implements Actor {
 	 * @ordered
 	 */
 	protected EList<actorProducedRelationship> producedBy;
+
+	/**
+	 * The cached value of the '{@link #getRealisedBy() <em>Realised By</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRealisedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<actorRealisationRelationship> realisedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,6 +417,18 @@ public class ActorImpl extends EObjectImpl implements Actor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<actorRealisationRelationship> getRealisedBy() {
+		if (realisedBy == null) {
+			realisedBy = new EObjectWithInverseResolvingEList<actorRealisationRelationship>(actorRealisationRelationship.class, this, ResponsibilityMetaModelPackage.ACTOR__REALISED_BY, ResponsibilityMetaModelPackage.ACTOR_REALISATION_RELATIONSHIP__ACTOR);
+		}
+		return realisedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean satisfied() {
 		//Actors are satisfied as long as they are enabled, unless they are produced
@@ -499,6 +523,8 @@ public class ActorImpl extends EObjectImpl implements Actor {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHeldResponsibility()).basicAdd(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedBy()).basicAdd(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRealisedBy()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -519,6 +545,8 @@ public class ActorImpl extends EObjectImpl implements Actor {
 				return ((InternalEList<?>)getHeldResponsibility()).basicRemove(otherEnd, msgs);
 			case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
 				return ((InternalEList<?>)getProducedBy()).basicRemove(otherEnd, msgs);
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				return ((InternalEList<?>)getRealisedBy()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -551,6 +579,8 @@ public class ActorImpl extends EObjectImpl implements Actor {
 				return getHeldResponsibility();
 			case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
 				return getProducedBy();
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				return getRealisedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -598,6 +628,10 @@ public class ActorImpl extends EObjectImpl implements Actor {
 				getProducedBy().clear();
 				getProducedBy().addAll((Collection<? extends actorProducedRelationship>)newValue);
 				return;
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				getRealisedBy().clear();
+				getRealisedBy().addAll((Collection<? extends actorRealisationRelationship>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -640,6 +674,9 @@ public class ActorImpl extends EObjectImpl implements Actor {
 			case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
 				getProducedBy().clear();
 				return;
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				getRealisedBy().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -672,6 +709,8 @@ public class ActorImpl extends EObjectImpl implements Actor {
 				return heldResponsibility != null && !heldResponsibility.isEmpty();
 			case ResponsibilityMetaModelPackage.ACTOR__PRODUCED_BY:
 				return producedBy != null && !producedBy.isEmpty();
+			case ResponsibilityMetaModelPackage.ACTOR__REALISED_BY:
+				return realisedBy != null && !realisedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
