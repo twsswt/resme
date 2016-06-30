@@ -18,6 +18,8 @@
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedActor" upperBound="-1"
         eType="#//actorProducedRelationship" eOpposite="#//actorProducedRelationship/responsibility"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Load" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
@@ -35,6 +37,8 @@
         eType="#//actorHoldsRelationship" eOpposite="#//actorHoldsRelationship/actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedBy" upperBound="-1"
         eType="#//actorProducedRelationship" eOpposite="#//actorProducedRelationship/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realisedBy" upperBound="-1"
+        eType="#//actorRealisationRelationship" eOpposite="#//actorRealisationRelationship/actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eOperations name="getEntities" ordered="false" upperBound="-1" eType="#//Entity"/>
@@ -132,5 +136,17 @@
         eType="#//Relation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
         eType="#//Source" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstanceActor" eSuperTypes="#//Entity">
+    <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eOperations name="reliance" ordered="false" upperBound="-1" eType="#//InstanceActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realises" upperBound="-1"
+        eType="#//actorRealisationRelationship" eOpposite="#//actorRealisationRelationship/instanceactor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="actorRealisationRelationship" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/realisedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceactor" eType="#//InstanceActor"
+        eOpposite="#//InstanceActor/realises"/>
   </eClassifiers>
 </ecore:EPackage>
