@@ -56,6 +56,8 @@
         eType="#//Source" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="section" upperBound="-1"
         eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceActors" upperBound="-1"
+        eType="#//InstanceActor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" interface="true">
     <eOperations name="satisfied" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
