@@ -17,7 +17,7 @@
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="overload" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
-          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true).oclAsType(Responsibility).Load->sum()<=5/]"/>
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true).oclAsType(Responsibility).Load->sum()&lt;=5/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="critical" level="WARNING" message="This is a critical entity" targetClass="Entity">
           <audits auditExpression="[self.critical=false/]"/>
@@ -568,7 +568,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.actorRealisationRelationship" referenceName="relations">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="Instanceactor" valueExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="instanceactor" valueExpression="var:source">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -594,7 +594,7 @@
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="overload" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
-          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true).oclAsType(Responsibility).Load->sum()>=5/]"/>
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true).oclAsType(Responsibility).Load->sum()&lt;=5/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="critical" level="WARNING" message="This is a critical entity" targetClass="Entity">
           <audits auditExpression="[self.critical=false/]"/>
@@ -1115,7 +1115,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="responsibilityMetaModel.actorRealisationRelationship" referenceName="relations">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="instance">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="instanceActor" valueExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="instanceactor" valueExpression="var:source">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="actor" valueExpression="var:target"/>
                     </subModelOperations>
                   </subModelOperations>
