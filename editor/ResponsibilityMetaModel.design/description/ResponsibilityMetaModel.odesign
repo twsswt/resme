@@ -17,7 +17,7 @@
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="overload" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
-          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->collect(getLoad())->sum()&lt;=5/]"/>
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->collect(getLoad())->sum()>=5/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="critical" level="WARNING" message="This is a critical entity" targetClass="Entity">
           <audits auditExpression="[self.critical=false/]"/>
@@ -487,7 +487,7 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="createOpsS" label="Sources">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@additionalLayers[name='Sourcing']/@nodeMappings[name='sourceNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -498,7 +498,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@additionalLayers[name='Sourcing']/@edgeMappings[name='attribution']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -559,7 +559,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="realisation" label="Realisation" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@additionalLayers[name='Instantiation']/@edgeMappings[name='realisation']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRealisation" label="Realisation" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@additionalLayers[name='Instantiation']/@edgeMappings[name='realisation']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -594,7 +594,7 @@
           <audits auditExpression="[self.oclAsType(Actor).heldResponsibility.oclAsType(actorHoldsRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="overload" level="WARNING" message="['This actor is overloaded; required for ' + self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size() + ' responsibilities'/]" targetClass="Actor">
-          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()&lt;=3/]"/>
+          <audits auditExpression="[self.oclAsType(Actor).requiredBy.oclAsType(actorRequiredRelationship).responsibility.oclAsType(Entity)->select(e: Entity | e.enabled=true)->collect(getLoad())->sum()&lt;=5/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="critical" level="WARNING" message="This is a critical entity" targetClass="Entity">
           <audits auditExpression="[self.critical=false/]"/>
@@ -1034,7 +1034,7 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="createOpsS" label="Sources">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSource" label="Source" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@additionalLayers[name='Sourcing']/@nodeMappings[name='sourceNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1045,7 +1045,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttribution" label="Attribution" edgeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@additionalLayers[name='Sourcing']/@edgeMappings[name='attribution']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1065,7 +1065,7 @@
         </toolSections>
       </additionalLayers>
       <additionalLayers name="Instantiation">
-        <nodeMappings name="instantiatedActorNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteInstanceActor']" domainClass="responsibilityMetaModel.InstanceActor">
+        <nodeMappings name="instantiatedActorNode" preconditionExpression="[container.oclAsType(Scenario).instanceActors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteInstanceActor']" domainClass="responsibilityMetaModel.InstanceActor">
           <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
