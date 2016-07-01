@@ -268,7 +268,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	
-	protected int load;
+	protected Integer load;
 	
 	protected ResponsibilityImpl() {
 		super();
@@ -941,12 +941,12 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	}
 
 	@Override
-	public int getLoad() {
+	public Integer getLoad() {
 		return load;
 	}
 
 	@Override
-	public void setLoad(int value) {
+	public void setLoad(Integer value) {
 		load = value;
 		
 	}
