@@ -2,7 +2,6 @@
  */
 package responsibilityMetaModel.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -14,10 +13,14 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.UnbufferedTokenStream;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,10 +44,11 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getName <em>Name</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isSatisifed <em>Satisifed</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSatisfactionCriteria <em>Satisfaction Criteria</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#isCritical <em>Critical</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getCriticalityCount <em>Criticality Count</em>}</li>
@@ -56,12 +60,12 @@ import responsibilityMetaModel.responsibilityRequiredRelationship;
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSuperResponsibility <em>Super Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getSubResponsibility <em>Sub Responsibility</em>}</li>
  *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getProducedActor <em>Produced Actor</em>}</li>
+ *   <li>{@link responsibilityMetaModel.impl.ResponsibilityImpl#getLoad <em>Load</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements Responsibility {
+public class ResponsibilityImpl extends EObjectImpl implements Responsibility {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,24 +107,24 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSatisfied() <em>Satisifed</em>}' attribute.
+	 * The default value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SATISIFED_EDEFAULT = true;
+	protected static final boolean SATISFIED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isSatisfied() <em>Satisifed</em>}' attribute.
+	 * The cached value of the '{@link #isSatisfied() <em>Satisfied</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSatisfied()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean satisifed = SATISIFED_EDEFAULT;
+	protected boolean satisfied = SATISFIED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSatisfactionCriteria() <em>Satisfaction Criteria</em>}' attribute.
@@ -263,13 +267,30 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	protected EList<actorProducedRelationship> producedActor;
 
 	/**
+	 * The default value of the '{@link #getLoad() <em>Load</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLoad()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer LOAD_EDEFAULT = new Integer(1);
+
+	/**
+	 * The cached value of the '{@link #getLoad() <em>Load</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLoad()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer load = LOAD_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
-	protected Integer load;
-	
 	protected ResponsibilityImpl() {
 		super();
 	}
@@ -332,7 +353,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public boolean isSatisfied() {
-		return satisifed;
+		return satisfied;
 	}
 
 	/**
@@ -340,11 +361,11 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSatisfied(boolean newSatisifed) {
-		boolean oldSatisifed = satisifed;
-		satisifed = newSatisifed;
+	public void setSatisfied(boolean newSatisfied) {
+		boolean oldSatisfied = satisfied;
+		satisfied = newSatisfied;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED, oldSatisifed, satisifed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED, oldSatisfied, satisfied));
 	}
 
 	/**
@@ -509,16 +530,38 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getLoad() {
+		return load;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLoad(Integer newLoad) {
+		Integer oldLoad = load;
+		load = newLoad;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResponsibilityMetaModelPackage.RESPONSIBILITY__LOAD, oldLoad, load));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public boolean satisfied() {
-
+		
 		if (!isEnabled()){
-			satisifed = false;
+			satisfied = false;
 			return false;
 		}
 
 		else if (this.satisfactionCriteria == null || this.satisfactionCriteria.length()==0){
-			satisifed = true;
+			satisfied = true;
 			return true;
 		}
 
@@ -527,15 +570,15 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				CharStream stream = new ANTLRInputStream(this.satisfactionCriteria);
 				satisfactionLexer lexer = new satisfactionLexer(stream); //problem
 				UnbufferedTokenStream<Token> t = new UnbufferedTokenStream<>(lexer);
-				Scenario s = (Scenario) this.eContainer;
+				Scenario s = (Scenario) this.eContainer; //fix this later
 				satisfactionParser sat = new satisfactionParser(t, s.getEntities());
-				System.out.println(s.getEntities());
-				satisifed = sat.eval().value;
-				return satisifed;
+				//System.out.println(s.getEntities());
+				satisfied = sat.eval().value;
+				return satisfied;
 			}
 			catch (Exception e){ //This is clearly bad
 				System.err.println("Error!");
-				satisifed = false;
+				satisfied = false;
 				return false;
 			}
 
@@ -739,6 +782,8 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return getSubResponsibility();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_ACTOR:
 				return getProducedActor();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__LOAD:
+				return getLoad();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -802,6 +847,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				getProducedActor().clear();
 				getProducedActor().addAll((Collection<? extends actorProducedRelationship>)newValue);
 				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__LOAD:
+				setLoad((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -821,7 +869,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				setEnabled(ENABLED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
-				setSatisfied(SATISIFED_EDEFAULT);
+				setSatisfied(SATISFIED_EDEFAULT);
 				return;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				setSatisfactionCriteria(SATISFACTION_CRITERIA_EDEFAULT);
@@ -856,6 +904,9 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_ACTOR:
 				getProducedActor().clear();
 				return;
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__LOAD:
+				setLoad(LOAD_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -873,7 +924,7 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
-				return satisifed != SATISIFED_EDEFAULT;
+				return satisfied != SATISFIED_EDEFAULT;
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFACTION_CRITERIA:
 				return SATISFACTION_CRITERIA_EDEFAULT == null ? satisfactionCriteria != null : !SATISFACTION_CRITERIA_EDEFAULT.equals(satisfactionCriteria);
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__CRITICAL:
@@ -896,22 +947,10 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 				return subResponsibility != null && !subResponsibility.isEmpty();
 			case ResponsibilityMetaModelPackage.RESPONSIBILITY__PRODUCED_ACTOR:
 				return producedActor != null && !producedActor.isEmpty();
+			case ResponsibilityMetaModelPackage.RESPONSIBILITY__LOAD:
+				return LOAD_EDEFAULT == null ? load != null : !LOAD_EDEFAULT.equals(load);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ResponsibilityMetaModelPackage.RESPONSIBILITY__SATISFIED:
-				return satisfied();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -928,27 +967,18 @@ public class ResponsibilityImpl extends MinimalEObjectImpl.Container implements 
 		result.append(name);
 		result.append(", enabled: ");
 		result.append(enabled);
-		result.append(", satisifed: ");
-		result.append(satisifed);
+		result.append(", satisfied: ");
+		result.append(satisfied);
 		result.append(", satisfactionCriteria: ");
 		result.append(satisfactionCriteria);
 		result.append(", critical: ");
 		result.append(critical);
 		result.append(", criticalityCount: ");
 		result.append(criticalityCount);
+		result.append(", Load: ");
+		result.append(load);
 		result.append(')');
 		return result.toString();
-	}
-
-	@Override
-	public Integer getLoad() {
-		return load;
-	}
-
-	@Override
-	public void setLoad(Integer value) {
-		load = value;
-		
 	}
 
 } //ResponsibilityImpl
