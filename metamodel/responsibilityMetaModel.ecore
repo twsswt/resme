@@ -18,7 +18,7 @@
         eType="#//responsibilityRequiredRelationship" eOpposite="#//responsibilityRequiredRelationship/superResponsibility"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="producedActor" upperBound="-1"
         eType="#//actorProducedRelationship" eOpposite="#//actorProducedRelationship/responsibility"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Load" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Load" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"
         defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Entity">
