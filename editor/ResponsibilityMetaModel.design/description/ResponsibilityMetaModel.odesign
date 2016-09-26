@@ -4,7 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="responsibilityDiagram" label="Responsibility Diagram" titleExpression="[self.name + ' Responsibility Model'/]" showOnStartup="true" domainClass="responsibilityMetaModel.Scenario" enablePopupBars="true">
       <metamodel href="http://www.example.org/responsibilityMetaModel#/"/>
       <validationSet>
-        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="unassign" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
           <audits auditExpression="[self.oclAsType(Responsibility).requiredActor.oclAsType(actorRequiredRelationship).actor.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="production" level="WARNING" message="This resource is not produced" targetClass="Resource">
@@ -26,7 +26,7 @@
           <audits auditExpression="[reliance()->size()=0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="uncertainity" level="WARNING" message="This entity contains explicit uncertainty" targetClass="Entity">
-          <audits auditExpression="[!self.satisfactionCriteria.contains('?')/]"/>
+          <audits auditExpression="[self.satisfactionCriteria.contains('?')._not()/]"/>
         </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
@@ -38,7 +38,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.enabled=false/]">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -46,7 +46,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
-            <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -60,7 +60,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.enabled=false/]">
-            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -68,7 +68,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
-            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -604,7 +604,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="sectionDiagram" label="Section Diagram" titleExpression="[self.name + ' Section Model'/]" domainClass="responsibilityMetaModel.Section" enablePopupBars="true">
       <validationSet>
-        <ownedRules xsi:type="validation:SemanticValidationRule" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="unassign" level="WARNING" message="This responsibility has no assigned actors" targetClass="Responsibility">
           <audits auditExpression="[self.oclAsType(Responsibility).requiredActor.oclAsType(actorRequiredRelationship).actor.oclAsType(Entity)->select(e: Entity | e.enabled=true)->size()>0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="production" level="WARNING" message="This resource is not produced" targetClass="Resource">
@@ -626,56 +626,12 @@
           <audits auditExpression="[reliance()->size()=0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="uncertainity" level="WARNING" message="This entity contains explicit uncertainty" targetClass="Entity">
-          <audits auditExpression="[!self.satisfactionCriteria.contains('?')/]"/>
+          <audits auditExpression="[self.satisfactionCriteria.contains('?')._not()/]"/>
         </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <nodeMappings name="responsibilityNode" preconditionExpression="[container.oclAsType(Section).responsibilities->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Responsibility">
-          <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-          <conditionnalStyles predicateExpression="[self.enabled=false/]">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <labelFormat>italic</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
-            <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
-        <nodeMappings name="resourceNode" preconditionExpression="[container.oclAsType(Section).resources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Resource">
-          <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-          <conditionnalStyles predicateExpression="[self.enabled=false/]">
-            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <labelFormat>italic</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
-            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
-        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Section).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
+        <nodeMappings name="actorNode" preconditionExpression="[container.oclAsType(Section).actors->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='deleteActor']" doubleClickDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='dlbClickToggle']" domainClass="responsibilityMetaModel.Actor">
           <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/responsibilityMetaModel.design/images/g3056.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -688,7 +644,51 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="requiredResource" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="responsibilityMetaModel.resourceRequiredRelationship" useDomainElement="true">
+        <nodeMappings name="responsibilityNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResponsibility']" domainClass="responsibilityMetaModel.Responsibility">
+          <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.enabled=false/]">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="resourceNode" preconditionExpression="[true/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteResource']" domainClass="responsibilityMetaModel.Resource">
+          <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="[self.name.oclAsType(String).size()/]">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.enabled=false/]">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclAsType(Entity).satisfied=false/]">
+            <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="1" showIcon="false" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <edgeMappings name="requiredResource" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="responsibilityMetaModel.resourceRequiredRelationship" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -704,7 +704,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="requiredActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorRequiredRelationship" useDomainElement="true">
+        <edgeMappings name="requiredActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorRequiredRelationship" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -720,7 +720,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="requiredResponsibility" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:subResponsibility" sourceFinderExpression="feature:superResponsibility" domainClass="responsibilityMetaModel.responsibilityRequiredRelationship" useDomainElement="true">
+        <edgeMappings name="requiredResponsibility" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:subResponsibility" sourceFinderExpression="feature:superResponsibility" domainClass="responsibilityMetaModel.responsibilityRequiredRelationship" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -736,7 +736,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="produces" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="resourceProducedRelationship" useDomainElement="true">
+        <edgeMappings name="produces" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']" targetFinderExpression="feature:resource" sourceFinderExpression="feature:responsibility" domainClass="resourceProducedRelationship" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -752,7 +752,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="holds" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:responsibility" sourceFinderExpression="feature:actor" domainClass="actorHoldsRelationship" useDomainElement="true">
+        <edgeMappings name="holds" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetFinderExpression="feature:responsibility" sourceFinderExpression="feature:actor" domainClass="actorHoldsRelationship" useDomainElement="true">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -768,7 +768,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="producedActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorProducedRelationship" useDomainElement="true">
+        <edgeMappings name="producedActor" sourceMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']" targetMapping="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:responsibility" domainClass="actorProducedRelationship" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -785,7 +785,7 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="createOps" label="Add">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResponsibility" label="Responsibility" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResponsibility" label="Responsibility" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -796,7 +796,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResource" label="Resource" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createResource" label="Resource" nodeMappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@nodeMappings[name='resourceNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -921,28 +921,8 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="rightClick" label="Right Click Menu">
-          <ownedTools xsi:type="tool_1:PopupMenu" name="popup" label="Enable / Disable">
-            <menuItemDescription xsi:type="tool_1:OperationAction" name="popup2" label="Disable" precondition="[self.oclAsType(Entity).enabled=true/]">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="false"/>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool_1:OperationAction" name="enable" label="Enable" precondition="[self.oclAsType(Entity).enabled=false/]">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="true"/>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
-        </toolSections>
         <toolSections name="doubleClick">
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="dlbClickToggle" mappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='resourceNode'] //@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='responsibilityNode']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="dlbClickToggle" mappings="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='sectionDiagram']/@defaultLayer/@nodeMappings[name='actorNode']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1032,6 +1012,26 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="rightClick" label="Right Click Menu">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="popup" label="Enable / Disable">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="popup2" label="Disable" precondition="[self.oclAsType(Entity).enabled=true/]">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="false"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="enable" label="Enable" precondition="[self.oclAsType(Entity).enabled=false/]">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:views">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="enabled" valueExpression="true"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
           </ownedTools>
         </toolSections>
       </defaultLayer>
