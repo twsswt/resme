@@ -26,7 +26,7 @@
           <audits auditExpression="[reliance()->size()=0/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="uncertainity" level="WARNING" message="This entity contains explicit uncertainty" targetClass="Entity">
-          <audits auditExpression="[self.satisfactionCriteria.contains('?')/]"/>
+          <audits auditExpression="[!self.satisfactionCriteria.contains('?')/]"/>
         </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
@@ -624,6 +624,9 @@
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="relies" level="WARNING" message="['Relies on: ' + reliance().name->iterate(s; acc : String = '' | if acc = '' then acc + s else acc + ', ' + s endif)/]" targetClass="Actor">
           <audits auditExpression="[reliance()->size()=0/]"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="uncertainity" level="WARNING" message="This entity contains explicit uncertainty" targetClass="Entity">
+          <audits auditExpression="[!self.satisfactionCriteria.contains('?')/]"/>
         </ownedRules>
       </validationSet>
       <layout xsi:type="description_1:CompositeLayout" documentation="This makes the default arrangement slightly less horrible." direction="LeftToRight"/>
