@@ -464,6 +464,26 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Test">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="criticality" label="Criticality Analysis" precondition="[container.eClass()=Scenario/]">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclAsType(Scenario).criticalityAnalysis()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="satisfaction" label="Satisfaction Analysis" precondition="[container.eClass()=Scenario/]">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclAsType(Entity).satisfied()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
       <additionalLayers name="Sourcing" activeByDefault="true">
         <nodeMappings name="sourceNode" preconditionExpression="[container.oclAsType(Scenario).sources->includes(self)/]" deletionDescription="//@ownedViewpoints[name='responsibilityModel']/@ownedRepresentations[name='responsibilityDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteSource']" domainClass="responsibilityMetaModel.Source">
